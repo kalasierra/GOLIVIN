@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    overflow-y: hidden;
 }
 
 .ActivityPage{
@@ -50,4 +51,9 @@
 .regist a1 {
     color: #00BBB4;
     cursor: pointer;
+}
+
+.registpage img {
+    object-fit: cover;
+    width: 730px;
 }
