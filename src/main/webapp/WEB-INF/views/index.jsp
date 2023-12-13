@@ -1,109 +1,205 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
+<html lang="en">
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GO-Livin</title>
-        <link rel="stylesheet" type="text/css" href="scss/landingpage.css" />
-    </head>
-    <body>
-        <div class="landing-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <link rel="stylesheet" href="../src/main/resources/static/css/Homepage.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
 
-        <!-- Konten atau elemen lain di dalam "Rectangle 120" -->
-        <div class="rectangle-120"></div>
-
-        <!-- Elemen "Chat" -->
-        <div id="chatButton" class="chat">Chat</div>    
-        
-        <!-- Elemen "home" -->
-        <a href="login.jsp" class="super-small-active">Masuk</a>
-
-        <!-- Elemen "Tipe Kost" -->
-        <div class="tipe-kost">Tipe Kost</div>
-
-        <!-- Elemen "Expand_down" dengan konten -->
-        <div class="expand-down" id="expandButton">▼</div>
-
-        <!-- Elemen Logo langsung -->
-        <img src="aset/logo.png" alt="Logo" class="logo">
-
-        <!-- Gambar Image 1 -->
-        <img src="aset/image1.jpg" alt="image-1" class="image-1">
-
-        <div class="find-dream-kost">Temukan Kost Impianmu</div>
-        
-        <!-- Elemen "Rectangle 121" -->
-        <div class="rectangle-121" onclick="handleSearchClick()">
-            <button class="search-button">
-                <img src="aset/search1.png" alt="Search">
-            </button>
+    <!-- navbar section start -->
+    <section class="header">
+        <div class="container-fluid cont_nav" style="height: 84px;">
+            <ul class="nav nav-pills justify-content-end content_nav">
+                <li class="logo my-3">
+                    <img src="../src/main/resources/static/aset/logo.png" alt="">
+                </li>
+                <li class="nav-item dropdown my-3">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./listputra.html">Putra</a></li>
+                    <li><a class="dropdown-item" href="#">Putri</a></li>
+                    <li><a class="dropdown-item" href="#">Campur</a></li>
+                </ul>
+                </li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" href="#">Chat</a>
+                </li>
+                <li class="nav-item my-3">
+                    <button href="${pageContext.request.contextPath}/login">
+                        Masuk
+                    </button>
+                </li>
+            </ul>
         </div>
+    </section>
+    <!-- navbar section end -->
 
-        <div class="daerah-mana">Mau tinggal di daerah mana?</div>
-
-        <!-- Elemen "Kost Popular" -->
-        <div class="kost-popular">Kost Popular</div>
-        <div class="lihat-semua" onclick="handleClick('lihat-semua')">Lihat Semua</div>
-        
-        <img src="aset/kost1.jpg" alt="kost1" class="kost1">
-        <img src="aset/kost2.png" alt="kost2" class="kost2">
-        <img src="aset/kost3.png" alt="kost3" class="kost3">
-
-
-        <!-- Konten atau elemen lain di dalam "Rectangle kost1" -->
-        <div class="rectangle-kost1">
-            <div class="lockost1">Sukapura</div>
-            <div class="deskkost1" onclick="handleClick('rumah-sazira')">
-                Khusus Putri<br>
-                <b>Kost Rumah Sazira</b><br>
-                Rp 1.100.000 / bulan
+    <!-- slider section start -->
+    <section>
+        <div class="col-sm-12 px-2 pt-5">
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../src/main/resources/static/aset/Cslide1.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block my-5">
+                            <h2>Temukan Kost Impianmu!</h2>
+                            <div class="input-group mb-3 my-5">
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../src/main/resources/static/aset/Cslide2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block my-5">
+                        <h2>Temukan Kost Impianmu!</h2>
+                        <div class="input-group mb-3 my-5">
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
+    </section>
+    <!-- slider section end -->
 
-        <!-- Konten atau elemen lain di dalam "Rectangle kost2" -->
-        <div class="rectangle-kost2">
-            <div class="lockost2">Sukabirus</div>
-            <div class="deskkost2" onclick="handleClick('7-days-room')">
-                Khusus Putra<br>
-                <b>Kost 7 days room</b><br>
-                Rp 2.500.000 / bulan
+    <!-- kos section start -->
+    <section class="list_kost">
+        <div class="text my-5">
+            <h1>Kost Popular</h1>
+        </div>
+        <div class="container my-5">
+            <!-- <div class="row border border-danger"></div> -->
+            <div class="row">
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost1.jpg" alt="">
+                    <button class="my-3">
+                        <b>Kost Rumah Sazira</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putri</p>
+                        <p class="m-0">Sukapura</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost2.png" alt="">
+                    <button class="my-3">
+                        <b>Kost Saraswati</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putri</p>
+                        <p class="m-0">Sukabirus</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost3.png" alt="">
+                    <button class="my-3">
+                        <b>Kost Seven Days</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putra</p>
+                        <p class="m-0">PGA</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost3.png" alt="">
+                    <button class="my-3">
+                        <b>Kost Tirta Asri</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putri</p>
+                        <p class="m-0">Ciganitri</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost2.png" alt="">
+                    <button class="my-3">
+                        <b>Kost GG</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Campur</p>
+                        <p class="m-0">Sukapura</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost1.jpg" alt="">
+                    <button class="my-3">
+                        <b>Kost House Of Edith</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putra</p>
+                        <p class="m-0">Margacinta</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+    <!-- kos section end -->
 
-        <!-- Konten atau elemen lain di dalam "Rectangle kost3" -->
-        <div class="rectangle-kost3">
-            <div class="lockost3">Margacinta</div>
-            <div class="deskkost3" onclick="handleClick('kost-tulip')">
-                Khusus Campur<br>
-                <b>Kost Tulip</b><br>
-                Rp 1.250.000 / bulan
+    <!-- footer section start -->
+    <section>
+        <div class="container-fluid footer_cont">
+            <div class="row">
+                <div class="col-4 description p-5">
+                    <img class="mx-5" src="../src/main/resources/static/aset/logobawah.png" alt="">
+                    <p class="mx-5"> golivin memanfaatkan teknologi untuk berkembang<br>
+                        menjadi website yang memudahkan calon anak kos<br>
+                        di wilayah Telkom University untuk booking properti kos<br> 
+                        dan juga melakukan pembayaran kos.</p>
+                </div>
+                <div class="col-5">
+                    <p>&nbsp;</p>
+                </div>
+                <div class="col-3 contact p-5">
+                    <a>Hubungi Kami</a>
+                    <div class="row my-2">
+                        <div class="col-1">
+                            <img src="../src/main/resources/static/aset/pesan.png" alt="">
+                        </div>
+                        <div class="col-5 email">
+                            <a href="#"><u>info@golivin.com</u></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1 ">
+                            <img src="../src/main/resources/static/aset/telpon.png" alt="">
+                        </div>
+                        <div class="col-5 telpon">
+                            <a href="#"><u>0899-3322-1212</u></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+    <!-- footer section end -->
 
-        <div class="rectangle">
-            <!-- Konten atau elemen lain yang berada di dalam "rectangle" -->
-            <div class="rectangle2"></div>
-            <div class="copyright">
-                <b>© 2023 golivin.com All Rights Reserved</b>
-            </div>
-        </div>
 
-        <!-- Gambar Logo Bawah -->
-        <img src="aset/logobawah.png" alt="logobawah" class="logobawah">
-
-        <div class="golivinDescription">
-            golivin memanfaatkan teknologi untuk berkembang menjadi website yang memudahkan calon anak kos di wilayah Telkom University untuk booking properti kos dan juga melakukan pembayaran kos.
-        </div>
-
-        <div class="hubungiKami"><b>Hubungi Kami</b></div>
-        <div class="nomorTelepon">0899-3322-1212</div>
-        <div class="emailInfo">info@golivin.com</div>
-        <div class="ellipse1"></div>
-        <img src="aset/ikonpesan.png" alt="ikonpesan" class="ikonpesan">
-        <div class="ellipse2"></div>
-        <img src="aset/ikontelpon.png" alt="ikontelpon" class="ikontelpon">
-
-        </div>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
 </html>
+
