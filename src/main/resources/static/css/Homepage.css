@@ -3,12 +3,18 @@
     padding:0;
 }
 
-h1{
-    width: 882px;
-    height: 71px;
-    top: 0;
-    left: 0;
+
+.carousel-indicators button{
+    border-radius: 20%;
+}
+
+.carousel-indicators button.active {
+    background-color: #00BBB4;
+}
+
+.carousel-item h1{
     font-family: "Poppins-Bold", Helvetica;
+    text-shadow: 1px 1px 1px #000;
     font-weight: 700;
     color: #ffffff;
     font-size: 50px;
@@ -17,19 +23,45 @@ h1{
     line-height: normal;
 }
 
-.input-search {
-    width: 652px;
-    height: 56px;
+.search-bar {
+    display: flex;
+    align-items: center;
 }
-.input-search .form-control{
-    
+
+.search-input-container {
+    display: flex;
+    justify-content: center;
     width: 652px;
     height: 56px;
-    top: 0;
-    left: 0;
-    background-color: #fffcfc;
+    border: none;
+    outline: none;
     border-radius: 90px;
+    background-color: #ffffff;
+    padding: 5px 10px;
+    margin: 0 auto;
 }
+
+.search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 400;
+    font-family:"Poppins-Regular", Helvetica;
+    background-color: transparent;
+}
+
+.search-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.fas fa-search {
+    color: #333;
+    font-size: 18px;
+}
+
 
 .cont_nav{
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
