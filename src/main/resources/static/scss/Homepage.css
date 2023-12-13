@@ -1,0 +1,29 @@
+.h5{
+    /* width: 882px;
+    height: 71px;
+
+    position: fixed;
+    width: 882px;
+    height: 71px;
+    top: 0;
+    left: 0;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 50px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal; */
+}
+
+.input-search{
+    position: absolute;
+    width: 652px;
+    height: 56px;
+    flex-shrink: 0;
+    margin-right: 50px;
+    border-radius: 90px;
+    background: #FFFDFD;
+}
+
+
