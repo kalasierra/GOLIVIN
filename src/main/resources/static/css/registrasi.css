@@ -1,34 +1,61 @@
 *{
+    padding: 0;
     margin: 0;
-    padding:0;
+    font-family: 'Poppins', sans-serif;
+    overflow-y: hidden;
 }
 
-h1{
-    width: 882px;
-    height: 71px;
-    top: 0;
-    left: 0;
-    font-family: "Poppins-Bold", Helvetica;
-    font-weight: 700;
-    color: #ffffff;
-    font-size: 50px;
-    text-align: center;
-    letter-spacing: 0;
+.ActivityPage{
+    background-color: #F1CD86;
+    height: 50px;
+}
+
+.ActivityPage h1{
+    margin-left: 25px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
     line-height: normal;
 }
 
-.input-search {
-    width: 652px;
-    height: 56px;
+.ActivityPage  h2{
+    margin-top: 17px;
+    color: #000;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;        
 }
-.input-search .form-control{
-    
-    width: 652px;
-    height: 56px;
-    top: 0;
-    left: 0;
-    background-color: #fffcfc;
-    border-radius: 90px;
+
+.ActivityPage span{
+    color: #000;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.regist {
+    margin-left: 162px;
+}
+
+.regist button {
+    background: #00BBB4;
+}
+
+.regist a1 {
+    color: #00BBB4;
+    cursor: pointer;
+}
+
+.registpage img {
+    object-fit: cover;
+    width: 730px;
 }
 
 .cont_nav{
@@ -65,16 +92,6 @@ h1{
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-}
-
-.input-search{
-    position: absolute;
-    width: 652px;
-    height: 56px;
-    flex-shrink: 0;
-    margin-right: 50px;
-    border-radius: 90px;
-    background: #FFFDFD;
 }
 
 .footer_cont{
@@ -153,3 +170,8 @@ h1{
     line-height: normal;
 }
 
+.logo{
+    margin-right: 1470px;
+    width: 178px;
+    height: 54px;
+}

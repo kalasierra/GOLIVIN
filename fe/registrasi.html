@@ -10,8 +10,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/main/resources/static/css/registrasi.css" />
 </head>
 <body>
+    <!-- navbar section start -->
+    <section class="header">
+        <div class="container-fluid cont_nav" style="height: 84px;">
+            <ul class="nav nav-pills justify-content-end content_nav">
+                <li class="logo my-3">
+                    <img src="../src/main/resources/static/aset/logo.png" alt="">
+                </li>
+                <li class="nav-item dropdown my-3">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./listputra.html">Putra</a></li>
+                    <li><a class="dropdown-item" href="#">Putri</a></li>
+                    <li><a class="dropdown-item" href="#">Campur</a></li>
+                </ul>
+                </li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" href="#">Chat</a>
+                </li>
+                <li class="nav-item my-3">
+                    <button>
+                        Masuk
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- navbar section end -->
+    
+
+    <!-- regist section start -->
     <section class="content">
         <div class="container-fluid ActivityPage ">
             <div class="row justify-content-center align-item-center ">
@@ -32,12 +63,12 @@
                 <form>
                     <div class="regist">
                     <div class="mb-3 my-4">
-                      <label for="nama" class="form-label">Nama</label>
-                      <input type="text" class="form-control" id="nama">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                      <label for="nomorHP" class="form-label">Nomor Handphone/Whatsapp</label>
-                      <input type="tel" class="form-control" id="nomorHP">
+                        <label for="nomorHP" class="form-label">Nomor Handphone/Whatsapp</label>
+                        <input type="tel" class="form-control" id="nomorHP">
                     </div>
                     <div class="mb-3">
                         <label for="Email" class="form-label">Email</label>
@@ -61,5 +92,45 @@
             </div>
         </div>
     </section>
+    <!-- regist section end -->
+
+    <!-- footer section start -->
+    <section>
+        <div class="container-fluid footer_cont">
+            <div class="row">
+                <div class="col-4 description p-5">
+                    <img class="mx-5" src="../src/main/resources/static/aset/logobawah.png" alt="">
+                    <p class="mx-5"> golivin memanfaatkan teknologi untuk berkembang<br>
+                        menjadi website yang memudahkan calon anak kos<br>
+                        di wilayah Telkom University untuk booking properti kos<br> 
+                        dan juga melakukan pembayaran kos.</p>
+                </div>
+                <div class="col-5">
+                    <p>&nbsp;</p>
+                </div>
+                <div class="col-3 contact p-5">
+                    <a>Hubungi Kami</a>
+                    <div class="row my-2">
+                        <div class="col-1">
+                            <img src="../src/main/resources/static/aset/pesan.png" alt="">
+                        </div>
+                        <div class="col-5 email">
+                            <a href="#"><u>info@golivin.com</u></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1 ">
+                            <img src="../src/main/resources/static/aset/telpon.png" alt="">
+                        </div>
+                        <div class="col-5 telpon">
+                            <a href="#"><u>0899-3322-1212</u></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer section end -->
+    
 </body>
 </html>
