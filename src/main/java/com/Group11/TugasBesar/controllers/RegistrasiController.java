@@ -26,25 +26,26 @@ public class RegistrasiController {
     private UserService userService;
 
     @RequestMapping(value = "registrasi", method = RequestMethod.GET)
-    public String registrasiPage(){
+    public String registrasiPage() {
         return "registrasi";
     }
 
     // @RequestMapping(value = "registrasi", method = RequestMethod.POST)
-    // public String homepage2Page(@RequestParam String username, @RequestParam String password, @RequestParam String phoneNumber){
-    //     System.out.println(username);
-    //     return "homepage2";
+    // public String homepage2Page(@RequestParam String username, @RequestParam
+    // String password, @RequestParam String phoneNumber){
+    // System.out.println(username);
+    // return "homepage2";
     // }
 
-    @RequestMapping(value = "registrasi", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded")
-    public ResponseEntity<?> homepage2Page(UserRequest userRequest){
+    @RequestMapping(value = "registrasi", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded")
+    public ResponseEntity<?> homepage2Page(UserRequest userRequest) {
         try {
             System.out.println(userRequest.getUsername());
             Response response = userService.addUser(userRequest);
             return ResponseEntity.status(response.getStatus()).body(response);
-          } catch (Exception e) {
+        } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());
-          }
+        }
     }
 
 }

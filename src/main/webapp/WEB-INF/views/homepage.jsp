@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homepage</title>
-    <link rel="stylesheet" href="../src/main/resources/static/css/Homepage.css" />
+    <link rel="stylesheet" href="./css/Homepage.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -18,7 +18,7 @@
         <div class="container-fluid cont_nav" style="height: 84px;">
             <ul class="nav nav-pills justify-content-end content_nav">
                 <li class="logo my-3">
-                    <img src="../src/main/resources/static/aset/logo.png" alt="">
+                    <img src="./aset/logo.png" alt="">
                 </li>
                 <li class="nav-item dropdown my-3">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
@@ -32,9 +32,16 @@
                     <a class="nav-link" href="#">Chat</a>
                 </li>
                 <li class="nav-item my-3">
-                    <button href="${pageContext.request.contextPath}/login">
+                    <!-- <button href="${pageContext.request.contextPath}/login">
                         Masuk
-                    </button>
+                    </button> -->
+                    <li class="nav-item my-3">
+                        <button onclick="window.location.href='${pageContext.request.contextPath}/login'" class="btn btn-primary">
+                            Masuk
+                        </button>
+                    </li>
+                    
+                    
                 </li>
             </ul>
         </div>
@@ -43,7 +50,7 @@
 
     <!-- slider section start -->
     <section>
-        <div class="col-sm-12 px-2 pt-5">
+        <div class="col-sm-12 px-4 pt-5">
             <div id="carouselExampleCaptions" class="carousel slide">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -51,21 +58,31 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../src/main/resources/static/aset/Cslide1.jpg" class="d-block w-100" alt="...">
+                        <img src="./aset/Cslide1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block my-5">
-                            <h2>Temukan Kost Impianmu!</h2>
-                            <div class="input-group mb-3 my-5">
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <h1>Temukan Kost Impianmu!</h1>
+                            <div class="search-bar">
+                                <div class="search-input-container">
+                                <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
+                                <button type="submit" class="search-button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                </div>
+                            </div>                                                   
                         </div>
-                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="../src/main/resources/static/aset/Cslide2.jpg" class="d-block w-100" alt="...">
+                    <img src="./aset/Cslide2.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block my-5">
-                        <h2>Temukan Kost Impianmu!</h2>
-                        <div class="input-group mb-3 my-5">
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
+                        <h1>Temukan Kost Impianmu!</h1>
+                        <div class="search-bar">
+                            <div class="search-input-container">
+                            <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
+                            <button type="submit" class="search-button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            </div>
+                        </div> 
                 </div>
             </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -90,7 +107,7 @@
             <!-- <div class="row border border-danger"></div> -->
             <div class="row">
                 <div class="col-4 desc_kost my-3">
-                    <img src="../src/main/resources/static/aset/kost1.jpg" alt="">
+                    <img src="./aset/kost1.jpg" alt="">
                     <button class="my-3">
                         <b>Kost Rumah Sazira</b>
                     </button>
@@ -101,7 +118,7 @@
                     </div>
                 </div>
                 <div class="col-4 desc_kost my-3">
-                    <img src="../src/main/resources/static/aset/kost2.png" alt="">
+                    <img src="./aset/kost2.png" alt="">
                     <button class="my-3">
                         <b>Kost Saraswati</b>
                     </button>
@@ -112,7 +129,7 @@
                     </div>
                 </div>
                 <div class="col-4 desc_kost my-3">
-                    <img src="../src/main/resources/static/aset/kost3.png" alt="">
+                    <img src="./aset/kost3.png" alt="">
                     <button class="my-3">
                         <b>Kost Seven Days</b>
                     </button>
@@ -123,7 +140,7 @@
                     </div>
                 </div>
                 <div class="col-4 desc_kost my-3">
-                    <img src="../src/main/resources/static/aset/kost3.png" alt="">
+                    <img src="./aset/kost3.png" alt="">
                     <button class="my-3">
                         <b>Kost Tirta Asri</b>
                     </button>
@@ -134,7 +151,7 @@
                     </div>
                 </div>
                 <div class="col-4 desc_kost my-3">
-                    <img src="../src/main/resources/static/aset/kost2.png" alt="">
+                    <img src="./aset/kost2.png" alt="">
                     <button class="my-3">
                         <b>Kost GG</b>
                     </button>
@@ -145,7 +162,7 @@
                     </div>
                 </div>
                 <div class="col-4 desc_kost my-3">
-                    <img src="../src/main/resources/static/aset/kost1.jpg" alt="">
+                    <img src="./aset/kost1.jpg" alt="">
                     <button class="my-3">
                         <b>Kost House Of Edith</b>
                     </button>
@@ -165,7 +182,7 @@
         <div class="container-fluid footer_cont">
             <div class="row">
                 <div class="col-4 description p-5">
-                    <img class="mx-5" src="../src/main/resources/static/aset/logobawah.png" alt="">
+                    <img class="mx-5" src="./aset/logobawah.png" alt="">
                     <p class="mx-5"> golivin memanfaatkan teknologi untuk berkembang<br>
                         menjadi website yang memudahkan calon anak kos<br>
                         di wilayah Telkom University untuk booking properti kos<br> 
@@ -178,7 +195,7 @@
                     <a>Hubungi Kami</a>
                     <div class="row my-2">
                         <div class="col-1">
-                            <img src="../src/main/resources/static/aset/pesan.png" alt="">
+                            <img src="./aset/pesan.png" alt="">
                         </div>
                         <div class="col-5 email">
                             <a href="#"><u>info@golivin.com</u></a>
@@ -186,7 +203,7 @@
                     </div>
                     <div class="row">
                         <div class="col-1 ">
-                            <img src="../src/main/resources/static/aset/telpon.png" alt="">
+                            <img src="./aset/telpon.png" alt="">
                         </div>
                         <div class="col-5 telpon">
                             <a href="#"><u>0899-3322-1212</u></a>
