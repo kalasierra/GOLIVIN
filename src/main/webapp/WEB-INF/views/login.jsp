@@ -68,7 +68,7 @@
         </div>
 
         <div class="row">
-            <form>
+            <form method="post" action="/login">
                 <div class="login1">
                 <div class="mb-3 my-4">
                     <label for="Email" class="form-label">Email</label>
