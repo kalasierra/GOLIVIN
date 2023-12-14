@@ -58,9 +58,9 @@
                     <h1 class="my-2"><b>Masuk ke golivin</b></h1>
                 </div>
                 <div class="col-5">
-                    <div class="col-10">
+                    <div id="hasAcc" class="col-10 form-text">
                         <h2>
-                            <b><a href="${pageContext.request.contextPath}/homepage" class="btn btn-link no-border">Home</a></b>
+                            <b><a href="${pageContext.request.contextPath}/homepage2" class="btn btn-link no-border">Home</a></b>
                         </h2>
                     </div>
                 </div>            

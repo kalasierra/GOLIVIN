@@ -57,8 +57,8 @@
                     <h1 class="my-2"><b>Daftar Akun Pencari Kost</b></h1>
                 </div>
                 <div class="col-5">
-                    <div class="col-10">
-                        <h2 class=""><b><a href='${pageContext.request.contextPath}/index' class="btn btn-link no-border">Home</a></b></h2>
+                    <div id="hasAcc" class="col-10 form-text">
+                        <h2 class=""><b><a href='${pageContext.request.contextPath}/homepage2' class="btn btn-link no-border">Home</a></b></h2>
                     </div>
                     </h2>
                 </div>
