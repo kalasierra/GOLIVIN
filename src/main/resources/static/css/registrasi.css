@@ -1,7 +1,6 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
     overflow-y: hidden;
 }
 
@@ -20,15 +19,16 @@
     line-height: normal;
 }
 
-.ActivityPage  h2{
-    margin-top: 17px;
-    color: #000;
+.ActivityPage h2{
+    margin-top: 7px;
+    margin-left: 200px;
+    color: black;
     text-align: right;
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;        
+    line-height: normal;
 }
 
 .ActivityPage span{
@@ -48,7 +48,7 @@
     background: #00BBB4;
 }
 
-.regist a1 {
+.regist a {
     color: #00BBB4;
     cursor: pointer;
 }
@@ -59,6 +59,7 @@
 }
 
 .cont_nav{
+    
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 

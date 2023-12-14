@@ -38,7 +38,7 @@
                             <a class="nav-link" href="#">Chat</a>
                         </li>
                         <li class="nav-item my-3">
-                            <button href="${pageContext.request.contextPath}/login">
+                            <button onclick="window.location.href='${pageContext.request.contextPath}/login'" class="btn btn-primary">
                                 Masuk
                             </button>
                         </li>
@@ -57,9 +57,9 @@
                     <h1 class="my-2"><b>Daftar Akun Pencari Kost</b></h1>
                 </div>
                 <div class="col-5">
-                    <h2 class=""><b>Home</b> <span>
-                        / Halaman Registrasi
-                    </span>
+                    <div class="col-10">
+                        <h2 class=""><b><a href='${pageContext.request.contextPath}/index' class="btn btn-link no-border">Home</a></b></h2>
+                    </div>
                     </h2>
                 </div>
             </div>
@@ -89,8 +89,10 @@
                         <label for="repeatpass" class="form-label">Ulangi Kata Sandi</label>
                         <input type="password" class="form-control" id="passconfirm" placeholder="Masukkan kembali kata sandi">
                     </div> -->
-                    <div id="hasAcc" class="form-text">Sudah punya akun golivin? <a1 href="#" class="link-offset-1"><u>Masuk Disini</u></a1></div>
-                        <button href="${pageContext.request.contextPath}/homepage2" type="submit" class="btn btn-primary my-2">Daftar</button>
+                    <div id="hasAcc" class="form-text">
+                        Sudah punya akun golivin? <a href="${pageContext.request.contextPath}/login" class="link-offset-1"><u>Masuk Disini</u></a>
+                    </div>                    
+                        <button href="${pageContext.request.contextPath}/login" type="submit" class="btn btn-primary my-2">Daftar</button>
                     </div>
                 </form>
             </div>

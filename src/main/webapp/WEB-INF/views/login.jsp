@@ -39,7 +39,7 @@
                             <a class="nav-link" href="#">Chat</a>
                         </li>
                         <li class="nav-item my-3">
-                            <button>
+                            <button onclick="window.location.href='${pageContext.request.contextPath}/login'" class="btn btn-primary">
                                 Masuk
                             </button>
                         </li>
@@ -54,12 +54,14 @@
     <section class="content">
         <div class="container-fluid ActivityPage ">
             <div class="row justify-content-center align-item-center ">
-                <div class=" col-5">
+                <div class=" col-5 border border-primary">
                     <h1 class="my-2"><b>Masuk ke golivin</b></h1>
                 </div>
-                <div class="col-5">
-                    <div class="col-10">
-                        <h2 class=""><b><button onclick="window.location.href='${pageContext.request.contextPath}/homepage'" class="btn btn-link no-border">Home</button></b></h2>
+                <div class="col-5 border border-primary">
+                    <div class="col-10 order border-primary">
+                        <h2>
+                            <b><a href="${pageContext.request.contextPath}/homepage" class="btn btn-link no-border">Home</a></b>
+                        </h2>
                     </div>
                 </div>            
             </div>
@@ -76,9 +78,15 @@
                     <label for="pass" class="form-label">Kata Sandi</label>
                     <input type="password" class="form-control" id="pass" placeholder="Minimal 8 karakter">
                 </div>
-                <div id="hasAcc" class="form-text">Belum punya akun golivin? <a1 href="#" class="link-offset-1"><u>Daftar Sekarang</u></a1></div>
-                <div><a2 href="#" class="link-offset-1"><u>Lupa Kata Sandi</u></a2></div>
-                    <button type="submit" class="btn btn-primary my-2">Masuk</button>
+                <div id="hasAcc" class="form-text">
+                    Belum punya akun golivin? <a href="${pageContext.request.contextPath}/registrasi" class="link-offset-1"><u>Daftar Sekarang</u></a>
+                </div>                
+                <div>
+                    <a1 href="${pageContext.request.contextPath}/lupakatasandi" class="link-offset-1"><u>Lupa Kata Sandi</u></a1>
+                </div>
+                    <button onclick="window.location.href='${pageContext.request.contextPath}/homepage2'" class="btn btn-primary my-3">
+                        Masuk
+                    </button>
                 </div>
             </form>
         </div>

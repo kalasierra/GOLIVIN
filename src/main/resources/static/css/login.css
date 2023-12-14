@@ -30,6 +30,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    cursor: pointer;
 }
 
 .ActivityPage span{
@@ -49,12 +50,12 @@
     background: #00BBB4;
 }
 
-.login1 a1 {
+.login1 a {
     color: #00BBB4;
     cursor: pointer;
 }
 
-.login1 a2 {
+.login1 a1 {
     color: #00BBB4;
     font-size: 14px;
     cursor: pointer;
