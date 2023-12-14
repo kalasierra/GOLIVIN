@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.Group11.TugasBesar.payloads.requests.BookRequest;
 import com.Group11.TugasBesar.payloads.requests.LoginRequest;
 
 @SpringBootApplication
