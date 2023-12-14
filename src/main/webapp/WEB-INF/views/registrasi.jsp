@@ -68,7 +68,7 @@
 
         <div class="row">
             <div class="col-6">
-                <form method="post">
+                <form method="post" action="/">
                     <div class="regist">
                     <div class="mb-3 my-4">
                         <label for="nama" class="form-label">Nama</label>
@@ -88,10 +88,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="repeatpass" class="form-label">Ulangi Kata Sandi</label>
-                        <input type="password" class="form-control" id="pass" placeholder="Masukkan kembali kata sandi">
+                        <input type="password" class="form-control" id="passconfirm" placeholder="Masukkan kembali kata sandi">
                     </div>
                     <div id="hasAcc" class="form-text">Sudah punya akun golivin? <a1 href="#" class="link-offset-1"><u>Masuk Disini</u></a1></div>
-                        <button href="" type="submit" class="btn btn-primary my-2">Daftar</button>
+                        <button href="${pageContext.request.contextPath}/homepage2" type="submit" class="btn btn-primary my-2">Daftar</button>
                     </div>
                 </form>
             </div>

@@ -16,7 +16,7 @@ public class RegistrasiController {
 
     @RequestMapping(value = "/registrasi", method = RequestMethod.POST)
 
-    public String homepage2Page(Model model @RequestParam String nama, @RequestParam String nomorHP, @RequestParam String Email, @RequestParam String pass, @RequestParam String pass){
+    public String homepage2Page(Model model @RequestParam String nama, @RequestParam String nomorHP, @RequestParam String Email, @RequestParam String pass, @RequestParam String passconfirm){
         return "homepage2"
     }
 }
