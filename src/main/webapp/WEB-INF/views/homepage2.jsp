@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="./css/Homepage.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">  
 </head>
 <body>
 
     <!-- navbar section start -->
     <section class="header">
         <div class="container-fluid cont_nav" style="height: 84px;">
-            <ul class="nav nav-pills justify-content-end content_nav">
+            <ul class="nav nav-pills justify-content-end content_nav flex-nowrap">
                 <li class="logo my-3">
                     <img src="./aset/logo.png" alt="">
                 </li>
@@ -32,16 +33,17 @@
                     <a class="nav-link" href="#">Chat</a>
                 </li>
                 <li class="nav-item my-3">
-                    <!-- <button href="${pageContext.request.contextPath}/login">
-                        Masuk
-                    </button> -->
+                    <a class="nav-link" href="#">
+                        <img src="${pageContext.request.contextPath}/aset/Bell_pin.png" alt="Chat Icon">
+                    </a>
+                </li>
+                
+                <li class="nav-item my-3">
                     <li class="nav-item my-3">
                         <button onclick="window.location.href='${pageContext.request.contextPath}/login'" class="btn btn-primary">
                             Masuk
                         </button>
-                    </li>
-                    
-                    
+                    </li>  
                 </li>
             </ul>
         </div>
@@ -101,7 +103,7 @@
     <!-- kos section start -->
     <section class="list_kost">
         <div class="text my-5">
-            <h1>Kost Popular</h1>
+            <b><h1 style="font-weight: bold;">Kost Popular</h1></b>
         </div>
         <div class="container my-5">
             <!-- <div class="row border border-danger"></div> -->
