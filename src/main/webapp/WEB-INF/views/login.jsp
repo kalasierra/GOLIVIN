@@ -79,7 +79,7 @@
                     <input type="password" class="form-control" id="pass" placeholder="Minimal 8 karakter">
                 </div>
                 <div id="hasAcc" class="form-text">
-                    Belum punya akun golivin? <a href="${pageContext.request.contextPath}/registrasi" class="link-offset-1"><u>Daftar Sekarang</u></a>
+                    Belum punya akun golivin? <a href="${pageContext.request.contextPath}/register" class="link-offset-1"><u>Daftar Sekarang</u></a>
                 </div>                
                 <div>
                     <a1 href="${pageContext.request.contextPath}/lupakatasandi" class="link-offset-1"><u>Lupa Kata Sandi</u></a1>

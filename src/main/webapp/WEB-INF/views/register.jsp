@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="./css/registrasi.css" />
+    <link rel="stylesheet" href="./css/register.css" />
 </head>
 <body>
     <!-- navbar section start -->
@@ -67,7 +67,7 @@
 
         <div class="row">
             <div class="col-6">
-                <form method="post" action="/registrasi">
+                <form method="post" action="/register">
                     <div class="regist">
                     <div class="mb-3 my-4">
                         <label for="username" class="form-label">Username</label>

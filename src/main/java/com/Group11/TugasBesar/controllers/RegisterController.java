@@ -15,17 +15,17 @@ import com.Group11.TugasBesar.services.user.UserService;
 
 @SpringBootApplication
 @Controller
-public class RegistrasiController {
+public class RegisterController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "registrasi", method = RequestMethod.GET)
-    public String registrasiPage() {
-        return "registrasi";
+    @RequestMapping(value = "register", method = RequestMethod.GET)
+    public String registerPage() {
+        return "register";
     }
 
-    @RequestMapping(value = "registrasi", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded")
+    @RequestMapping(value = "register", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded")
     public ResponseEntity<?> homepage2Page(UserRequest userRequest) {
         try {
             System.out.println(userRequest.getUsername());
