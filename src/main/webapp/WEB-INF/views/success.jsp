@@ -2,7 +2,7 @@
     <head> Welcome</head>
     <body>
         <h1>
-            hehe
+            You are directed to success.jsp
         </h1>
     </body>
 </html>
