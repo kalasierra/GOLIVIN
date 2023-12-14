@@ -18,13 +18,6 @@ public class LandingPage {
         return "index";
     }
 
-    // @RequestMapping(value = "/", method = RequestMethod.POST)
-    // public String success(@RequestBody BookRequest bookRequest) {
-        
-    //     System.out.println(bookRequest.getJudul());
-    //     return "welcome";
-    // }
-
     @RequestMapping(value = "/", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded")
     public String success(LoginRequest loginRequest) {
         //@RequestParam String email, @RequestParam String password
