@@ -54,11 +54,11 @@
     <section class="content">
         <div class="container-fluid ActivityPage ">
             <div class="row justify-content-center align-item-center ">
-                <div class=" col-5 border border-primary">
+                <div class=" col-5">
                     <h1 class="my-2"><b>Masuk ke golivin</b></h1>
                 </div>
-                <div class="col-5 border border-primary">
-                    <div class="col-10 order border-primary">
+                <div class="col-5">
+                    <div class="col-10">
                         <h2>
                             <b><a href="${pageContext.request.contextPath}/homepage" class="btn btn-link no-border">Home</a></b>
                         </h2>
