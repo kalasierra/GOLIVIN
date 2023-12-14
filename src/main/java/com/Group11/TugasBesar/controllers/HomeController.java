@@ -18,10 +18,10 @@ public class HomeController {
     // @Autowired
     // private BookService bookService;
 
-    @RequestMapping({ "/", "home" })
-    public String homepage(Model model) {
-        model.addAllAttributes("title", "home");
-        return "index";
-    }
+    // @RequestMapping({ "/", "home" })
+    // public String homepage(Model model) {
+    //     model.addAllAttributes("title", "home");
+    //     return "index";
+    // }
 
 }
