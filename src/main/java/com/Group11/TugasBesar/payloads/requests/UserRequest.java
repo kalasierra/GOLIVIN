@@ -9,7 +9,7 @@ public class UserRequest {
 
     public UserRequest() {}
 
-    public UserRequest(String username, String phoneNumber, String email, String password) {
+    public UserRequest(String username, String password, String phoneNumber) {
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.email = email;
