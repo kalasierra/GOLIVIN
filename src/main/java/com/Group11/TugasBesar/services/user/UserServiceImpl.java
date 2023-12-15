@@ -20,11 +20,6 @@ public class UserServiceImpl implements UserService {
     
   @Override
   public Response addUser(UserRequest request) {
-
-    System.out.println(request.getUsername());
-    System.out.println(request.getEmail());
-    System.out.println(request.getPassword());
-    System.out.println(request.getPhoneNumber());
     
     User user = new User();
     user.setUsername(request.getUsername());

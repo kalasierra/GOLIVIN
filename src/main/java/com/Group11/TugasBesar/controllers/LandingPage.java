@@ -18,11 +18,11 @@ public class LandingPage {
         return "index";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded")
-    public String success(LoginRequest loginRequest) {
-        //@RequestParam String email, @RequestParam String password
-        System.out.println(loginRequest.getEmail());
-        System.out.println(loginRequest.getPassword());
-        return "success";
-    }
+    // @RequestMapping(value = "/", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded")
+    // public String success(LoginRequest loginRequest) {
+    //     //@RequestParam String email, @RequestParam String password
+    //     System.out.println(loginRequest.getEmail());
+    //     System.out.println(loginRequest.getPassword());
+    //     return "success";
+    // }
 }
