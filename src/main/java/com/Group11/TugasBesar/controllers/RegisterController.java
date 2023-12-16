@@ -22,10 +22,17 @@ public class RegisterController {
 
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String registerPage() {
-        return "register";
+        return "registrationDecision";
     }
 
-    @RequestMapping(value = "register", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded")
+    @RequestMapping(value = "register/decision", method = RequestMethod.GET)
+    public String PencariOrPemilik(@RequestParam int userType) {
+        if (userType == 1) {System.out.println("asdasdasdasdmosdikfgjiosdfjsdiofgsd") ;return "registerAsPemilik";}
+        else if (userType == 2) {System.out.println("djffffffffffffffffffffffffffffffffffffffffffffffffffffff"); return "registerAsPencari";}
+        else {return "asd";}
+    }
+
+    @RequestMapping(value = "register", method = RequestMethod.POST)
     public ResponseEntity<?> homepage2Page(UserRequest userRequest) {
         try {
             Response response = userService.addPencariKost(userRequest);

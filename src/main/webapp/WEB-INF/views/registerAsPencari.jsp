@@ -54,7 +54,7 @@
         <div class="container-fluid ActivityPage ">
             <div class="row justify-content-center align-item-center ">
                 <div class=" col-5">
-                    <h1 class="my-2"><b>Daftar Akun Pencari Kost</b></h1>
+                    <h1 class="my-2"><b>Daftar Akun Pemilik Kost</b></h1>
                 </div>
                 <div class="col-5">
                     <div id="hasAcc" class="col-10 form-text">
@@ -67,7 +67,7 @@
 
         <div class="row">
             <div class="col-6">
-                <form method="post" action="/register">
+                <form method="post" action="/register/pencari" contentType="application/json">
                     <div class="regist">
                     <div class="mb-3 my-4">
                         <label for="username" class="form-label">Username</label>
@@ -85,10 +85,6 @@
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
-                    <!-- <div class="mb-3">
-                        <label for="repeatpass" class="form-label">Ulangi Kata Sandi</label>
-                        <input type="password" class="form-control" id="passconfirm" placeholder="Masukkan kembali kata sandi">
-                    </div> -->
                     <div id="hasAcc" class="form-text">
                         Sudah punya akun golivin? <a href="${pageContext.request.contextPath}/login" class="link-offset-1"><u>Masuk Disini</u></a>
                     </div>                    

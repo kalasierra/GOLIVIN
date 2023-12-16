@@ -36,7 +36,6 @@ public class User {
     @JoinColumn(name = "pencariKost_id", referencedColumnName = "pencariKost_id")
     private PencariKost pencariKost;
 
-
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "pemilik_id")
     private PemilikKost pemilikKost;

@@ -9,12 +9,12 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class PemilikKost {
     @Id
-    @Column(name = "PemilikKost_id")
+    @Column(name = "pemilikKost_id")
     private int PemilikKost_id;
 
-    public void PemilikKost() {}
+    public PemilikKost() {}
 
-    public void PemilikKost(int PemilikKost_id) {
+    public PemilikKost(int PemilikKost_id) {
         this.PemilikKost_id = PemilikKost_id;
     }
 
