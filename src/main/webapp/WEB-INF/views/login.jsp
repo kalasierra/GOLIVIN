@@ -79,7 +79,9 @@
                     <input type="password" class="form-control" id="pass" placeholder="Minimal 8 karakter">
                 </div>
                 <div id="hasAcc" class="form-text">
-                    Belum punya akun golivin? <a href="${pageContext.request.contextPath}/register" class="link-offset-1"><u>Daftar Sekarang</u></a>
+                    Belum punya akun golivin? 
+                    <!-- Trigger Modal -->
+                    <a  href="#" data-bs-toggle="modal" data-bs-target="#loginGolivin">Daftar Sekarang</a> 
                 </div>                
                 <div>
                     <a1 href="${pageContext.request.contextPath}/lupakatasandi" class="link-offset-1"><u>Lupa Kata Sandi</u></a1>
@@ -92,6 +94,42 @@
         </div>
     </section>
     <!-- login section end -->
+
+    <!-- Modal Section start -->
+    <div class="modal login" id="loginGolivin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content login">
+                <div class="modal-header title">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body">
+
+                <div class="row header">
+                    <h1>Daftar ke Golivin</h1>
+                    <a>Saya ingin daftar sebagai</a>
+                </div>
+
+                <div class="row item justify-content-center">
+                    <button class="kost_btn" onclick="registerAsPencari()">
+                        <img src="./1.png" alt="">
+                        Pencari Kost
+                    </button>
+                </div>
+
+                <div class="row item justify-content-center my-3">
+                    <button class="kost_btn" onclick="registerAsPemilik()">
+                        <img  src="./2.png" alt="">
+                        Pemilik Kost
+                    </button>
+                </div>
+                
+            </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Section end -->
 
     <!-- footer section start -->
     <section>
@@ -132,5 +170,14 @@
     <!-- footer section end -->    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        function registerAsPencari() {
+            window.location.href = '${pageContext.request.contextPath}/register/pencari';
+        }
+    
+        function registerAsPemilik() {
+            window.location.href = '${pageContext.request.contextPath}/register/pemilik';
+        }
+    </script>
 </body>
 </html>

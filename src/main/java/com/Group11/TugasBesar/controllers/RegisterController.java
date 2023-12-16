@@ -18,17 +18,11 @@ public class RegisterController {
 
     @Autowired
     private UserService userService;
-
-    @RequestMapping(value = "register", method = RequestMethod.GET)
-    public String registerPage() {
-        return "registrationDecision";
-    }
-
-    @RequestMapping(value = "register/decision", method = RequestMethod.GET)
-    public String PencariOrPemilik(@RequestParam int userType) {
-        if (userType == 1) {return "registerAsPencari";}
-        else if (userType == 2) {return "registerAsPemilik";}
-        else {return "unepectedError";}
+    
+    @RequestMapping(value = "register/pencari", method = RequestMethod.GET)
+    public String registerAsPencari() {
+        // Logika khusus untuk Pencari Kost
+        return "registerAsPencari";
     }
 
     @RequestMapping(value = "register/pencari", method = RequestMethod.POST)
@@ -41,6 +35,12 @@ public class RegisterController {
         }
     }
 
+    @RequestMapping(value = "register/pemilik", method = RequestMethod.GET)
+    public String registerAsPemilik() {
+        // Logika khusus untuk Pemilik Kost
+        return "registerAsPemilik";
+    }
+
     @RequestMapping(value = "register/pemilik", method = RequestMethod.POST)
     public ResponseEntity<?> registerAsPemilik(UserRequest userRequest) {
         try {
@@ -50,4 +50,5 @@ public class RegisterController {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
+
 }
