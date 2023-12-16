@@ -37,7 +37,7 @@ public class User {
     private PencariKost pencariKost;
 
     @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "pemilik_id")
+    @JoinColumn(name = "pemilik_id", referencedColumnName = "pemilikKost_id")
     private PemilikKost pemilikKost;
     
     public User() {}

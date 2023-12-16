@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.models.User;
 import com.Group11.TugasBesar.payloads.requests.UserRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
+import com.Group11.TugasBesar.repositories.PemilikKostRepository;
 import com.Group11.TugasBesar.repositories.PencariKostRepository;
 import com.Group11.TugasBesar.repositories.UserRepository;
 
@@ -22,6 +24,9 @@ public class UserServiceImpl implements UserService {
 
   @Autowired
   private PencariKostRepository pencariKostRepository;
+  
+  @Autowired
+  private PemilikKostRepository pemilikKostRepository;
     
   @Override
   public Response addUser(UserRequest request) {
@@ -58,6 +63,28 @@ public class UserServiceImpl implements UserService {
     user.setEmail(request.getEmail());
     user.setPassword(request.getPassword());
     user.setPencariKost(pencariKost);
+    user = userRepository.save(user);
+
+    Response response = new Response();
+    response.setStatus(HttpStatus.CREATED.value());
+    response.setMessage("User created successfully!");
+    response.setData(user);
+
+    return response;
+  }
+
+    @Override
+    public Response addPemilikKost(UserRequest request) {
+
+    User user = new User();
+    PemilikKost pemilikKost = new PemilikKost();
+    pemilikKost = pemilikKostRepository.save(pemilikKost);
+
+    user.setUsername(request.getUsername());
+    user.setPhoneNumber(request.getPhoneNumber());
+    user.setEmail(request.getEmail());
+    user.setPassword(request.getPassword());
+    user.setPemilikKost(pemilikKost);
     user = userRepository.save(user);
 
     Response response = new Response();

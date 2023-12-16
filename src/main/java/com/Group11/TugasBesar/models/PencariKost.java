@@ -18,11 +18,7 @@ public class PencariKost {
         this.pencariKost_id = pencariKost_id;
     }
 
-    public void setPencariKost_id(int pencariKost_id) {
-        this.pencariKost_id = pencariKost_id;
-    }
+    public void setPencariKost_id(int pencariKost_id) {this.pencariKost_id = pencariKost_id;}
 
-    public int getPencariKost_id() {
-        return this.pencariKost_id;
-    }
+    public int getPencariKost_id() {return this.pencariKost_id;}
 }

@@ -8,7 +8,7 @@ public interface UserService {
 
   Response addPencariKost(UserRequest request);
 
-  // Response addPemilikKost(UserRequest request);
+  Response addPemilikKost(UserRequest request);
 
   // Response addAdmin(UserRequest request);
 

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.Group11.TugasBesar.payloads.requests.UserRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.user.UserService;
-;
 
 @SpringBootApplication
 @Controller
@@ -27,13 +26,13 @@ public class RegisterController {
 
     @RequestMapping(value = "register/decision", method = RequestMethod.GET)
     public String PencariOrPemilik(@RequestParam int userType) {
-        if (userType == 1) {System.out.println("asdasdasdasdmosdikfgjiosdfjsdiofgsd") ;return "registerAsPemilik";}
-        else if (userType == 2) {System.out.println("djffffffffffffffffffffffffffffffffffffffffffffffffffffff"); return "registerAsPencari";}
-        else {return "asd";}
+        if (userType == 1) {return "registerAsPencari";}
+        else if (userType == 2) {return "registerAsPemilik";}
+        else {return "unepectedError";}
     }
 
-    @RequestMapping(value = "register", method = RequestMethod.POST)
-    public ResponseEntity<?> homepage2Page(UserRequest userRequest) {
+    @RequestMapping(value = "register/pencari", method = RequestMethod.POST)
+    public ResponseEntity<?> registerAsPencari(UserRequest userRequest) {
         try {
             Response response = userService.addPencariKost(userRequest);
             return ResponseEntity.status(response.getStatus()).body(response);
@@ -42,4 +41,13 @@ public class RegisterController {
         }
     }
 
+    @RequestMapping(value = "register/pemilik", method = RequestMethod.POST)
+    public ResponseEntity<?> registerAsPemilik(UserRequest userRequest) {
+        try {
+            Response response = userService.addPemilikKost(userRequest);
+            return ResponseEntity.status(response.getStatus()).body(response);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
 }
