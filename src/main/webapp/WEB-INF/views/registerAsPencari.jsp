@@ -54,7 +54,7 @@
         <div class="container-fluid ActivityPage ">
             <div class="row justify-content-center align-item-center ">
                 <div class=" col-5">
-                    <h1 class="my-2"><b>Daftar Akun Pemilik Kost</b></h1>
+                    <h1 class="my-2"><b>Daftar Akun pencari Kost</b></h1>
                 </div>
                 <div class="col-5">
                     <div id="hasAcc" class="col-10 form-text">
