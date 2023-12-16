@@ -28,8 +28,7 @@ public class RegisterController {
     @RequestMapping(value = "register", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded")
     public ResponseEntity<?> homepage2Page(UserRequest userRequest) {
         try {
-            System.out.println(userRequest.getUsername());
-            Response response = userService.addUser(userRequest);
+            Response response = userService.addPencariKost(userRequest);
             return ResponseEntity.status(response.getStatus()).body(response);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());

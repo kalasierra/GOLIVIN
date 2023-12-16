@@ -1,20 +1,20 @@
 package com.Group11.TugasBesar.models;
 
-import org.hibernate.annotations.UuidGenerator;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "user")
 public class User {
     @Id
+    @Column(name = "user_id")
     @GeneratedValue
-    @UuidGenerator
-    private String id;
+    private int user_id;
 
     @Column(name = "username")
     private String username;
@@ -27,18 +27,30 @@ public class User {
     
     @Column(name = "password")
     private String password;
+
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
+
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "pencariKost_id", referencedColumnName = "pencariKost_id")
+    private PencariKost pencariKost;
+
+
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "pemilik_id")
+    private PemilikKost pemilikKost;
     
     public User() {}
 
-    public User(String id, String username, String password, String phoneNumber) {
-        this.id = id;
+    public User(String username, String phoneNumber, String email, String password) {
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
     }
 
-    public String getId() {return this.id;}
+    public int getId() {return this.user_id;}
 
     public String getUsername() {return this.username;}
     
@@ -48,7 +60,13 @@ public class User {
 
     public String getPassword() {return this.password;}
 
-    public void setId(String id) {this.id = id;}
+    public Admin getAdmin() {return this.admin;}
+
+    public PencariKost getPencariKost() {return this.pencariKost;}
+
+    public PemilikKost getPemilikKost() {return this.pemilikKost;}
+
+    public void setId(int user_id) {this.user_id = user_id;}
 
     public void setUsername(String username) {this.username = username;}
 
@@ -57,4 +75,10 @@ public class User {
     public void setEmail(String email) {this.email = email;}
     
     public void setPassword(String password) {this.password = password;}
+
+    public void setAdmin(Admin admin) {this.admin = admin;}
+
+    public void setPencariKost(PencariKost pencariKost) {this.pencariKost = pencariKost;}
+
+    public void setPemilikKost(PemilikKost pemilikKost) {this.pemilikKost = pemilikKost;}
   }
