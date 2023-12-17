@@ -21,13 +21,6 @@ public class RegisterController {
 
     @Autowired
     private UserService userService;
-<<<<<<< Updated upstream
-    
-    @RequestMapping(value = "register/pencari", method = RequestMethod.GET)
-    public String registerAsPencari() {
-        // Logika khusus untuk Pencari Kost
-        return "registerAsPencari";
-=======
 
     // @Autowired
     // private PemilikKostService pemilikKostService;
@@ -42,7 +35,6 @@ public class RegisterController {
         if (userType == 1) {return "registerAsPencari";}
         else if (userType == 2) {return "registerAsPemilik";}
         else {return "unexpectedError";}
->>>>>>> Stashed changes
     }
 
     @RequestMapping(value = "register/pencari", method = RequestMethod.POST)
@@ -55,12 +47,6 @@ public class RegisterController {
         }
     }
 
-    @RequestMapping(value = "register/pemilik", method = RequestMethod.GET)
-    public String registerAsPemilik() {
-        // Logika khusus untuk Pemilik Kost
-        return "registerAsPemilik";
-    }
-
     @RequestMapping(value = "register/pemilik", method = RequestMethod.POST)
     public ResponseEntity<?> registerAsPemilik(UserRequest userRequest) {
         try {
@@ -71,8 +57,6 @@ public class RegisterController {
         }
     }
 
-<<<<<<< Updated upstream
-=======
     @RequestMapping(value = "register/admin", method = RequestMethod.POST)
     public ResponseEntity<?> registerAsAdmin(@RequestBody UserRequest userRequest) {
         try {
@@ -82,5 +66,4 @@ public class RegisterController {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
->>>>>>> Stashed changes
 }
