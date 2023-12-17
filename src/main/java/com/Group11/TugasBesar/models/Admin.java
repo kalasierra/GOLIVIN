@@ -2,13 +2,13 @@ package com.Group11.TugasBesar.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Admin {
     @Id
+    @GeneratedValue
     @Column(name = "admin_id")
     private int Admin_id;
 

@@ -2,16 +2,19 @@ package com.Group11.TugasBesar.services.user;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.Group11.TugasBesar.models.Admin;
 import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.models.User;
 import com.Group11.TugasBesar.payloads.requests.UserRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
+import com.Group11.TugasBesar.repositories.AdminRepository;
 import com.Group11.TugasBesar.repositories.PemilikKostRepository;
 import com.Group11.TugasBesar.repositories.PencariKostRepository;
 import com.Group11.TugasBesar.repositories.UserRepository;
@@ -19,98 +22,137 @@ import com.Group11.TugasBesar.repositories.UserRepository;
 @Service
 public class UserServiceImpl implements UserService {
 
-  @Autowired
-  private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 
-  @Autowired
-  private PencariKostRepository pencariKostRepository;
-  
-  @Autowired
-  private PemilikKostRepository pemilikKostRepository;
-    
-  @Override
-  public Response addUser(UserRequest request) {
+	@Autowired
+	private PencariKostRepository pencariKostRepository;
 
-    // System.out.println(request.getUsername());     // Debugging perposes
-    // System.out.println(request.getEmail());        // Debugging perposes
-    // System.out.println(request.getPassword());     // Debugging perposes
-    // System.out.println(request.getPhoneNumber());  // Debugging perposes
-    
-    User user = new User();
-    user.setUsername(request.getUsername());
-    user.setPhoneNumber(request.getPhoneNumber());
-    user.setEmail(request.getEmail());
-    user.setPassword(request.getPassword());
-    user = userRepository.save(user);
+	@Autowired
+	private PemilikKostRepository pemilikKostRepository;
 
-    Response response = new Response();
-    response.setStatus(HttpStatus.CREATED.value());
-    response.setMessage("User created successfully!");
-    response.setData(user);
+	@Autowired
+	private AdminRepository adminRepository;
 
-    return response;
-  }
+	@Override
+	public Response addUser(UserRequest request) {
 
-  @Override
-  public Response addPencariKost(UserRequest request) {
+		// System.out.println(request.getUsername());     // Debugging perposes
+		// System.out.println(request.getEmail());        // Debugging perposes
+		// System.out.println(request.getPassword());     // Debugging perposes
+		// System.out.println(request.getPhoneNumber());  // Debugging perposes
+		
+		User user = new User();
+		user.setUsername(request.getUsername());
+		user.setPhoneNumber(request.getPhoneNumber());
+		user.setEmail(request.getEmail());
+		user.setPassword(request.getPassword());
+		user = userRepository.save(user);
 
-    User user = new User();
-    PencariKost pencariKost = new PencariKost();
-    pencariKost = pencariKostRepository.save(pencariKost);
+		Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("User created successfully!");
+		response.setData(user);
 
-    user.setUsername(request.getUsername());
-    user.setPhoneNumber(request.getPhoneNumber());
-    user.setEmail(request.getEmail());
-    user.setPassword(request.getPassword());
-    user.setPencariKost(pencariKost);
-    user = userRepository.save(user);
+		return response;
+    }
 
-    Response response = new Response();
-    response.setStatus(HttpStatus.CREATED.value());
-    response.setMessage("User created successfully!");
-    response.setData(user);
+	@Override
+	public Response addPencariKost(UserRequest request) {
 
-    return response;
-  }
+		User user = new User();
+		PencariKost pencariKost = new PencariKost();
+		pencariKost = pencariKostRepository.save(pencariKost);
+
+		user.setUsername(request.getUsername());
+		user.setPhoneNumber(request.getPhoneNumber());
+		user.setEmail(request.getEmail());
+		user.setPassword(request.getPassword());
+		user.setPencariKost(pencariKost);
+		user = userRepository.save(user);
+
+		// int temp = user.getId();
+		// String retrievedUserId = Integer.toString(temp);
+		// Optional<User> retrievedUser = userRepository.findById(retrievedUserId);
+		// User editUser = retrievedUser.get();
+		// editUser.setUsername("SudahDiUpdateTerimakasih");
+		// userRepository.save(editUser);
+
+		Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("User created successfully!");
+		response.setData(user);
+
+		return response;
+    }
 
     @Override
     public Response addPemilikKost(UserRequest request) {
 
-    User user = new User();
-    PemilikKost pemilikKost = new PemilikKost();
-    pemilikKost = pemilikKostRepository.save(pemilikKost);
+		User user = new User();
+		PemilikKost pemilikKost = new PemilikKost();
+		pemilikKost = pemilikKostRepository.save(pemilikKost);
 
-    user.setUsername(request.getUsername());
-    user.setPhoneNumber(request.getPhoneNumber());
-    user.setEmail(request.getEmail());
-    user.setPassword(request.getPassword());
-    user.setPemilikKost(pemilikKost);
-    user = userRepository.save(user);
+		user.setUsername(request.getUsername());
+		user.setPhoneNumber(request.getPhoneNumber());
+		user.setEmail(request.getEmail());
+		user.setPassword(request.getPassword());
+		user.setPemilikKost(pemilikKost);
+		user = userRepository.save(user);
 
-    Response response = new Response();
-    response.setStatus(HttpStatus.CREATED.value());
-    response.setMessage("User created successfully!");
-    response.setData(user);
+		Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("User created successfully!");
+		response.setData(user);
 
-    return response;
-  }
+		return response;
+    }
 
-  @Override
-  public Response getUser() {
+    @Override
+    public Response addAdmin(UserRequest request) {
 
-    List<User> users = userRepository.findAll();
+		User user = new User();
+		Admin admin = new Admin();
+		admin = adminRepository.save(admin);
 
-    Response response = new Response(HttpStatus.OK.value(), "success", users);
-    return response;
-  }
+		user.setUsername(request.getUsername());
+		user.setPhoneNumber(request.getPhoneNumber());
+		user.setEmail(request.getEmail());
+		user.setPassword(request.getPassword());
+		user.setAdmin(admin);
+		user = userRepository.save(user);
 
-  @Override
-  public Response getUserByUsername(String uuid) {
+		Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("User created successfully!");
+		response.setData(user);
+
+		return response;
+    }
+
+	@Override
+	public Response getUser() {
+
+		List<User> users = userRepository.findAll();
+
+		Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("User created successfully!");
+		response.setData(users);
+		return response;
+	}
+
+	@Override
+	public Response getUserByUsername(String username) {
     
-    User user = userRepository.findById(uuid).orElseThrow(() -> {
-      throw new NoSuchElementException("User is not found!");
-    });
+		User user = userRepository.findByUsername(username).orElseThrow(() -> {
+			throw new NoSuchElementException("User is not found!");
+			});
 
-    return new Response(HttpStatus.OK.value(), "success", user);
-  }
+		Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("User created successfully!");
+		response.setData(user);
+		return response;
+	}
 }

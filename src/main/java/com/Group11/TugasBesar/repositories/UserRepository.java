@@ -12,6 +12,8 @@ import com.Group11.TugasBesar.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String>{
 
-    @Query(value = "SELECT * FROM `library_db`.`user` WHERE username = :username", nativeQuery = true)
-    Optional<User> findUserByUsername(@Param("username") String username);
+    // @Query(value = "SELECT * FROM `library_db`.`user` WHERE username = :username", nativeQuery = true)
+    // Optional<User> findUserByUsername(@Param("username") String username);
+
+    Optional<User> findByUsername(String username);
 }

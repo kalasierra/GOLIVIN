@@ -10,9 +10,9 @@ public interface UserService {
 
   Response addPemilikKost(UserRequest request);
 
-  // Response addAdmin(UserRequest request);
+  Response addAdmin(UserRequest request);
 
   Response getUser();
 
-  Response getUserByUsername(String uuid);
+  Response getUserByUsername(String username);
 }

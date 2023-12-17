@@ -29,7 +29,7 @@ public class User {
     private String password;
 
     @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "admin_id")
+    @JoinColumn(name = "admin_id", referencedColumnName = "admin_id")
     private Admin admin;
 
     @OneToOne(orphanRemoval = true)

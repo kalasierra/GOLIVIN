@@ -6,7 +6,6 @@ public class UserRequest {
     private String email;
     private String password;
     
-
     public UserRequest() {}
 
     public UserRequest(String username, String phoneNumber, String email, String password) {
