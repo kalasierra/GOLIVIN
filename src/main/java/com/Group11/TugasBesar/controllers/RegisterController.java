@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.Group11.TugasBesar.payloads.requests.UserRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
+import com.Group11.TugasBesar.services.admin.AdminService;
+import com.Group11.TugasBesar.services.book.BookService;
 import com.Group11.TugasBesar.services.pemilikKost.PemilikKostService;
 import com.Group11.TugasBesar.services.pencariKost.PencariKostService;
 import com.Group11.TugasBesar.services.user.UserService;
@@ -26,6 +28,9 @@ public class RegisterController {
 
     @Autowired
     private PencariKostService pencariKostService;
+
+    @Autowired
+    private AdminService adminService;
 
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String registerPage() {
@@ -68,7 +73,7 @@ public class RegisterController {
     @RequestMapping(value = "register/admin", method = RequestMethod.POST)
     public ResponseEntity<?> registerAsAdmin(@RequestBody UserRequest userRequest) {
         try {
-            Response response = userService.addAdmin(userRequest);
+            Response response = adminService.addAdmin(userRequest);
             return ResponseEntity.status(response.getStatus()).body(response);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());
