@@ -7,18 +7,16 @@
 </head>
 <body>
 
-    <form action="/register/decision" method="get" contentType="application/json">
+    <form action="/register/pencari" method="get">
         <label>
-            <input type="radio" name="userType" value="1" checked>
-            Daftar sebagai pencari kost
+            <input type="submit" value="Daftar sebagai pencari kost">
         </label>
-        <br>
+    </form>
+    <br>
+    <form action="/register/pemilik" method="get">
         <label>
-            <input type="radio" name="userType" value="2">
-            Daftar sebagai pemilik kost
+            <input type="submit" value="Daftar sebagai pemilik kost">
         </label>
-        <br>
-        <input type="submit" value="Submit">
     </form>
 
 </body>

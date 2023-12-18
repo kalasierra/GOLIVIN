@@ -19,7 +19,7 @@ public class PemilikKostServiceImpl implements PemilikKostService {
 
 	@Autowired
 	private UserRepository userRepository;
-
+	
 	@Autowired
 	private PemilikKostRepository pemilikKostRepository;
 
