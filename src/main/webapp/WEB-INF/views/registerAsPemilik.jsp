@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="./css/register.css" />
+    <link rel="stylesheet" href="/css/register.css" />
 </head>
 <body>
     <!-- navbar section start -->
@@ -19,7 +19,7 @@
         <div class="container-fluid cont_nav" style="height: 84px;">
             <div class="row">
                 <div class="col-4 my-2">
-                        <img src="./aset/logo.png" alt="">
+                        <img src="/aset/logo.png" alt="">
                 </div>
                 <div class="col-4">
                     <p>&nbsp;</p>
@@ -93,7 +93,7 @@
                 </form>
             </div>
             <div class="registpage col-6">
-                <img src="./aset/regist.png" alt="">
+                <img src="/aset/regist.png" alt="">
             </div>
         </div>
     </section>
