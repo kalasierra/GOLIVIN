@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class TestController {
 
-    @RequestMapping(value = "test", method = RequestMethod.GET)
+    @RequestMapping(value = "datakost", method = RequestMethod.GET)
     public String registerPage() {
 
-        return "test";
+        return "datakos";
     }
 }
