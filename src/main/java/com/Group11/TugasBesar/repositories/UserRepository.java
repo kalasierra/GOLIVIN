@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.Group11.TugasBesar.models.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, String>{
+public interface UserRepository extends JpaRepository<User, Integer>{
 
     // @Query(value = "SELECT * FROM `library_db`.`user` WHERE username = :username", nativeQuery = true)
     // Optional<User> findUserByUsername(@Param("username") String username);

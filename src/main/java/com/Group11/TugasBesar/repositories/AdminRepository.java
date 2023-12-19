@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.Group11.TugasBesar.models.Admin;
 
 @Repository
-public interface AdminRepository extends JpaRepository<Admin, String>{
+public interface AdminRepository extends JpaRepository<Admin, Integer>{
     
 }

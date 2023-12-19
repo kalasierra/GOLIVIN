@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.Group11.TugasBesar.models.PencariKost;
 
 @Repository
-public interface PencariKostRepository extends JpaRepository<PencariKost, String>{
+public interface PencariKostRepository extends JpaRepository<PencariKost, Integer>{
     
     // Optional<PencariKost> findByName(String name);
 
