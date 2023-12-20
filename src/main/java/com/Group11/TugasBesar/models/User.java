@@ -33,7 +33,7 @@ public class User {
     private Admin admin;
 
     @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "pencariKost_id")
+    @JoinColumn(name = "pencariKost_id", referencedColumnName = "pencariKost_id")
     private PencariKost pencariKost;
 
     @OneToOne(orphanRemoval = true)

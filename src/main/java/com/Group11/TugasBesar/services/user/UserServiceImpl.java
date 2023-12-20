@@ -12,6 +12,7 @@ import com.Group11.TugasBesar.models.Admin;
 import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.models.User;
+import com.Group11.TugasBesar.payloads.requests.LoginRequest;
 import com.Group11.TugasBesar.payloads.requests.UserRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.repositories.AdminRepository;
@@ -153,6 +154,42 @@ public class UserServiceImpl implements UserService {
 		response.setStatus(HttpStatus.CREATED.value());
 		response.setMessage("User created successfully!");
 		response.setData(user);
+		return response;
+	}
+
+	@Override
+	public Response getUserByEmail(String email) {
+
+		User user = userRepository.findByEmail(email).orElseThrow(() -> {
+			throw new NoSuchElementException("User is not found");
+		});
+
+		Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("User was found!");
+		response.setData(user);
+		return response;
+	}
+
+	@Override
+	public Response login(LoginRequest loginRequest) {
+
+		User user = (User) getUserByEmail(loginRequest.getEmail()).getData();
+
+		Response response = new Response();
+		
+		if (user.getPassword().equals(loginRequest.getPassword())) {
+			response.setStatus(HttpStatus.CREATED.value());
+			response.setMessage("Login request accepted!");
+			response.setData(user);
+		}
+		else {
+			response.setStatus(HttpStatus.UNAUTHORIZED.value());
+			response.setMessage("Incorrect password");
+			// You can choose not to set data in case of an incorrect password, or set it to null.
+			// response.setData(null);
+			
+		}
 		return response;
 	}
 }

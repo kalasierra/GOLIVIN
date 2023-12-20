@@ -14,8 +14,8 @@ public class PencariKost {
     @Column(name = "pencariKost_id")
     private int pencariKost_id;
 
-    @OneToOne(mappedBy = "pencariKost")
-    private User user;
+    // @OneToOne(mappedBy = "pencariKost")
+    // private User user;
 
     public PencariKost() {}
 
@@ -25,9 +25,9 @@ public class PencariKost {
 
     public void setPencariKost_id(int pencariKost_id) {this.pencariKost_id = pencariKost_id;}
 
-    public void setUser(User user) {this.user = user;}
+    // public void setUser(User user) {this.user = user;}
 
     public int getPencariKost_id() {return this.pencariKost_id;}
 
-    public User getUser() {return this.user;}
+    // public User getUser() {return this.user;}
 }

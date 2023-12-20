@@ -11,17 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.Group11.TugasBesar.payloads.requests.UserRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.admin.AdminService;
-import com.Group11.TugasBesar.services.book.BookService;
 import com.Group11.TugasBesar.services.pemilikKost.PemilikKostService;
 import com.Group11.TugasBesar.services.pencariKost.PencariKostService;
-import com.Group11.TugasBesar.services.user.UserService;
 
 @SpringBootApplication
 @Controller
 public class RegisterController {
-
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private PemilikKostService pemilikKostService;

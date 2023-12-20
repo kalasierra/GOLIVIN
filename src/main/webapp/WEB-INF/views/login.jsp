@@ -71,12 +71,12 @@
             <form method="post" action="/login">
                 <div class="login1">
                 <div class="mb-3 my-4">
-                    <label for="Email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="Email">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="mb-3">
-                    <label for="pass" class="form-label">Kata Sandi</label>
-                    <input type="password" class="form-control" id="pass" placeholder="Minimal 8 karakter">
+                    <label for="password" class="form-label">Kata Sandi</label>
+                    <input type="password" class="form-control" id="password" name ="password" placeholder="Minimal 8 karakter">
                 </div>
                 <div id="hasAcc" class="form-text">
                     Belum punya akun golivin? 
