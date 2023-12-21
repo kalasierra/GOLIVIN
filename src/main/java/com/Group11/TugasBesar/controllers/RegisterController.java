@@ -34,7 +34,7 @@ public class RegisterController {
 
 
     @RequestMapping(value = "/register/pencari", method = RequestMethod.GET)
-    public String registerAsPencariInterface() {
+    public String registerAsPencariPage() {
         return "registerAsPencari";
     }
 
@@ -50,7 +50,7 @@ public class RegisterController {
 
 
     @RequestMapping(value = "/register/pemilik", method = RequestMethod.GET)
-    public String registerAsPemilikInterface() {
+    public String registerAsPemilikPage() {
         return "registerAsPemilik";
     }
 

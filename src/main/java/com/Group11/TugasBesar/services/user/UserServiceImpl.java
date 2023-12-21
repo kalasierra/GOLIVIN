@@ -2,7 +2,6 @@ package com.Group11.TugasBesar.services.user;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -137,7 +136,7 @@ public class UserServiceImpl implements UserService {
 		List<User> users = userRepository.findAll();
 
 		Response response = new Response();
-		response.setStatus(HttpStatus.CREATED.value());
+		response.setStatus(HttpStatus.FOUND.value());
 		response.setMessage("User created successfully!");
 		response.setData(users);
 		return response;
@@ -151,7 +150,7 @@ public class UserServiceImpl implements UserService {
 			});
 
 		Response response = new Response();
-		response.setStatus(HttpStatus.CREATED.value());
+		response.setStatus(HttpStatus.FOUND.value());
 		response.setMessage("User created successfully!");
 		response.setData(user);
 		return response;
@@ -165,7 +164,7 @@ public class UserServiceImpl implements UserService {
 		});
 
 		Response response = new Response();
-		response.setStatus(HttpStatus.CREATED.value());
+		response.setStatus(HttpStatus.FOUND.value());
 		response.setMessage("User was found!");
 		response.setData(user);
 		return response;
@@ -179,8 +178,9 @@ public class UserServiceImpl implements UserService {
 		Response response = new Response();
 		
 		if (user.getPassword().equals(loginRequest.getPassword())) {
-			response.setStatus(HttpStatus.CREATED.value());
+			response.setStatus(HttpStatus.FOUND.value());
 			response.setMessage("Login request accepted!");
+
 			response.setData(user);
 		}
 		else {

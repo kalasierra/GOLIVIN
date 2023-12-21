@@ -20,13 +20,16 @@ public class Kost {
     private String name;
 
     @Column
-    private String phoneNumber;
-
-    @Column
     private String address;
 
     @Column
     private boolean approved;
+
+    @Column
+    private boolean allowedMale;
+
+    @Column
+    private boolean allowedFemale;
 
     @ManyToOne
     @JoinColumn(name = "pemilikKost_id")
@@ -34,11 +37,11 @@ public class Kost {
 
     public Kost() {}
 
-    public Kost(String name, String phoneNumber, String address, boolean approved) {
+    public Kost(String name, String address, boolean allowedMale, boolean allowedFemale) {
         this.name = name;
-        this.phoneNumber = phoneNumber;
         this.address = address;
-        this.approved = approved;
+        this.allowedMale = allowedMale;
+        this.allowedFemale = allowedFemale;
     }
 
     public int getKost_id() {return kost_id;}
@@ -49,10 +52,6 @@ public class Kost {
 
     public void setName(String name) {this.name = name;}
 
-    public String getPhoneNumber() {return phoneNumber;}
-
-    public void setPhoneNumber(String phoneNumber) {this.phoneNumber = phoneNumber;}
-
     public String getAddress() {return address;}
 
     public void setAddress(String address) {this.address = address;}
@@ -61,8 +60,15 @@ public class Kost {
 
     public void setApproved(boolean approved) {this.approved = approved;}
 
+    public boolean isAllowedMale() {return allowedMale;}
+
+    public void setAllowedMale(boolean allowedMale) {this.allowedMale = allowedMale;}
+
+    public boolean isAllowedFemale() {return allowedFemale;}
+
+    public void setAllowedFemale(boolean allowedFemale) {this.allowedFemale = allowedFemale;}
+
     public PemilikKost getPemilikKost() {return pemilikKost;}
 
     public void setPemilikKost(PemilikKost pemilikKost) {this.pemilikKost = pemilikKost;}
-
 }
