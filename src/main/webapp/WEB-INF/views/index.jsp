@@ -20,6 +20,9 @@
                 <li class="logo my-3">
                     <img src="./aset/logo.png" alt="">
                 </li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" href="./kospage.jsp">Kost</a>
+                </li>
                 <li class="nav-item dropdown my-3">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
                 <ul class="dropdown-menu">
@@ -62,25 +65,42 @@
                         <div class="carousel-caption d-none d-md-block my-5">
                             <h1>Temukan Kost Impianmu!</h1>
                             <div class="search-bar">
-                                <div class="search-input-container">
+                                <!-- <div class="search-input-container">
                                 <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
                                 <button type="submit" class="search-button">
                                     <i class="fas fa-search"></i>
                                 </button>
-                                </div>
-                            </div>                                                   
+                                </div> -->
+                                    
+                                    <!-- <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query"> -->
+                                    <a href="searchkost.jsp" style="color: black; text-decoration: none;">
+                                        <div class="search-input-container"></div>
+                                            <img src="/aset/search1.png" alt="" style="vertical-align: middle; margin-right: 12px;">
+                                            <span>Mau tinggal daerah mana</span>
+                                        </div>
+                                    </a>   
+                            </div>                                             
                         </div>
                 </div>
                 <div class="carousel-item">
                     <img src="./aset/Cslide2.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block my-5">
                         <h1>Temukan Kost Impianmu!</h1>
-                        <div class="search-bar">
+                        <!-- <div class="search-bar">
                             <div class="search-input-container">
                             <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
-                            <button type="submit" class="search-button">
-                                <i class="fas fa-search"></i>
-                            </button>
+                                <button type="submit" class="search-button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>  -->
+                        <div class="search-bar">
+                            <div class="search-input-container">
+                            <!-- <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query"> -->
+                                <a href="searchkost.jsp" style="color: black; text-decoration: none;">
+                                    <img src="/aset/search1.png" alt="" style="vertical-align: middle; margin-right: 12px;">
+                                    <span>Mau tinggal daerah mana</span>
+                                </a>
                             </div>
                         </div> 
                 </div>
