@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item my-3">
-                    <a href="logoutpemilik.html" style="color: black; text-decoration: none;">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#logoutGolivin">
                         <img src="/aset/logout.png" alt="userpemilik" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
                     </a>
                 </li>
@@ -58,36 +58,114 @@
             <!-- <div class="row border border-danger"></div> -->
             <div class="row">
                 <div class="col-4 addkos my-3">
-                    <button class="button btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/kost/create'" style="border: none;">
+                    <button class="button btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/createKost'" style="border: none;">
                         <img src="/aset/plus.png" alt="Data kos" style="width: 50px; ">
                         <br>Tambahkan Kost Anda<br>
                     </button>                    
                 </div>
-                <c:forEach var="kost" items="${kosts}">
-                    <div class="col-4 desc_kost my-3">
-                        <img src="/aset/kost1.jpg" alt="">
-                        <p>Kost ID: ${kost.kost_id}</p>
-                        <form method="post" action="/kost/edit/${kost.kost_id}">
-                            <button type="submit" class="my-3">
-                                <b>${kost.name}</b>
-                            </button>
-                        </form>
-                        
-                        <div class="d-flex flex-column">
-                            <p class="m-0">Khusus Putra? ${kost.allowedMale}</p>
-                            <p class="m-0">Khusus Putri? ${kost.allowedFemale}</p>
-                            <p class="m-0">${kost.address}</p>
-                            <p>Rp 1.100.000 / bulan</p>
-                        </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="/aset/kost1.jpg" alt="">
+                    <button class="my-3">
+                        <b>Kost Rumah Sazira</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putri</p>
+                        <p class="m-0">Sukapura</p>
+                        <p>Rp 1.100.000 / bulan</p>
                     </div>
-                </c:forEach>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="/aset/kost2.png" alt="">
+                    <button class="my-3">
+                        <b>Kost Saraswati</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putri</p>
+                        <p class="m-0">Sukabirus</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="/aset/kost3.png" alt="">
+                    <button class="my-3">
+                        <b>Kost Seven Days</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putra</p>
+                        <p class="m-0">PGA</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="/aset/kost3.png" alt="">
+                    <button class="my-3">
+                        <b>Kost Tirta Asri</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putri</p>
+                        <p class="m-0">Ciganitri</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="/aset/kost2.png" alt="">
+                    <button class="my-3">
+                        <b>Kost GG</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Campur</p>
+                        <p class="m-0">Sukapura</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="/aset/kost1.jpg" alt="">
+                    <button class="my-3">
+                        <b>Kost House Of Edith</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putra</p>
+                        <p class="m-0">Margacinta</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     <!-- kos section end -->
 
+    <!-- Modal Logout Start -->
+    <section>
+        <div class="modal logout" id="logoutGolivin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content shadow-lg">
+                    <div class="modal-header bg-gray-200">
+                        <h5 class="modal-title text-xm font-weight-bold text-info text-uppercase" id="logoutModalLabel">Keluar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Anda yakin ingin keluar?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light shadow-lg waves-effect" data-bs-dismiss="modal">
+                            <i class="fas fa-window-close"></i>Batal
+                        </button>
+                        <a type="button" class="btn btn-info shadow-lg waves-effect" onclick="logoutAndRedirect()">
+                            <i class="fas fa-sign-out-alt"></i>Ya, keluar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Modal Logout End -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        function logoutAndRedirect() {
+            window.location.href = '${pageContext.request.contextPath}/logout';
+        }
+    </script>
 </body>
 </html>
 

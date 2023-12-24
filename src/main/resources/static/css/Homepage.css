@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding:0;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -194,4 +194,9 @@
     width: 178px;
     height: 54px;
 }
+
+.modal-title h5 {
+    font-family: 'Poppins', sans-serif;
+}
+
 
