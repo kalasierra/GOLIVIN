@@ -58,7 +58,7 @@
             <!-- <div class="row border border-danger"></div> -->
             <div class="row">
                 <div class="col-4 addkos my-3">
-                    <button class="button btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/createKost'" style="border: none;">
+                    <button class="button btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/kost/create'" style="border: none;">
                         <img src="/aset/plus.png" alt="Data kos" style="width: 50px; ">
                         <br>Tambahkan Kost Anda<br>
                     </button>                    
