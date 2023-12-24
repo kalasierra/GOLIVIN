@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,14 +42,22 @@ public class KostController {
     }
 
     @PostMapping(value = "/kost/create")
-    public ResponseEntity<?> createKost(HttpSession httpSession, KostRequest kostRequest) {
+    public String createKost(HttpSession httpSession, KostRequest kostRequest, Model model) {
         try {
             PemilikKost pemilikKost = (PemilikKost) httpSession.getAttribute("LOGGED_USER");
             kostRequest.setPemilikKost(pemilikKost);
             Response response = kostService.addKost(kostRequest);
-            return ResponseEntity.status(response.getStatus()).body(response);
+
+            if(response.getStatus() == HttpStatus.CREATED.value()) {
+                return "indexPemilik";
+            }
+            else {
+                model.addAttribute(null, response);
+                return "error";
+            }
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body(e.getMessage());
+            model.addAttribute(null, e);
+            return "error";
         }
     }
 
