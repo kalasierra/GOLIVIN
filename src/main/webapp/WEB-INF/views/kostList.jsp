@@ -11,30 +11,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <style>
-        /* Add your custom styling here */
-        .kost-item {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
-        }
-
-        /* Customize as needed */
-        .kost-link {
-            text-decoration: none;
-            color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/kostList.css"/>
 </head>
 <body>
+
+    <!-- navbar section start -->
+    <section class="header">
+        <div class="container-fluid cont_nav" style="height: 84px;">
+            <ul class="nav nav-pills justify-content-end content_nav">
+                <li class="logo my-3">
+                    <img src="/aset/Logo copy.png" alt="">
+                </li>
+                <li class="nav-item dropdown my-3">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./listPutra.jsp">Putra</a></li>
+                    <li><a class="dropdown-item" href="./listPutri.jsp">Putri</a></li>
+                    <li><a class="dropdown-item" href="./listCampur.jsp">Campur</a></li>
+                </ul>
+                </li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" href="#">Chat</a>
+                </li>
+                <li class="nav-item dropdown2 my-3">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        <img src="/aset/ikonuser.png" alt="Icon User" style="width: 30px;"/>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Edit Profil</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+    </section>
+    <!-- navbar section end -->
+    
     <!-- searchbar section start -->
     <section>
         <div class="search-bar">
             <div class="search-input-container">
-                <input type="text" class="search-input" placeholder="Cari Kost Anda disini" name="query">
+                <input type="text" class="search-input" placeholder="Cari kost impian Anda di sini!" name="query">
                 <button type="submit" class="search-button">
-                    <i class="fas fa-search"></i>
+                    <img src="/aset/search1.png" alt="Search Icon">
                 </button>
             </div>
         </div> 
@@ -42,8 +62,8 @@
     <!-- searchbar section end -->
 
     <c:forEach var="kost" items="${kosts}">
-        <div class="kost-item">
-            <!-- Display attributes of kost -->
+        <div class="kost-item my-3" style="margin-left: 710px;">
+        <!-- Display attributes of kost -->
             <p>Kost ID: ${kost.kost_id}</p>
             <p>Name: ${kost.name}</p>
             <p>Address: ${kost.address}</p>
@@ -54,6 +74,32 @@
             <a href="<c:url value='/kost/search/${kost.kost_id}' />" class="kost-link">View Details</a>
         </div>
     </c:forEach>
+
+    <!-- kos section start -->
+    <section class="list_kost">
+        <div class="container my-5">
+            <!-- <div class="row border border-danger"></div> -->
+            <div class="row">
+                <div class="col-4 desc_kost my-3">
+                    <c:forEach var="kost" items="${kosts}">
+                        <div class="col-4 kost-item my-3">
+                            <!-- Display attributes of kost -->
+                            <p>Kost ID: ${kost.kost_id}</p>
+                            <p>Name: ${kost.name}</p>
+                            <p>Address: ${kost.address}</p>
+                            <p>Allowed Male: ${kost.allowedMale}</p>
+                            <p>Allowed Female: ${kost.allowedFemale}</p>
+
+                            <!-- Link to redirect to /kost/search/{clicked_kost_id} -->
+                            <a href="<c:url value='/kost/search/${kost.kost_id}' />" class="kost-link">View Details</a>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- kos section end -->    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
