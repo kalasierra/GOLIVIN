@@ -59,6 +59,6 @@ public class EditController {
 
         List<Room> rooms = kost.getRooms();
         model.addAttribute("rooms", rooms);
-        return "kostCreate";
+        return "roomView";
     }
 }

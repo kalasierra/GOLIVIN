@@ -63,28 +63,18 @@
                         </a>
                     </button>
                 </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="../src/main/resources/static/aset/kost1.jpg" alt="">
-                    <button class="my-3">
-                        <b>Kost Rumah Sazira</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putri</p>
-                        <p class="m-0">Sukapura</p>
-                        <p>Rp 1.100.000 / bulan</p>
+                <c:forEach var="room" items="${rooms}">
+                    <div class="col-4 desc_kost my-3">
+                        <img src="../src/main/resources/static/aset/kost1.jpg" alt="">
+                        <button class="my-3">
+                            <b>${room.room_id}</b>
+                        </button>
+                        <div class="d-flex flex-column">
+                            <p class="m-0">${room.description}</p>
+                            <p>${room.price} / bulan</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="../src/main/resources/static/aset/kost2.png" alt="">
-                    <button class="my-3">
-                        <b>Kost Saraswati</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putri</p>
-                        <p class="m-0">Sukabirus</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </section>

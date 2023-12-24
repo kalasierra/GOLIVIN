@@ -67,7 +67,7 @@
                     <div class="col-4 desc_kost my-3">
                         <img src="/aset/kost1.jpg" alt="">
                         <p>Kost ID: ${kost.kost_id}</p>
-                        <form method="post" action="/kost/edit/${kost.kost_id}">
+                        <form method="get" action="/edit/kost/${kost.kost_id}">
                             <button type="submit" class="my-3">
                                 <b>${kost.name}</b>
                             </button>
