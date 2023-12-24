@@ -1,87 +1,141 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>data kos</title>
-    <link rel="stylesheet" href="/css/dashboardpemilik.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>homepage</title>
+    <link rel="stylesheet" href="../src/main/resources/static/css/dashboardpemilik.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-
-    <!-- sidebar section start -->
-    <section>
-        <div class="sidebar">
-            <div class="image my-2">
-                <img src="/aset/Logo copy.png" alt="">
-            </div>
-            <ul class="nav">
-                <li>
-                    <a href="dashboardpemilik.html" style="color: black; text-decoration: none;">
-                        <img src="/aset/ikonhome.png" alt="Data kos" style="vertical-align: middle; margin-right: 10px;">
-                        <span>Home</span>
-                    </a>
+    <!-- navbar section start -->
+    <section class="header">
+        <div class="container-fluid cont_nav" style="height: 84px;">
+            <ul class="nav nav-pills justify-content-end content_nav">
+                <li class="logo my-3">
+                    <img src="../src/main/resources/static/aset/logo.png" alt="">
                 </li>
-                <li>
-                    <a href="kospemilik.html" style="color: black; text-decoration: none;">
-                        <img src="/aset/ikonkos.png" alt="kostsaya" style="vertical-align: middle; margin-right: 10px;">
-                        <span>Kos Saya</span>
-                    </a>
+                <li class="nav-item my-3">
+                    <a class="nav-link" href="./dashboardpemilik.html">Home</a>
                 </li>
-                <li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" href="./chatpemilik.html">Chat</a>
+                </li>
+                <li class="nav-item my-3">
                     <a href="notifikasipemilik.html" style="color: black; text-decoration: none;">
-                        <img src="/aset/notification.png" alt="notif" style="vertical-align: middle; margin-right: 10px;">
-                        <span>Notifikasi</span>
+                        <img src="../src/main/resources/static/aset/notification.png" alt="notif" style="margin-top: 9px; margin-right: 15px;">
                     </a>
                 </li>
-                <li>
-                    <a href="chatpemilik.html" style="color: black; text-decoration: none;">
-                        <img src="/aset/chat.png" alt="Chat" style="vertical-align: middle; margin-right: 10px;">
-                        <span>Chat</span>
-                    </a>
-                </li>
-                <li>
+                <li class="nav-item my-3">
                     <a href="akunpemilik.html" style="color: black; text-decoration: none;">
-                        <img src="/aset/ikonuser.png" alt="userpemilik" style="vertical-align: middle; margin-right: 10px; width: 30px;">
-                        <span>Akun</span>
+                        <img src="../src/main/resources/static/aset/ikonuser.png" alt="notif" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
                     </a>
                 </li>
-                <li>
+                <li class="nav-item my-3">
                     <a href="logoutpemilik.html" style="color: black; text-decoration: none;">
-                        <img src="/aset/logout.png" alt="userpemilik" style="vertical-align: middle; margin-right: 10px; width: 30px;">
-                        <span>Keluar</span>
+                        <img src="../src/main/resources/static/aset/logout.png" alt="userpemilik" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
                     </a>
                 </li>
-            </ul>
         </div>
     </section>
-    <!-- sidebar section end -->
+    <!-- navbar section end -->
 
-    <!-- home section start -->
-    <section>
-        <div class="container my-3"> 
-            <div class="text" style="font-size: 30px; margin-left: 280px;">
-                <h1>Halo, selamat datang di Go-Livin</h1>
-            </div>
-            <div class="text2" style="font-size: 20px; margin-left: 280px;">
-                <h2>Waktunya Mengelola Properti</h2>
-            </div>
-            <div class="addkost">
-                <a href="datakost.html" style="color: black; text-decoration: none;font-size: 20px; margin-left: 280px;">
-                    <img src="/aset/plus.png" alt="" style="height: 30px;">
-                    <span>Tambahkan Properti Anda!</span> 
-                </a>
-            </div>    
+    <!-- kos section start -->
+    <section class="list_kost">
+        <div class="text" style="font-size: 30px; margin-left: 280px;">
+            <h1>Halo, selamat datang di Go-Livin</h1>
         </div>
-
+        <div class="text2" style="font-size: 20px; margin-left: 280px;">
+            <h2>Waktunya Mengelola Properti</h2>
+        </div>
+        <div class="container my-5">
+            <!-- <div class="row border border-danger"></div> -->
+            <div class="row">
+                <div class="col-4 addkos my-3">
+                    <button class="button">
+                        <img src="../src/main/resources/static/aset/plus.png" style="width: 50px;" href="createKost.html">
+                        <br>Tambah Kost Baru</br>
+                    </button>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost1.jpg" alt="">
+                    <button class="my-3">
+                        <b>Kost Rumah Sazira</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putri</p>
+                        <p class="m-0">Sukapura</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost2.png" alt="">
+                    <button class="my-3">
+                        <b>Kost Saraswati</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putri</p>
+                        <p class="m-0">Sukabirus</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost3.png" alt="">
+                    <button class="my-3">
+                        <b>Kost Seven Days</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putra</p>
+                        <p class="m-0">PGA</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost3.png" alt="">
+                    <button class="my-3">
+                        <b>Kost Tirta Asri</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putri</p>
+                        <p class="m-0">Ciganitri</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost2.png" alt="">
+                    <button class="my-3">
+                        <b>Kost GG</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Campur</p>
+                        <p class="m-0">Sukapura</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+                <div class="col-4 desc_kost my-3">
+                    <img src="../src/main/resources/static/aset/kost1.jpg" alt="">
+                    <button class="my-3">
+                        <b>Kost House Of Edith</b>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <p class="m-0">Khusus Putra</p>
+                        <p class="m-0">Margacinta</p>
+                        <p>Rp 1.100.000 / bulan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <!-- home section end -->
+    <!-- kos section end -->
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    
-    
 </body>
 </html>
+
