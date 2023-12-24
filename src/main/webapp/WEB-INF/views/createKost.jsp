@@ -45,12 +45,12 @@
             <h1>Disewakan untuk putra/putri/campur</h1>
             <h2>Pilih tipe kos yang sesuai</h2>
             <div class="form-check form-check-inline">
-                <label for="allowedMale">Putra :</label>
                 <input type="checkbox" id="allowedMale" name="allowedMale">
+                <label for="allowedMale">Putra :</label>
             </div>
             <div class="form-check form-check-inline">
-                <label for="allowedFemale">Putri :</label>
                 <input type="checkbox" id="allowedFemale" name="allowedFemale">
+                <label for="allowedFemale">Putri :</label>
             </div>
     
             <span style="font-size: x-large; font-weight: bolder; margin-left: 285px; margin-top: 25px;">

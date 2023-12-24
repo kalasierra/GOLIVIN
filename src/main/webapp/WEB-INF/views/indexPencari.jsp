@@ -31,11 +31,13 @@
                 <li class="nav-item my-3">
                     <a class="nav-link" href="#">Chat</a>
                 </li>
-                <li class="nav-item my-3">
-                    <button onclick="window.location.href='${pageContext.request.contextPath}/login'" class="btn btn-primary">
-                        Masuk
-                    </button>
-                </li>
+                <li class="nav-item dropdown2 my-3">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> <img src="./aset/ikonuser" alt=""></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Edit Profil</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                    </li>
             </ul>
         </div>
     </section>
@@ -57,7 +59,7 @@
                             <h1>Temukan Kost Impianmu!</h1>
                             <!-- SearchBar Start -->
                             <div class="search-bar">
-                                <form action="kostList.jsp" method="get">
+                                <form action="/kost/search" method="get">
                                     <div class="search-input-container">
                                         <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
                                         <button type="submit" class="search-button">
@@ -76,7 +78,7 @@
                             <h1>Temukan Kost Impianmu!</h1>
                             <!-- SearchBar Start -->
                             <div class="search-bar">
-                                <form action="kostList.jsp" method="get">
+                                <form action="/kost/search" method="get">
                                     <div class="search-input-container">
                                         <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
                                         <button type="submit" class="search-button">

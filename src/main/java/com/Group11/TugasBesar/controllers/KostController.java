@@ -19,7 +19,6 @@ import com.Group11.TugasBesar.services.kost.KostService;
 
 import jakarta.servlet.http.HttpSession;
 
-
 @SpringBootApplication
 @Controller
 public class KostController {
@@ -32,13 +31,11 @@ public class KostController {
         return "kostOption";
     }
 
-    
     @GetMapping(value = "/kost/create")
     public String createKostPage(HttpSession httpSession) {
         if (httpSession.getAttribute("USER_TYPE") == "PemilikKost") {
             return "kostCreate";
-        }
-        else {
+        } else {
             return "login";
         }
     }
@@ -54,7 +51,6 @@ public class KostController {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
-    
 
     @GetMapping(value = "/kost/search")
     public String searchKostPage(HttpSession httpSession, Model model) {
@@ -76,5 +72,5 @@ public class KostController {
     public String getKostById(@PathVariable("uuid") String id) {
         return "test";
     }
-    
+
 }
