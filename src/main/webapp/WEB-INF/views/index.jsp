@@ -57,7 +57,7 @@
                             <h1>Temukan Kost Impianmu!</h1>
                             <!-- SearchBar Start -->
                             <div class="search-bar">
-                                <form action="kostList.jsp" method="get">
+                                <form action="/kost/search" method="get">
                                     <div class="search-input-container">
                                         <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
                                         <button type="submit" class="search-button">
@@ -76,7 +76,7 @@
                             <h1>Temukan Kost Impianmu!</h1>
                             <!-- SearchBar Start -->
                             <div class="search-bar">
-                                <form action="kostList.jsp" method="get">
+                                <form action="/kost/search" method="get">
                                     <div class="search-input-container">
                                         <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
                                         <button type="submit" class="search-button">

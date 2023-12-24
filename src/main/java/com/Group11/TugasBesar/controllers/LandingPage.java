@@ -12,10 +12,12 @@ public class LandingPage {
     
     @RequestMapping({"/", "/home"})
     public String home(HttpSession httpSession) {
-        if      (httpSession.getAttribute("USER_TYPE") == null)          {return "index";}
-        else if (httpSession.getAttribute("USER_TYPE") == "PencariKost") {return "index";}
-        else if (httpSession.getAttribute("USER_TYPE") == "PemilikKost") {return "indexPemilik";}
-        else if (httpSession.getAttribute("USER_TYPE") == "Admin")       {return "index";}
-        else                                                                  {return "index";}
+        System.out.println("In LandingPage.jsp\nUSER_TYPE: " + httpSession.getAttribute("USER_TYPE"));
+
+        if      (httpSession.getAttribute("USER_TYPE") == null)                   {return "index";}
+        else if (httpSession.getAttribute("USER_TYPE").equals("PencariKost")) {return "indexPencari";}
+        else if (httpSession.getAttribute("USER_TYPE").equals("PemilikKost")) {return "indexPemilik";}
+        else if (httpSession.getAttribute("USER_TYPE").equals("Admin"))       {return "index";}
+        else                                                                           {return "test";}
     }
 }
