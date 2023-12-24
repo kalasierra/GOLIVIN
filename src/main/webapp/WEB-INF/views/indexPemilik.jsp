@@ -63,72 +63,24 @@
                         <br>Tambahkan Kost Anda<br>
                     </button>                    
                 </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="/aset/kost1.jpg" alt="">
-                    <button class="my-3">
-                        <b>Kost Rumah Sazira</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putri</p>
-                        <p class="m-0">Sukapura</p>
-                        <p>Rp 1.100.000 / bulan</p>
+                <c:forEach var="kost" items="${kosts}">
+                    <div class="col-4 desc_kost my-3">
+                        <img src="/aset/kost1.jpg" alt="">
+                        <p>Kost ID: ${kost.kost_id}</p>
+                        <form method="post" action="/kost/edit/${kost.kost_id}">
+                            <button type="submit" class="my-3">
+                                <b>${kost.name}</b>
+                            </button>
+                        </form>
+                        
+                        <div class="d-flex flex-column">
+                            <p class="m-0">Khusus Putra? ${kost.allowedMale}</p>
+                            <p class="m-0">Khusus Putri? ${kost.allowedFemale}</p>
+                            <p class="m-0">${kost.address}</p>
+                            <p>Rp 1.100.000 / bulan</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="/aset/kost2.png" alt="">
-                    <button class="my-3">
-                        <b>Kost Saraswati</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putri</p>
-                        <p class="m-0">Sukabirus</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="/aset/kost3.png" alt="">
-                    <button class="my-3">
-                        <b>Kost Seven Days</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putra</p>
-                        <p class="m-0">PGA</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="/aset/kost3.png" alt="">
-                    <button class="my-3">
-                        <b>Kost Tirta Asri</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putri</p>
-                        <p class="m-0">Ciganitri</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="/aset/kost2.png" alt="">
-                    <button class="my-3">
-                        <b>Kost GG</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Campur</p>
-                        <p class="m-0">Sukapura</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
-                <div class="col-4 desc_kost my-3">
-                    <img src="/aset/kost1.jpg" alt="">
-                    <button class="my-3">
-                        <b>Kost House Of Edith</b>
-                    </button>
-                    <div class="d-flex flex-column">
-                        <p class="m-0">Khusus Putra</p>
-                        <p class="m-0">Margacinta</p>
-                        <p>Rp 1.100.000 / bulan</p>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </section>
