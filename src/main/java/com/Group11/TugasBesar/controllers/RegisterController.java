@@ -63,7 +63,7 @@ public class RegisterController {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
-    
+
 
     @RequestMapping(value = "/register/admin", method = RequestMethod.POST)
     public ResponseEntity<?> registerAsAdmin(@RequestBody UserRequest userRequest) {
