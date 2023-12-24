@@ -13,16 +13,15 @@
 <section>
     <div class="sidebar">
         <div class="image">
-            <img src="aset/Logo copy.png" alt="">
+            <img src="/aset/Logo copy.png" alt="">
         </div>
         <ul class="nav">
             <span style="font-weight: bold;">
-                Tambahkan kos Anda
-            </span><br><br>
-            <span>
                 Data kos
             </span><br><br>
-            <span>Foto kos dan kamar</span>
+            <span>
+                Foto kos dan kamar
+            </span><br><br>
         </ul>
     </div>
 </section>
