@@ -1,11 +1,14 @@
 package com.Group11.TugasBesar.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -34,6 +37,9 @@ public class Kost {
     @ManyToOne
     @JoinColumn(name = "pemilikKost_id")
     private PemilikKost pemilikKost;
+
+    @OneToMany(mappedBy = "kost")
+    private List<Room> rooms;
 
     public Kost() {}
 
@@ -71,4 +77,8 @@ public class Kost {
     public PemilikKost getPemilikKost() {return pemilikKost;}
 
     public void setPemilikKost(PemilikKost pemilikKost) {this.pemilikKost = pemilikKost;}
+
+    public List<Room> getRooms() {return rooms;}
+
+    public void setRooms(List<Room> rooms) {this.rooms = rooms;}
 }

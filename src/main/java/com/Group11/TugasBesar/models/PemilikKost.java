@@ -29,13 +29,13 @@ public class PemilikKost {
 
     public int getPemilikKost_id() {return this.PemilikKost_id;}
 
-    // public Kost getKost() {
-    //     return kost;
-    // }
+    public List<Kost> getKosts() {
+        return kosts;
+    }
 
-    // public void setKost(Kost kost) {
-    //     this.kost = kost;
-    // }
+    public void setKosts(List<Kost> kosts) {
+        this.kosts = kosts;
+    }
 
     
 }

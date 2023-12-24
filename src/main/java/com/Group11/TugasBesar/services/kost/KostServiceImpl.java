@@ -7,12 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.Group11.TugasBesar.models.Kost;
-import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.payloads.requests.KostRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.repositories.KostRepository;
-
-import jakarta.servlet.http.HttpSession;
 
 @Service
 public class KostServiceImpl implements KostService{

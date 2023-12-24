@@ -17,7 +17,6 @@ import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.user.UserService;
 
 import jakarta.servlet.http.HttpSession;
-;
 
 @SpringBootApplication
 @Controller
@@ -27,7 +26,7 @@ public class LoginController {
     private UserService userService;
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String loginPage() {
+    public String loginPage(HttpSession httpSession) {
         return "login";
     }
 

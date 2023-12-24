@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.Group11.TugasBesar.models.Kost;
 import com.Group11.TugasBesar.models.PemilikKost;
@@ -20,7 +18,6 @@ import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.kost.KostService;
 
 import jakarta.servlet.http.HttpSession;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @SpringBootApplication
@@ -30,7 +27,7 @@ public class KostController {
     @Autowired
     private KostService kostService;
 
-    @RequestMapping(value = "/kost", method = RequestMethod.GET)
+    @GetMapping(value = "/kost")
     public String kostPage() {
         return "kostOption";
     }
@@ -75,7 +72,7 @@ public class KostController {
         }
     }
 
-    @GetMapping("/kost/search/{uuid}")
+    @GetMapping("/kost/{uuid}")
     public String getKostById(@PathVariable("uuid") String id) {
         return "test";
     }

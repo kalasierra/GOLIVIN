@@ -13,7 +13,7 @@ public interface UserService {
 
   Response addAdmin(UserRequest request);
 
-  Response getUser();
+  Response getUsers();
 
   Response getUserByUsername(String username);
 

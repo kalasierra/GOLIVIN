@@ -131,7 +131,7 @@ public class UserServiceImpl implements UserService {
     }
 
 	@Override
-	public Response getUser() {
+	public Response getUsers() {
 
 		List<User> users = userRepository.findAll();
 
