@@ -17,14 +17,16 @@
     <h1 style="text-align: center; font-size: 50px; margin-top: 50px;">List Kost</h1>
 
     <!-- searchbar section start -->
-    <div class="search-bar">
-        <div class="search-input-container">
-            <input type="text" class="search-input" placeholder="Cari Kost Anda disini" name="query">
-            <button type="submit" class="search-button">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-    </div>
+    <section>
+        <div class="search-bar">
+            <div class="search-input-container">
+                <input type="text" class="search-input" placeholder="Cari Kost Anda disini" name="query">
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div> 
+    </section>
     <!-- searchbar section end -->
 
 
