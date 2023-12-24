@@ -34,7 +34,7 @@ public class KostController {
 
     @GetMapping(value = "/kost/create")
     public String createKostPage(HttpSession httpSession) {
-        if (httpSession.getAttribute("USER_TYPE") == "PemilikKost") {
+        if (httpSession.getAttribute("USER_TYPE").equals("PemilikKost")) {
             return "kostCreate";
         } else {
             return "login";
@@ -52,12 +52,12 @@ public class KostController {
                 return "indexPemilik";
             }
             else {
-                model.addAttribute(null, response);
-                return "error";
+                model.addAttribute("message", response.getMessage());
+                return "unexpectedError";
             }
         } catch (Exception e) {
-            model.addAttribute(null, e);
-            return "error";
+            model.addAttribute("message", e.getMessage());
+            return "unexpectedError";
         }
     }
 

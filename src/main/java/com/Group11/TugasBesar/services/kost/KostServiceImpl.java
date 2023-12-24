@@ -1,6 +1,7 @@
 package com.Group11.TugasBesar.services.kost;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,6 +40,19 @@ public class KostServiceImpl implements KostService{
     @Override
     public Response getKosts() {
         List<Kost> kosts = kostRepository.findAll();
+
+        Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("Success!");
+		response.setData(kosts);
+
+        return response;
+    }
+    
+    @Override
+    public Response getKostByPemilikKosts(KostRequest request) {
+
+        List<Kost> kosts = kostRepository.findByPemilikKost(request.getPemilikKost());
 
         Response response = new Response();
 		response.setStatus(HttpStatus.CREATED.value());
