@@ -67,9 +67,12 @@
                     <div class="col-4 desc_kost my-3">
                         <img src="/aset/kost1.jpg" alt="">
                         <p>Kost ID: ${kost.kost_id}</p>
-                        <button class="my-3">
-                            <b>${kost.name}</b>
-                        </button>
+                        <form method="post" action="/kost/edit/${kost.kost_id}">
+                            <button type="submit" class="my-3">
+                                <b>${kost.name}</b>
+                            </button>
+                        </form>
+                        
                         <div class="d-flex flex-column">
                             <p class="m-0">Khusus Putra? ${kost.allowedMale}</p>
                             <p class="m-0">Khusus Putri? ${kost.allowedFemale}</p>
