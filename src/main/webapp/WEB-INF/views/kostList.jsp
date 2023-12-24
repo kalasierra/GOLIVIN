@@ -61,8 +61,9 @@
     </section>
     <!-- searchbar section end -->
 
+    
     <c:forEach var="kost" items="${kosts}">
-        <div class="kost-item my-3" style="margin-left: 710px;">
+        <div class="kost-item my-3" style="margin-left: 700px;">
         <!-- Display attributes of kost -->
             <p>Kost ID: ${kost.kost_id}</p>
             <p>Name: ${kost.name}</p>
@@ -73,32 +74,7 @@
             <!-- Link to redirect to /kost/search/{clicked_kost_id} -->
             <a href="<c:url value='/kost/search/${kost.kost_id}' />" class="kost-link">View Details</a>
         </div>
-    </c:forEach>
-
-    <!-- kos section start -->
-    <section class="list_kost">
-        <div class="container my-5">
-            <!-- <div class="row border border-danger"></div> -->
-            <div class="row">
-                <div class="col-4 desc_kost my-3">
-                    <c:forEach var="kost" items="${kosts}">
-                        <div class="col-4 kost-item my-3">
-                            <!-- Display attributes of kost -->
-                            <p>Kost ID: ${kost.kost_id}</p>
-                            <p>Name: ${kost.name}</p>
-                            <p>Address: ${kost.address}</p>
-                            <p>Allowed Male: ${kost.allowedMale}</p>
-                            <p>Allowed Female: ${kost.allowedFemale}</p>
-
-                            <!-- Link to redirect to /kost/search/{clicked_kost_id} -->
-                            <a href="<c:url value='/kost/search/${kost.kost_id}' />" class="kost-link">View Details</a>
-                        </div>
-                    </c:forEach>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- kos section end -->    
+    </c:forEach> 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
