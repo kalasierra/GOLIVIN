@@ -21,7 +21,7 @@
                     <img src="./aset/logo.png" alt="">
                 </li>
                 <li class="nav-item my-3">
-                    <a class="nav-link" href="./kospage.jsp">Kost</a>
+                    <a class="nav-link" href="/kost">Kost</a>
                 </li>
                 <li class="nav-item dropdown my-3">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>

@@ -27,7 +27,7 @@ public class RegisterController {
     @Autowired
     private AdminService adminService;
 
-    @RequestMapping(value = "register", method = RequestMethod.GET)
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String registerPage() {
         return "registrationDecision";
     }
@@ -38,7 +38,7 @@ public class RegisterController {
         return "registerAsPencari";
     }
 
-    @RequestMapping(value = "register/pencari", method = RequestMethod.POST)
+    @RequestMapping(value = "/register/pencari", method = RequestMethod.POST)
     public ResponseEntity<?> registerAsPencari(UserRequest userRequest) {
         try {
             Response response = pencariKostService.addPencariKost(userRequest);
@@ -54,7 +54,7 @@ public class RegisterController {
         return "registerAsPemilik";
     }
 
-    @RequestMapping(value = "register/pemilik", method = RequestMethod.POST)
+    @RequestMapping(value = "/register/pemilik", method = RequestMethod.POST)
     public ResponseEntity<?> registerAsPemilik(UserRequest userRequest) {
         try {
             Response response = pemilikKostService.addPemilikKost(userRequest);
@@ -65,7 +65,7 @@ public class RegisterController {
     }
     
 
-    @RequestMapping(value = "register/admin", method = RequestMethod.POST)
+    @RequestMapping(value = "/register/admin", method = RequestMethod.POST)
     public ResponseEntity<?> registerAsAdmin(@RequestBody UserRequest userRequest) {
         try {
             Response response = adminService.addAdmin(userRequest);

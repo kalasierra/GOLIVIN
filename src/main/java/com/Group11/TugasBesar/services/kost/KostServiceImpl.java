@@ -1,5 +1,7 @@
 package com.Group11.TugasBesar.services.kost;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,7 @@ public class KostServiceImpl implements KostService{
     @Autowired
     private KostRepository kostRepository;
 
+    @Override
     public Response addKost(KostRequest request) {
 
         Kost kost = new Kost();
@@ -36,4 +39,15 @@ public class KostServiceImpl implements KostService{
         return response;
     }
 
+    @Override
+    public Response getKosts() {
+        List<Kost> kosts = kostRepository.findAll();
+
+        Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("Success!");
+		response.setData(kosts);
+
+        return response;
+    }
 }

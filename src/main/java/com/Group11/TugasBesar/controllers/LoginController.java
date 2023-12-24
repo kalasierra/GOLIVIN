@@ -47,7 +47,7 @@ public class LoginController {
 
                     response.setData(pencariKost);
                     httpSession.setAttribute("LOGGED_USER", pencariKost);
-                    httpSession.setAttribute("USER_TYPE", 0);
+                    httpSession.setAttribute("USER_TYPE", "PencariKost");
                     System.out.println("User is a PencariKost");
                 }
                 else if (user.getPemilikKost() != null) {
@@ -55,7 +55,7 @@ public class LoginController {
                     
                     response.setData(pemilikKost);
                     httpSession.setAttribute("LOGGED_USER", pemilikKost);
-                    httpSession.setAttribute("USER_TYPE", 1);
+                    httpSession.setAttribute("USER_TYPE", "PemilikKost");
                     System.out.println("User is a PemilikKost");
                 }
                 else if (user.getAdmin() != null) {
@@ -63,7 +63,7 @@ public class LoginController {
                     
                     response.setData(admin);
                     httpSession.setAttribute("LOGGED_USER", admin);
-                    httpSession.setAttribute("USER_TYPE", 2);
+                    httpSession.setAttribute("USER_TYPE", "Admin");
                     System.out.println("User is a Admin");
                 }
                 else {

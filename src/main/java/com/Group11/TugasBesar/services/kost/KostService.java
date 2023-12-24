@@ -7,7 +7,7 @@ public interface KostService {
 
     Response addKost(KostRequest request);
 
-    // Response getKost();
+    Response getKosts();
 
     // Response getKostByName(String name);
     

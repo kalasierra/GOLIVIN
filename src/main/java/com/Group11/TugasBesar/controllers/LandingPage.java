@@ -11,16 +11,8 @@ import com.Group11.TugasBesar.payloads.requests.LoginRequest;
 @Controller
 public class LandingPage {
     
-    @RequestMapping({"/", "home"})
+    @RequestMapping({"/", "/home"})
     public String home() {
         return "index";
-    }
-
-    @RequestMapping(value = "/", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded")
-    public String success(LoginRequest loginRequest) {
-        //@RequestParam String email, @RequestParam String password
-        System.out.println(loginRequest.getEmail());
-        System.out.println(loginRequest.getPassword());
-        return "success";
     }
 }

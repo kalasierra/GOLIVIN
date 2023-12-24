@@ -86,7 +86,7 @@
                 <div>
                     <a1 href="${pageContext.request.contextPath}/lupakatasandi" class="link-offset-1"><u>Lupa Kata Sandi</u></a1>
                 </div>
-                    <button onclick="window.location.href='${pageContext.request.contextPath}/homepage2'" class="btn btn-primary my-3">
+                    <button type="submit" class="btn btn-primary my-3">
                         Masuk
                     </button>
                 </div>
