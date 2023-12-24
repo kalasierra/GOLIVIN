@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homepage</title>
-    <link rel="stylesheet" href="../src/main/resources/static/css/roomView.css" />
+    <link rel="stylesheet" href="/css/roomView.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -18,7 +18,7 @@
         <div class="container-fluid cont_nav" style="height: 84px;">
             <ul class="nav nav-pills justify-content-end content_nav">
                 <li class="logo my-3">
-                    <img src="../src/main/resources/static/aset/logo.png" alt="">
+                    <img src="/aset/logo.png" alt="">
                 </li>
                 <li class="nav-item my-3">
                     <a class="nav-link" href="./dashboardpemilik.html">Home</a>
@@ -28,17 +28,17 @@
                 </li>
                 <li class="nav-item my-3">
                     <a href="notifikasipemilik.html" style="color: black; text-decoration: none;">
-                        <img src="../src/main/resources/static/aset/notification.png" alt="notif" style="margin-top: 9px; margin-right: 15px;">
+                        <img src="/aset/notification.png" alt="notif" style="margin-top: 9px; margin-right: 15px;">
                     </a>
                 </li>
                 <li class="nav-item my-3">
                     <a href="akunpemilik.html" style="color: black; text-decoration: none;">
-                        <img src="../src/main/resources/static/aset/ikonuser.png" alt="notif" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
+                        <img src="/aset/ikonuser.png" alt="notif" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
                     </a>
                 </li>
                 <li class="nav-item my-3">
                     <a href="logoutpemilik.html" style="color: black; text-decoration: none;">
-                        <img src="../src/main/resources/static/aset/logout.png" alt="userpemilik" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
+                        <img src="/aset/logout.png" alt="userpemilik" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
                     </a>
                 </li>
         </div>
@@ -58,14 +58,14 @@
                 <div class="col-4 addkos my-3">
                     <button class="button">
                         <a href="createRoom.html" style="color: black; text-decoration: none;">
-                            <img src="../src/main/resources/static/aset/plus.png" alt="Data kos" style="width: 50px;">
+                            <img src="/aset/plus.png" alt="Data kos" style="width: 50px;">
                             <br>Tambahkan Kamar Anda</br>
                         </a>
                     </button>
                 </div>
                 <c:forEach var="room" items="${rooms}">
                     <div class="col-4 desc_kost my-3">
-                        <img src="../src/main/resources/static/aset/kost1.jpg" alt="">
+                        <img src="/aset/kost1.jpg" alt="">
                         <button class="my-3">
                             <b>${room.room_id}</b>
                         </button>
