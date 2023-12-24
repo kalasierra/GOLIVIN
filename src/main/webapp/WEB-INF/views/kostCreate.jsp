@@ -19,15 +19,12 @@
             <span style="font-weight: bold;">
                 Data kos
             </span><br><br>
-            <span>
-                Foto kos dan kamar
-            </span><br><br>
         </ul>
     </div>
 </section>
 
 <section>
-    <form action="${pageContext.request.contextPath}/kost/create" method="post">
+    <form action="${pageContext.request.contextPath}/kost/create" method="post" contentType="application/json">
         <div class="main">
             <span style="font-size: x-large; font-weight: bolder; margin-left: 285px; margin-top: 25px;">
                 Silakan lengkapi data kos

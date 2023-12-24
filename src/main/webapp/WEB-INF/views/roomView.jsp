@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-4 addkos my-3">
                     <button class="button">
-                        <a href="createRoom.html" style="color: black; text-decoration: none;">
+                        <a href="room/create" style="color: black; text-decoration: none;">
                             <img src="/aset/plus.png" alt="Data kos" style="width: 50px;">
                             <br>Tambahkan Kamar Anda</br>
                         </a>

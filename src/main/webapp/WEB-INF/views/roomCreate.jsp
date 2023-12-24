@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homepage</title>
-    <link rel="stylesheet" href="/css/createRoom.css" />
+    <link rel="stylesheet" href="/css/roomCreate.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -47,7 +47,7 @@
 
     <!-- form room section start -->
     <section>
-        <form action="${pageContext.request.contextPath}/kost/create" method="post">
+        <form action="${pageContext.request.contextPath}" method="post" contentType="application/json">
             <div class="main">
                 <span style="font-size: 40px; font-weight: bolder; margin-left: 285px; margin-top: 25px;">
                     Silakan lengkapi data kamar
@@ -68,7 +68,7 @@
                 <h2>Saran: Tulis lengkap seluruh fasilitas yang tersedia</h2>
                 <textarea class="form-control-fasilitas mb-3 mx-1" style="height: 100px; width: 450px; margin-top: 20px;" id="deskripsi" name="description" required></textarea><br>
 
-                <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px;" href="/viewRoom.html">Lanjutkan</button>
+                <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px;">Lanjutkan</button>
             </div>
         </form>
     <!-- form room section end -->
