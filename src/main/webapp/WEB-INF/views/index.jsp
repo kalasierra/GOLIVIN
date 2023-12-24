@@ -20,9 +20,6 @@
                 <li class="logo my-3">
                     <img src="./aset/logo.png" alt="">
                 </li>
-                <li class="nav-item my-3">
-                    <a class="nav-link" href="/kost">Kost</a>
-                </li>
                 <li class="nav-item dropdown my-3">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
                 <ul class="dropdown-menu">
@@ -59,56 +56,52 @@
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 </div>
+
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="./aset/Cslide1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block my-5">
                             <h1>Temukan Kost Impianmu!</h1>
+                            <!-- SearchBar Start -->
                             <div class="search-bar">
-                                <!-- <div class="search-input-container">
-                                <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
-                                <button type="submit" class="search-button">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                                </div> -->
-                                    
-                                    <!-- <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query"> -->
-                                    <a href="searchkost.jsp" style="color: black; text-decoration: none;">
-                                        <div class="search-input-container"></div>
-                                            <img src="/aset/search1.png" alt="" style="vertical-align: middle; margin-right: 12px;">
-                                            <span>Mau tinggal daerah mana</span>
-                                        </div>
-                                    </a>   
-                            </div>                                             
+                                <form action="kostList.jsp" method="get">
+                                    <div class="search-input-container">
+                                        <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
+                                        <button type="submit" class="search-button">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>                            
+                            <!-- SearchBar End -->
                         </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="./aset/Cslide2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block my-5">
+                            <h1>Temukan Kost Impianmu!</h1>
+                            <!-- SearchBar Start -->
+                            <div class="search-bar">
+                                <form action="kostList.jsp" method="get">
+                                    <div class="search-input-container">
+                                        <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
+                                        <button type="submit" class="search-button">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div> 
+                            <!-- SearchBar End -->
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="./aset/Cslide2.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block my-5">
-                        <h1>Temukan Kost Impianmu!</h1>
-                        <!-- <div class="search-bar">
-                            <div class="search-input-container">
-                            <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query">
-                                <button type="submit" class="search-button">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>  -->
-                        <div class="search-bar">
-                            <div class="search-input-container">
-                            <!-- <input type="text" class="search-input" placeholder="Mau tinggal di daerah mana?" name="query"> -->
-                                <a href="searchkost.jsp" style="color: black; text-decoration: none;">
-                                    <img src="/aset/search1.png" alt="" style="vertical-align: middle; margin-right: 12px;">
-                                    <span>Mau tinggal daerah mana</span>
-                                </a>
-                            </div>
-                        </div> 
-                </div>
-            </div>
+
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
+                
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
