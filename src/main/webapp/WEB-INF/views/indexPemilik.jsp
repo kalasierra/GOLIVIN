@@ -58,12 +58,10 @@
             <!-- <div class="row border border-danger"></div> -->
             <div class="row">
                 <div class="col-4 addkos my-3">
-                    <button class="button">
-                        <a href="createKost.jsp" style="color: black; text-decoration: none;">
-                            <img src="/aset/plus.png" alt="Data kos" style="width: 50px;">
-                            <br>Tambahkan Kost Anda</br>
-                        </a>
-                    </button>
+                    <button class="button btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/createKost'" style="border: none;">
+                        <img src="/aset/plus.png" alt="Data kos" style="width: 50px; ">
+                        <br>Tambahkan Kost Anda<br>
+                    </button>                    
                 </div>
                 <div class="col-4 desc_kost my-3">
                     <img src="/aset/kost1.jpg" alt="">
