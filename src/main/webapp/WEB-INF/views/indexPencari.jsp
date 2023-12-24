@@ -31,13 +31,18 @@
                 <li class="nav-item my-3">
                     <a class="nav-link" href="#">Chat</a>
                 </li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" href="">
+                        <img src="./aset/notification.png" alt="Icon Notif" style="width: 30px;"/>
+                    </a>
+                </li>
                 <li class="nav-item dropdown2 my-3">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                         <img src="./aset/ikonuser.png" alt="Icon User" style="width: 30px;"/>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Edit Profil</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutGolivin">Logout</a></li>
                     </ul>
                 </li>
                 
@@ -226,8 +231,37 @@
     </section>
     <!-- footer section end -->
 
-
+    <!-- Modal Logout Start -->
+    <section>
+        <div class="modal logout" id="logoutGolivin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content shadow-lg">
+                    <div class="modal-header bg-gray-200">
+                        <h5 class="modal-title text-xm font-weight-bold text-info text-uppercase" id="logoutModalLabel">Keluar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Anda yakin ingin keluar?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light shadow-lg waves-effect" data-bs-dismiss="modal">
+                            <i class="fas fa-window-close"></i>Batal
+                        </button>
+                        <a type="button" class="btn btn-info shadow-lg waves-effect" onclick="logoutAndRedirect()">
+                            <i class="fas fa-sign-out-alt"></i>Ya, keluar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Modal Logout End -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        function logoutAndRedirect() {
+            window.location.href = '${pageContext.request.contextPath}/logout';
+        }
+    </script>
 </body>
 </html>
 

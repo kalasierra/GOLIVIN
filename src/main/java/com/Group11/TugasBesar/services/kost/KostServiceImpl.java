@@ -48,6 +48,20 @@ public class KostServiceImpl implements KostService{
 
         return response;
     }
+
+    @Override
+    public Response getKostById(int id) {
+        Kost kost = kostRepository.findById(id).orElseThrow(() -> {
+            throw new NoSuchElementException("Kost is not found!");
+        });
+
+        Response response = new Response();
+        response.setStatus(HttpStatus.FOUND.value());
+        response.setMessage("Kost was found");
+        response.setData(kost);
+        
+        return response;
+    }
     
     @Override
     public Response getKostByPemilikKosts(KostRequest request) {
