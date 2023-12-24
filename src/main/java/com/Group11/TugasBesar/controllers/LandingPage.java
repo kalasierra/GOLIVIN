@@ -12,8 +12,10 @@ public class LandingPage {
     
     @RequestMapping({"/", "/home"})
     public String home(HttpSession httpSession) {
-        httpSession.setAttribute("LOGGED_USER", null);
-        httpSession.setAttribute("USER_TYPE", null);
-        return "index";
+        if      (httpSession.getAttribute("USER_TYPE") == null)          {return "index";}
+        else if (httpSession.getAttribute("USER_TYPE") == "PencariKost") {return "index";}
+        else if (httpSession.getAttribute("USER_TYPE") == "PemilikKost") {return "indexPemilik";}
+        else if (httpSession.getAttribute("USER_TYPE") == "Admin")       {return "index";}
+        else                                                                  {return "index";}
     }
 }

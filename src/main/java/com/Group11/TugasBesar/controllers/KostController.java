@@ -36,7 +36,7 @@ public class KostController {
     @GetMapping(value = "/kost/create")
     public String createKostPage(HttpSession httpSession) {
         if (httpSession.getAttribute("USER_TYPE") == "PemilikKost") {
-            return "createKost";
+            return "kostCreate";
         }
         else {
             return "login";
