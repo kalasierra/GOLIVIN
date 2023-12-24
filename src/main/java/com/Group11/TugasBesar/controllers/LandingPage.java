@@ -30,13 +30,9 @@ public class LandingPage {
         if      (httpSession.getAttribute("USER_TYPE") == null)                   {return "index";}
         else if (httpSession.getAttribute("USER_TYPE").equals("PencariKost")) {return "indexPencari";}
         else if (httpSession.getAttribute("USER_TYPE").equals("PemilikKost")) {
-
-            KostRequest request = new KostRequest();
-
+            
             PemilikKost currentPemilikKost = (PemilikKost) httpSession.getAttribute("LOGGED_USER");
-            request.setPemilikKost(currentPemilikKost);
-            Response response = kostService.getKostByPemilikKosts(request);
-            List<Kost> kosts = (List<Kost>) response.getData();
+            List<Kost> kosts = currentPemilikKost.getKosts();
 
             model.addAttribute("kosts", kosts);
             return "indexPemilik";

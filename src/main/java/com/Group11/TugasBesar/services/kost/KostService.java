@@ -9,6 +9,8 @@ public interface KostService {
 
     Response getKosts();
 
+    Response getKostById(int id);
+
     Response getKostByPemilikKosts(KostRequest request);
 
     // Response getKostByName(String name);
