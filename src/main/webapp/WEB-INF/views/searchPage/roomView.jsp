@@ -79,7 +79,7 @@
                                 <h3>Harga</h3>
                                 <p>Rp. ${room.price}/bulan</p>
                         
-                                <a href="#" class="btn btn-primary">Pesan</a>
+                                <a href="${pageContext.request.contextPath}/room/${room.room_id}/book" class="btn btn-primary">Pesan</a>
                                 </div>
                             </div>
                             </div>

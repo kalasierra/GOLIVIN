@@ -1,6 +1,7 @@
 package com.Group11.TugasBesar.services.room;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,21 @@ public class RoomServiceImpl implements RoomService{
 		response.setStatus(HttpStatus.CREATED.value());
 		response.setMessage("Kost created successfully!");
 		response.setData(room);
+
+        return response;
+    }
+
+    @Override
+    public Response getRoomById(int id) {
+
+        Room room = roomRepository.findById(id).orElseThrow(() -> {
+            throw new NoSuchElementException("Room is not found");
+        });
+        
+        Response response = new Response();
+        response.setStatus(HttpStatus.FOUND.value());
+        response.setMessage("Room was found");
+        response.setData(room);
 
         return response;
     }

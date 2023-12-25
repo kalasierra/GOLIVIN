@@ -55,17 +55,15 @@
     <!-- Tanggal section start -->
     <section class="booking-section">
         <h2>Pilih Rentang Tanggal Sewa</h2>
-        <form id="booking-form">
+        <form id="booking-form" action = "${pageContext.request.contextPath}/booking/${booking_id}/payment" method="GET">
             <div class="form-group">
                 <label for="start-date">Tanggal Masuk:</label>
-                <input type="text" id="start-date" name="start-date" class="form-control" placeholder="Pilih tanggal"
-                    autocomplete="off">
+                <input type="text" id="start-date" name="start-date" class="form-control" placeholder="Pilih tanggal" autocomplete="off">
             </div>
 
             <div class="form-group">
                 <label for="end-date">Tanggal Keluar:</label>
-                <input type="text" id="end-date" name="end-date" class="form-control" placeholder="Pilih tanggal"
-                    autocomplete="off">
+                <input type="text" id="end-date" name="end-date" class="form-control" placeholder="Pilih tanggal" autocomplete="off">
             </div>
 
             <div id="date-info">

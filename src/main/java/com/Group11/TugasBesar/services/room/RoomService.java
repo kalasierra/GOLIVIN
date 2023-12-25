@@ -8,8 +8,11 @@ public interface RoomService {
 
     Response addRoom(RoomRequest request);
 
+    Response getRoomById(int id);
+
     Response getRooms();
 
     Response getRoomByKost(Kost kost);
+
     
 }

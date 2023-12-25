@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.Group11.TugasBesar.interceptors.CheckLoggedInInterceptor;
 import com.Group11.TugasBesar.interceptors.CheckPemilikKostInterceptor;
+import com.Group11.TugasBesar.interceptors.CheckPencariKostInterceptor;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
@@ -21,10 +22,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return new CheckPemilikKostInterceptor();
     }
 
+    @Bean
+    public CheckPencariKostInterceptor checkPencariKostInterceptor() {
+        return new CheckPencariKostInterceptor();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // Add both interceptors and define the path patterns they should apply to
         registry.addInterceptor(checkLoggedInInterceptor()).addPathPatterns("/**");
         registry.addInterceptor(checkPemilikKostInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(checkPencariKostInterceptor()).addPathPatterns("/**");
     }
 }

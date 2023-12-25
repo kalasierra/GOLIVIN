@@ -1,6 +1,6 @@
 package com.Group11.TugasBesar.models;
 
-import java.sql.Date;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,10 +21,10 @@ public class Booking {
     private String paymentStatus;
 
     @Column
-    private java.sql.Date entryDate;
+    private Date entryDate;
 
     @Column
-    private java.sql.Date exitDate;
+    private Date exitDate;
 
     @ManyToOne
     @JoinColumn(name = "pencariKost_id")
@@ -50,13 +50,13 @@ public class Booking {
 
     public void setPaymentStatus(String paymentStatus) {this.paymentStatus = paymentStatus;}
 
-    public java.sql.Date getEntryDate() {return entryDate;}
+    public Date getEntryDate() {return entryDate;}
 
-    public void setEntryDate(java.sql.Date entryDate) {this.entryDate = entryDate;}
+    public void setEntryDate(Date entryDate) {this.entryDate = entryDate;}
 
-    public java.sql.Date getExitDate() {return exitDate;}
+    public Date getExitDate() {return exitDate;}
 
-    public void setExitDate(java.sql.Date exitDate) {this.exitDate = exitDate;}
+    public void setExitDate(Date exitDate) {this.exitDate = exitDate;}
 
     public PencariKost getPencariKost() {return pencariKost;}
 

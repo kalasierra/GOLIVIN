@@ -1,14 +1,14 @@
 package com.Group11.TugasBesar.payloads.requests;
 
-import java.sql.Date;
+import java.util.Date;
 
 import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.models.Room;
 
 public class BookingRequest {
     private String paymentStatus;
-    private java.sql.Date entryDate;
-    private java.sql.Date exitDate;
+    private Date entryDate;
+    private Date exitDate;
     private PencariKost pencariKost;
     private Room room;
 
@@ -26,13 +26,13 @@ public class BookingRequest {
 
     public void setPaymentStatus(String paymentStatus) {this.paymentStatus = paymentStatus;}
 
-    public java.sql.Date getEntryDate() {return entryDate;}
+    public Date getEntryDate() {return entryDate;}
 
-    public void setEntryDate(java.sql.Date entryDate) {this.entryDate = entryDate;}
+    public void setEntryDate(Date entryDate) {this.entryDate = entryDate;}
 
-    public java.sql.Date getExitDate() {return exitDate;}
+    public Date getExitDate() {return exitDate;}
 
-    public void setExitDate(java.sql.Date exitDate) {this.exitDate = exitDate;}
+    public void setExitDate(Date exitDate) {this.exitDate = exitDate;}
 
     public PencariKost getPencariKost() {return pencariKost;}
 

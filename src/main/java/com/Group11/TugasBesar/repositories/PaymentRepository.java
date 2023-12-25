@@ -6,7 +6,7 @@ import com.Group11.TugasBesar.models.Payment;
 import java.util.*;
 
 @Repository
-public interface PaymentRepository extends JpaRepository<Payment, String> {
+public interface PaymentRepository extends JpaRepository<Payment, Integer> {
 
 
 }
