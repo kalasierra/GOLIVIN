@@ -12,7 +12,7 @@ public interface KostService {
 
     Response getKostById(int id);
 
-    Response getKostByPemilikKosts(PemilikKost pemilikKost);
+    Response getKostByPemilikKost(PemilikKost pemilikKost);
 
     // Response getKostByName(String name);
     

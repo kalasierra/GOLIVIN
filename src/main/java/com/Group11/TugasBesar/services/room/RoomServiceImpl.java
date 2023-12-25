@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.Group11.TugasBesar.models.Kost;
+import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.models.Room;
 import com.Group11.TugasBesar.payloads.requests.RoomRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
@@ -38,6 +40,21 @@ public class RoomServiceImpl implements RoomService{
     @Override
     public Response getRooms() {
         List<Room> rooms = roomRepository.findAll();
+
+        Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("Success!");
+		response.setData(rooms);
+
+        return response;
+    }
+
+    @Override
+    public Response getRoomByKost(Kost kost) {
+
+        List<Room> rooms = roomRepository.findByKost(kost);
+
+        // List<Kost> kosts = kostRepository.findByPemilikKost(pemilikKost);
 
         Response response = new Response();
 		response.setStatus(HttpStatus.CREATED.value());

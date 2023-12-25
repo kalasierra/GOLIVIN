@@ -5,7 +5,7 @@
     <head> Error occured</head>
     <body>
         <h1>
-            <c:out value="${message.message}" />
+            <c:out value="${message}" />
         </h1>
     </body>
 </html>

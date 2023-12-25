@@ -72,7 +72,7 @@
             <p>Allowed Female: ${kost.allowedFemale}</p>
 
             <!-- Link to redirect to /kost/search/{clicked_kost_id} -->
-            <a href="<c:url value='/kost/search/${kost.kost_id}' />" class="kost-link">View Details</a>
+            <a href="<c:url value='/kost/${kost.kost_id}' />" class="kost-link">View Details</a>
         </div>
     </c:forEach> 
 

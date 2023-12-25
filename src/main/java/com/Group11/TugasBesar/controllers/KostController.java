@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.Group11.TugasBesar.models.Kost;
+import com.Group11.TugasBesar.models.Room;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.kost.KostService;
+import com.Group11.TugasBesar.services.room.RoomService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -21,6 +23,9 @@ public class KostController {
 
     @Autowired
     private KostService kostService;
+
+    @Autowired
+    private RoomService roomService;
 
     @GetMapping(value = "/kost")
     public String kostPage() {
@@ -39,13 +44,22 @@ public class KostController {
 
             return "searchPage/kostSearch";
         } catch (Exception e) {
-            return "test";
+            model.addAttribute("message", e.getMessage());
+            return "unexpectedError";
         }
     }
 
     @GetMapping("/kost/{uuid}")
-    public String getKostById(@PathVariable("uuid") int id) {
-        return "test";
+    public String getKostById(@PathVariable("uuid") int id, Model model) {
+        
+        Response response = kostService.getKostById(id);
+        Kost kost = (Kost) response.getData();
+
+        response = roomService.getRoomByKost(kost);
+        List<Room> rooms = (List<Room>) response.getData();
+
+        model.addAttribute("rooms", rooms);
+        return "searchPage/roomView";
     }
 
 }

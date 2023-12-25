@@ -65,7 +65,7 @@ public class KostServiceImpl implements KostService{
     }
     
     @Override
-    public Response getKostByPemilikKosts(PemilikKost pemilikKost) {
+    public Response getKostByPemilikKost(PemilikKost pemilikKost) {
 
         List<Kost> kosts = kostRepository.findByPemilikKost(pemilikKost);
 

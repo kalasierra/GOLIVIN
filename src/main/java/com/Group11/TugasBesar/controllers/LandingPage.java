@@ -38,7 +38,7 @@ public class LandingPage {
             
             PemilikKost currentPemilikKost = (PemilikKost) httpSession.getAttribute("LOGGED_USER");
             // List<Kost> kosts = currentPemilikKost.getKosts();
-            Response response = kostService.getKostByPemilikKosts(currentPemilikKost);
+            Response response = kostService.getKostByPemilikKost(currentPemilikKost);
             List<Kost> kosts = (List<Kost>) response.getData();
 
             model.addAttribute("kosts", kosts);
