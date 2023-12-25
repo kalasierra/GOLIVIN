@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,10 +32,11 @@ public class LoginController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public ResponseEntity<?> loginRequest(LoginRequest loginRequest, HttpSession httpSession) {
-        try {
-            Response response = userService.login(loginRequest);
+    public String loginRequest(LoginRequest loginRequest, HttpSession httpSession, Model model) {
 
+        Response response = userService.login(loginRequest);
+
+        try {
             User user = (User) response.getData();
 
             // If the user with the same username and password was found
@@ -48,6 +50,7 @@ public class LoginController {
                     httpSession.setAttribute("LOGGED_USER", pencariKost);
                     httpSession.setAttribute("USER_TYPE", "PencariKost");
                     System.out.println("User is a PencariKost");
+                    return "redirect:/";
                 }
                 else if (user.getPemilikKost() != null) {
                     PemilikKost pemilikKost = user.getPemilikKost();
@@ -56,6 +59,7 @@ public class LoginController {
                     httpSession.setAttribute("LOGGED_USER", pemilikKost);
                     httpSession.setAttribute("USER_TYPE", "PemilikKost");
                     System.out.println("User is a PemilikKost");
+                    return "redirect:/";
                 }
                 else if (user.getAdmin() != null) {
                     Admin admin = user.getAdmin();
@@ -64,15 +68,21 @@ public class LoginController {
                     httpSession.setAttribute("LOGGED_USER", admin);
                     httpSession.setAttribute("USER_TYPE", "Admin");
                     System.out.println("User is a Admin");
+                    return "redirect:/";
                 }
                 else {
                     response.setMessage("User is not PencariKost, PemilikKost, or Admin");
                     System.out.println("Something is wrong");
+                    return "unexpectedError";
                 }
             }
-            return ResponseEntity.status(response.getStatus()).body(response);
+            else {
+                model.addAttribute("message", response.getMessage());
+                return "unexpectedError";
+            }
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body(e.getMessage());
+            model.addAttribute("message", response.getMessage());
+            return "unexpectedError";
         }
     }
 }

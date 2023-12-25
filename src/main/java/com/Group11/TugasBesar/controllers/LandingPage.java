@@ -33,7 +33,7 @@ public class LandingPage {
         Object user = httpSession.getAttribute("LOGGED_USER");
 
         if      (user == null)                  {return "landingPage/index";}
-        else if (user instanceof PencariKost)   {return "landingPage/indexPencari";}
+        else if (user instanceof PencariKost)   {return "landingPage/indexPencariKost";}
         else if (user instanceof PemilikKost)   {
             
             PemilikKost currentPemilikKost = (PemilikKost) httpSession.getAttribute("LOGGED_USER");
@@ -42,7 +42,7 @@ public class LandingPage {
             List<Kost> kosts = (List<Kost>) response.getData();
 
             model.addAttribute("kosts", kosts);
-            return "landingPage/indexPemilik";
+            return "landingPage/indexPemilikKost";
         }
         else if (user instanceof Admin)         {return "landingPage/index";}
         else                                    {return "test";}
