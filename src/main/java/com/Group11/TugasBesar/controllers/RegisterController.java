@@ -29,13 +29,13 @@ public class RegisterController {
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String registerPage() {
-        return "registrationDecision";
+        return "registerPage/registrationDecision";
     }
 
 
     @RequestMapping(value = "/register/pencari", method = RequestMethod.GET)
     public String registerAsPencariPage() {
-        return "registerAsPencari";
+        return "registerPage/registerAsPencari";
     }
 
     @RequestMapping(value = "/register/pencari", method = RequestMethod.POST)
@@ -51,7 +51,7 @@ public class RegisterController {
 
     @RequestMapping(value = "/register/pemilik", method = RequestMethod.GET)
     public String registerAsPemilikPage() {
-        return "registerAsPemilik";
+        return "registerPage/registerAsPemilik";
     }
 
     @RequestMapping(value = "/register/pemilik", method = RequestMethod.POST)

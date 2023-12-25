@@ -24,7 +24,7 @@ public class KostController {
 
     @GetMapping(value = "/kost")
     public String kostPage() {
-        return "kostOption";
+        return "searchPage/kostOption";
     }
 
     @GetMapping(value = "/kost/search")
@@ -37,7 +37,7 @@ public class KostController {
             // Passing all the kost to the JSP
             model.addAttribute("kosts", kosts);
 
-            return "kostList";
+            return "searchPage/kostSearch";
         } catch (Exception e) {
             return "test";
         }

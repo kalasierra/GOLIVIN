@@ -36,7 +36,7 @@ public class EditController {
     
     @GetMapping("/edit/kost/create")
     public String createKostPage(HttpSession httpSession) {
-        return "kostCreate";
+        return "pemilikKostPage/kostCreate";
     }
 
     @PostMapping("/edit/kost/create")
@@ -72,12 +72,12 @@ public class EditController {
 
         List<Room> rooms = kost.getRooms();
         model.addAttribute("rooms", rooms);
-        return "roomView";
+        return "pemilikKostPage/roomView";
     }
     
     @GetMapping("/edit/kost/{uuid}/room/create")
     public String addRoomPage(@PathVariable("uuid") int id) {
-        return "roomCreate";
+        return "pemilikKostPage/roomCreate";
     }
     
     

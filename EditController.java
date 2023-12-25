@@ -40,7 +40,7 @@ public class EditController {
             Response response = kostService.addKost(kostRequest);
 
             if(response.getStatus() == HttpStatus.CREATED.value()) {
-                return "indexPemilik";
+                return "landingPage/indexPemilik";
             }
             else {
                 model.addAttribute("message", response.getMessage());
