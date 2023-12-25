@@ -18,7 +18,7 @@
         <div class="container-fluid cont_nav" style="height: 84px;">
             <ul class="nav nav-pills justify-content-end content_nav">
                 <li class="logo my-3">
-                    <img src="../src/main/resources/static/aset/logo.png" alt="">
+                    <img src="/aset/logo.png" alt="">
                 </li>
                 <li class="nav-item my-3">
                     <a class="nav-link" href="./dashboardpemilik.html">Home</a>
@@ -28,17 +28,17 @@
                 </li>
                 <li class="nav-item my-3">
                     <a href="notifikasipemilik.html" style="color: black; text-decoration: none;">
-                        <img src="../src/main/resources/static/aset/notification.png" alt="notif" style="margin-top: 9px; margin-right: 15px;">
+                        <img src="/aset/notification.png" alt="notif" style="margin-top: 9px; margin-right: 15px;">
                     </a>
                 </li>
                 <li class="nav-item my-3">
                     <a href="akunpemilik.html" style="color: black; text-decoration: none;">
-                        <img src="../src/main/resources/static/aset/ikonuser.png" alt="notif" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
+                        <img src="/aset/ikonuser.png" alt="notif" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
                     </a>
                 </li>
                 <li class="nav-item my-3">
                     <a href="/logout" style="color: black; text-decoration: none;">
-                        <img src="../src/main/resources/static/aset/logout.png" alt="userpemilik" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
+                        <img src="/aset/logout.png" alt="userpemilik" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
                     </a>
                 </li>
         </div>
