@@ -82,19 +82,18 @@
     margin-top: 0px;
     border-radius: 5px; 
     padding: 5px; 
-    width: 10%; 
     margin-left: 15px;
     display: block;
     box-sizing: border-box;
     border: 2px solid #C6C6C6;
 }
 
+
 .form-control-fasilitas {
     margin-top: 0px;
     border-radius: 5px; 
-    padding: 5px; 
-    width: 25%; 
-    margin-right: 285px;
+    padding: 5px;  
+    margin-left: 15px;
     display: block;
     box-sizing: border-box;
     border: 2px solid #C6C6C6;

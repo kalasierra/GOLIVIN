@@ -57,7 +57,8 @@
                 patokan agar kos mudah ditemukan)</h2>
             <textarea class="form-control mb-3 mx-1" style="height: 100px; width: 450px; margin-left: 295px;" id="address" name="address" required></textarea><br>
     
-            <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px;">Lanjutkan</button>
+            <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px; background-color: #00BBB4;">Lanjutkan</button>
+
         </div>
     </form>
     

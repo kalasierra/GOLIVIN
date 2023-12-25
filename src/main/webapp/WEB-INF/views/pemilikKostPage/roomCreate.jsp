@@ -59,16 +59,18 @@
                 </span>
                 <h2>Masukan harga /bulan</h2>
                 <div class="form mb-3 my-1">
-                    <input class="form-control" type="text" id="name" name="price" required>
+                    <input class="form-control" style="height: 50px; width: 300px" type="text" id="name" name="price" required>
                 </div><br>
 
                 <span style="font-size: x-large; font-weight: bolder; margin-top: 30px; margin-left: 285px;">
                     Deskripsi
                 </span>
                 <h2>Saran: Tulis lengkap seluruh fasilitas yang tersedia</h2>
-                <textarea class="form-control-fasilitas mb-3 mx-1" style="height: 100px; width: 450px; margin-top: 20px;" id="deskripsi" name="description" required></textarea><br>
+                <div class="form mb-3 my-1">
+                    <textarea class="form-control mb-3 mx-1" style="height: 400px; width: 700px; margin-left: 300px;" id="address" name="address" required></textarea><br>
+                </div><br>
 
-                <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px;">Lanjutkan</button>
+                <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px; background-color: #00BBB4;">Lanjutkan</button>
             </div>
         </form>
     <!-- form room section end -->
