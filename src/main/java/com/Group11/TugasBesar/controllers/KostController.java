@@ -59,6 +59,8 @@ public class KostController {
         List<Room> rooms = (List<Room>) response.getData();
 
         model.addAttribute("rooms", rooms);
+        model.addAttribute("address", kost.getAddress());
+
         return "searchPage/roomView";
     }
 

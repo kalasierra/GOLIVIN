@@ -28,7 +28,7 @@ public class LandingPage {
     public String home(HttpSession httpSession, Model model) {
         System.out.println("In LandingPage.jsp");
         System.out.println("USER_TYPE           : " + httpSession.getAttribute("USER_TYPE"));
-        System.out.println("LOGGED_USER is null?: " + httpSession.getAttribute("LOGGED_USER") == null);
+        System.out.println("LOGGED_USER is null?: " + (httpSession.getAttribute("LOGGED_USER") == null));
 
         Object user = httpSession.getAttribute("LOGGED_USER");
 

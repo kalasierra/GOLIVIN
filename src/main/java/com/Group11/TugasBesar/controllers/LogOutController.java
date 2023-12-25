@@ -17,6 +17,6 @@ public class LogOutController {
     public String logOut(HttpSession httpSession) {
         httpSession.setAttribute("USER_TYPE", null);
         httpSession.setAttribute("LOGGED_USER", null);
-        return "index";
+        return "landingPage/index";
     }
 }

@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="nav-item my-3">
-                    <a href="logoutpemilik.html" style="color: black; text-decoration: none;">
+                    <a href="/logout" style="color: black; text-decoration: none;">
                         <img src="../src/main/resources/static/aset/logout.png" alt="userpemilik" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
                     </a>
                 </li>

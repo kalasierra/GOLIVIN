@@ -7,6 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Group11.TugasBesar.annotations.CheckPemilikKost;
+import com.Group11.TugasBesar.models.PemilikKost;
 
 public class CheckPemilikKostInterceptor implements HandlerInterceptor {
 
@@ -15,11 +16,21 @@ public class CheckPemilikKostInterceptor implements HandlerInterceptor {
             throws Exception {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
-            CheckPemilikKost annotation = handlerMethod.getMethod().getAnnotation(CheckPemilikKost.class);
-            if (annotation != null) {
+
+            // Check for the annotation on the method
+            CheckPemilikKost methodAnnotation = handlerMethod.getMethod().getAnnotation(CheckPemilikKost.class);
+
+            // Check for the annotation on the class
+            CheckPemilikKost classAnnotation = handlerMethod.getBeanType().getAnnotation(CheckPemilikKost.class);
+
+            // If either the method or class is annotated, perform the check
+            
+            if (methodAnnotation != null || classAnnotation != null) {
                 System.out.println("In CheckPemilikKostInterceptor.java:\nUSER_TYPE = " + request.getSession().getAttribute("USER_TYPE"));
-                // Check if user is logged in, otherwise redirect to login page
-                if (!request.getSession().getAttribute("USER_TYPE").equals("PemilikKost")) {
+
+                // Check if user is PemilikKost, otherwise redirect to login page
+                Object user = request.getSession().getAttribute("LOGGED_USER");
+                if (!(user instanceof PemilikKost)) {
                     response.sendRedirect("/login");
                     return false;
                 }

@@ -49,40 +49,51 @@
     <section>
         <div class="container">
             <div class="row">
-            <div class="col-md-12">
-                <h2>Detail Kos</h2>
-            </div>
-            </div>
-        
-            <div class="row">
-            <div class="col-md-6">
-                <div class="image-zone">
-                <img src="../src/main/resources/static/aset/kost2.png">
+                <div class="col-md-12">
+                    <h2>Detail Kost</h2>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="info-zone">
-                <h3>Nama Kos</h3>
-                <p>Kost Putri Syariah</p>
-        
-                <h3>Lokasi</h3>
-                <p>Jl. Sukapura, Bandung</p>
-        
-                <h3>Fasilitas</h3>
-                <ul>
-                    <li>Kamar mandi dalam</li>
-                    <li>AC</li>
-                    <li>Wifi</li>
-                    <li>Keamanan 24 jam</li>
-                </ul>
-        
-                <h3>Harga</h3>
-                <p>Rp. 2.500.000/bulan</p>
-        
-                <a href="#" class="btn btn-primary">Pesan</a>
-                </div>
-            </div>
-            </div>
+
+            <c:choose>
+                <c:when test="${not empty rooms}">
+                    <c:forEach var="room" items="${rooms}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="image-zone">
+                                <img src="../src/main/resources/static/aset/kost2.png">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-zone">
+                                <h3>Nomor kamar</h3>
+                                <p>${room.room_id}</p>
+                        
+                                <h3>Lokasi</h3>
+                                <p><c:out value="${address}"/></p>
+                        
+                                <h3>Fasilitas</h3>
+                                <ul>
+                                    <li>${room.description}</li>
+                                </ul>
+                        
+                                <h3>Harga</h3>
+                                <p>Rp. ${room.price}/bulan</p>
+                        
+                                <a href="#" class="btn btn-primary">Pesan</a>
+                                </div>
+                            </div>
+                            </div>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Maafkan kami, kost ini belum memiliki ruangan yang tersedia.</p>
+                        </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
         </div>
     </section>
     <!-- kos section end -->

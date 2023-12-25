@@ -15,11 +15,20 @@ public class CheckLoggedInInterceptor implements HandlerInterceptor {
             throws Exception {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
-            CheckLoggedIn annotation = handlerMethod.getMethod().getAnnotation(CheckLoggedIn.class);
-            if (annotation != null) {
+
+            // Check for the annotation on the method
+            CheckLoggedIn methodAnnotation = handlerMethod.getMethod().getAnnotation(CheckLoggedIn.class);
+
+            // Check for the annotation on the class
+            CheckLoggedIn classAnnotation = handlerMethod.getBeanType().getAnnotation(CheckLoggedIn.class);
+
+            // If either the method or class is annotated, perform the check
+            if (methodAnnotation != null || classAnnotation != null) {
                 System.out.println("In CheckLoggedInInterceptor.java:\nUSER_TYPE = " + request.getSession().getAttribute("USER_TYPE"));
+                
                 // Check if user is logged in, otherwise redirect to login page
-                if (request.getSession().getAttribute("USER_TYPE") == null) {
+                Object user = request.getSession().getAttribute("LOGGED_USER");
+                if (user == null) {
                     response.sendRedirect("/login");
                     return false;
                 }

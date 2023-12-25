@@ -23,7 +23,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        // Add both interceptors and define the path patterns they should apply to
         registry.addInterceptor(checkLoggedInInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(checkPemilikKostInterceptor()).addPathPatterns("/**");
     }
 }
-
