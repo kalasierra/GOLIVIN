@@ -133,7 +133,7 @@
                 
                 
                 <div class="qrcode">
-                    <img src="../src/main/resources/static/aset/qrcode.png" alt="">
+                    <img src="/aset/qrcode.png" alt="">
                 </div>
                 <div class="text4">
                     <h3>Total Pembayaran</h1>
