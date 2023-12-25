@@ -106,7 +106,10 @@
                 <p>Total: <span id="total">Rp 2.500</span></p>
     
                 <button class="cancel-button">Batalkan Pesanan</button>
-                <button class="continue-button">Lanjutkan</button>
+
+                <form id="booking-form" action = "${pageContext.request.contextPath}/booking/${booking_id}/confirm" method="GET">
+                    <button class="continue-button">Lanjutkan</button>
+                </form>
             </div>
         </div>
     </section>

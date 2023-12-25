@@ -85,7 +85,7 @@ public class BookingController {
         return "bookingPage/bookingPayment";
     }
     
-    @PostMapping("/booking/{booking_id}/confirm")
+    @GetMapping("/booking/{booking_id}/confirm")
     public String bookReque(@PathVariable("booking_id") int booking_id) {
 
         Response bookingResponse = bookingService.getBookingById(booking_id);
