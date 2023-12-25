@@ -8,8 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.Group11.TugasBesar.models.Admin;
 import com.Group11.TugasBesar.models.Kost;
 import com.Group11.TugasBesar.models.PemilikKost;
+import com.Group11.TugasBesar.models.PencariKost;
+import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.kost.KostService;
 
 import jakarta.servlet.http.HttpSession;
@@ -23,19 +26,25 @@ public class LandingPage {
     
     @RequestMapping({"/", "/home"})
     public String home(HttpSession httpSession, Model model) {
-        System.out.println("In LandingPage.jsp\nUSER_TYPE: " + httpSession.getAttribute("USER_TYPE"));
+        System.out.println("In LandingPage.jsp");
+        System.out.println("USER_TYPE           : " + httpSession.getAttribute("USER_TYPE"));
+        System.out.println("LOGGED_USER is null?: " + ((PemilikKost) httpSession.getAttribute("LOGGED_USER") == null));
 
-        if      (httpSession.getAttribute("USER_TYPE") == null)                   {return "index";}
-        else if (httpSession.getAttribute("USER_TYPE").equals("PencariKost")) {return "indexPencari";}
-        else if (httpSession.getAttribute("USER_TYPE").equals("PemilikKost")) {
+        Object user = httpSession.getAttribute("LOGGED_USER");
+
+        if      (user == null)                  {return "index";}
+        else if (user instanceof PencariKost)   {return "indexPencari";}
+        else if (user instanceof PemilikKost)   {
             
             PemilikKost currentPemilikKost = (PemilikKost) httpSession.getAttribute("LOGGED_USER");
-            List<Kost> kosts = currentPemilikKost.getKosts();
+            // List<Kost> kosts = currentPemilikKost.getKosts();
+            Response response = kostService.getKostByPemilikKosts(currentPemilikKost);
+            List<Kost> kosts = (List<Kost>) response.getData();
 
             model.addAttribute("kosts", kosts);
             return "indexPemilik";
         }
-        else if (httpSession.getAttribute("USER_TYPE").equals("Admin"))       {return "index";}
-        else                                                                           {return "test";}
+        else if (user instanceof Admin)         {return "index";}
+        else                                    {return "test";}
     }
 }

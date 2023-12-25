@@ -24,7 +24,7 @@
 </section>
 
 <section>
-    <form action="${pageContext.request.contextPath}/kost/create" method="post" contentType="application/json">
+    <form action="${pageContext.request.contextPath}/edit/kost/create" method="post" contentType="application/json">
         <div class="main">
             <span style="font-size: x-large; font-weight: bolder; margin-left: 285px; margin-top: 25px;">
                 Silakan lengkapi data kos

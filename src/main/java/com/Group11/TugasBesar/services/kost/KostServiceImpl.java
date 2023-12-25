@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.Group11.TugasBesar.models.Kost;
+import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.payloads.requests.KostRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.repositories.KostRepository;
@@ -28,7 +29,7 @@ public class KostServiceImpl implements KostService{
         kost.setAllowedFemale(request.isAllowedFemale());
         kost.setPemilikKost(request.getPemilikKost());
         kost = kostRepository.save(kost);
-
+        
         Response response = new Response();
 		response.setStatus(HttpStatus.CREATED.value());
 		response.setMessage("Kost created successfully!");
@@ -64,9 +65,9 @@ public class KostServiceImpl implements KostService{
     }
     
     @Override
-    public Response getKostByPemilikKosts(KostRequest request) {
+    public Response getKostByPemilikKosts(PemilikKost pemilikKost) {
 
-        List<Kost> kosts = kostRepository.findByPemilikKost(request.getPemilikKost());
+        List<Kost> kosts = kostRepository.findByPemilikKost(pemilikKost);
 
         Response response = new Response();
 		response.setStatus(HttpStatus.CREATED.value());

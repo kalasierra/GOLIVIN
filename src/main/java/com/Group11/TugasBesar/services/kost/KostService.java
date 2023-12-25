@@ -1,5 +1,6 @@
 package com.Group11.TugasBesar.services.kost;
 
+import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.payloads.requests.KostRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 
@@ -11,7 +12,7 @@ public interface KostService {
 
     Response getKostById(int id);
 
-    Response getKostByPemilikKosts(KostRequest request);
+    Response getKostByPemilikKosts(PemilikKost pemilikKost);
 
     // Response getKostByName(String name);
     

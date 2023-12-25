@@ -21,8 +21,6 @@ import com.Group11.TugasBesar.services.kost.KostService;
 import com.Group11.TugasBesar.services.room.RoomService;
 
 import jakarta.servlet.http.HttpSession;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -49,13 +47,14 @@ public class EditController {
             Response response = kostService.addKost(kostRequest);
 
             if(response.getStatus() == HttpStatus.CREATED.value()) {
-                return "indexPemilik";
+                return "redirect:/";
             }
             else {
                 model.addAttribute("message", response.getMessage());
                 return "unexpectedError";
             }
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             model.addAttribute("message", e.getMessage());
             return "unexpectedError";
         }
