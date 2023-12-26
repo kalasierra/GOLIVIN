@@ -90,11 +90,7 @@
                 <div class="durasi" style="font-size: 20px;">
                     <label for="paymentMethod">Durasi sewa kost:</label>
                 </div>
-                <select id="duration" name="duration">
-                    <option value="year">Per Tahun</option>
-                    <option value="month">Per Bulan</option>
-                    <option value="week">Per Minggu</option>
-                </select>
+                <c:out value="${start_date}"/> → <c:out value="${end_date}"/>
                 
                 <div class="payment" style="font-size: 20px;">
                     <label for="paymentMethod">Pilih metode pembayaran:</label>
@@ -133,9 +129,9 @@
             </script>
 
     
-                <p>Subtotal: <span id="subtotal">Rp 0</span></p>
-                <p>Biaya Administrasi: Rp 2.500</p>
-                <p>Total: <span id="total">Rp 2.500</span></p>
+                <p>Subtotal: <span id="subtotal">Rp <c:out value="${price}" /></span></p>
+                <p>Biaya Administrasi: Rp 2500</p>
+                <p>Total: <span id="total"> ${price + 2500} </span></p>
     
                 <button class="cancel-button">Batalkan Pesanan</button>
 

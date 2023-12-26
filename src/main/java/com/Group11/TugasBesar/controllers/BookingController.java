@@ -1,5 +1,6 @@
 package com.Group11.TugasBesar.controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -70,16 +71,24 @@ public class BookingController {
         bookingRequest.setRoom(booking.getRoom());
         bookingResponse = bookingService.updateBookingById(booking_id, bookingRequest);
 
+        // Take the price rate from the the said room
         Room room = booking.getRoom();
         long price = room.getPrice();
 
+        //Calculate the number of days passed 
         long durationInMilliseconds = endDate.getTime() - startDate.getTime();          // Calculate the number of milliseconds between start date and end date
         double numberOfDays = TimeUnit.MILLISECONDS.toDays(durationInMilliseconds);     // Convert milliseconds to days
         double numberOfMonths = numberOfDays / 30.0;
 
+        // Calculate and round the price
         double newPrice = price * numberOfMonths;
+        long roundedPrice = Math.round(newPrice / 10.0) * 10;
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         
-        model.addAttribute("price", newPrice);
+        model.addAttribute("start_date", dateFormat.format(startDate));
+        model.addAttribute("end_date", dateFormat.format(endDate));
+        model.addAttribute("price", roundedPrice);
         model.addAttribute("booking_id", booking_id);
         
         return "bookingPage/bookingPayment";
