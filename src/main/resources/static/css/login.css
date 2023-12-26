@@ -40,15 +40,6 @@
     line-height: normal;
 }
 
-.input-search{
-    position: absolute;
-    width: 652px;
-    height: 56px;
-    flex-shrink: 0;
-    margin-right: 50px;
-    border-radius: 90px;
-    background: #FFFDFD;
-}
 
 .ActivityPage{
     background-color: #F1CD86;
@@ -111,10 +102,6 @@
     cursor: pointer;
 }
 
-.registpage img {
-    object-fit: cover;
-    width: 730px;
-}
 
 .footer_cont{
     height: 300px;
