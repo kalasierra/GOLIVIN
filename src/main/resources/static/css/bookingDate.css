@@ -116,6 +116,7 @@ input.form-control {
     cursor: pointer;
     transition: background-color 0.3s;
     font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
 }
 
 .booking-section .btn-primary:hover {
