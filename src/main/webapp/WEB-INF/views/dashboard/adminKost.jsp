@@ -73,38 +73,38 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="kost" items="${kosts}">
-                    <tr>
-                        <th scope="row">${kost.kost_id}</th>
-                        <td>${kost.name}</td>
-                        <td>${kost.pemilikKost.user.username}</td>
-                        <td>
-                            <c:choose>
-                                <c:when test="${kost.allowedMale}">
-                                    <c:choose>
-                                        <c:when test="${kost.allowedFemale}">
-                                            <p>Putra & Putri</p>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <p>Putra</p>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:when>
-                                <c:otherwise>
-                                    <p>Putri</p>
-                                </c:otherwise>
-                            </c:choose>
-                        </td>
-                        <td>${kost.pemilikKost.user.phoneNumber}</td>
-                        <td>
-                            <form action="/your-submit-action" method="post">
+                <form action="/your-submit-action" method="post">
+                    <c:forEach var="kost" items="${kosts}">
+                        <tr>
+                            <th scope="row">${kost.kost_id}</th>
+                            <td>${kost.name}</td>
+                            <td>${kost.pemilikKost.user.username}</td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${kost.allowedMale}">
+                                        <c:choose>
+                                            <c:when test="${kost.allowedFemale}">
+                                                <p>Putra & Putri</p>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <p>Putra</p>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <p>Putri</p>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td>${kost.pemilikKost.user.phoneNumber}</td>
+                            <td>
                                 <input type="checkbox" name="yourCheckbox" id="yourCheckbox" 
-                                       <c:if test="${kost.approved}">checked</c:if>>
+                                        <c:if test="${kost.approved}">checked</c:if>>
                                 <label for="yourCheckbox">Approved</label>
-                            </form>
-                        </td>
-                    </tr>
-                </c:forEach>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </form>
         </table>
     </section>
 
