@@ -115,6 +115,64 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script><!-- Tanggal section start -->
+        <section class="booking-section">
+            <h2>Pilih Rentang Tanggal Sewa</h2>
+            <form id="booking-form" action="${pageContext.request.contextPath}/booking/${booking_id}/payment" method="GET" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="start-date">Tanggal Masuk:</label>
+                    <input type="text" id="start-date" name="start-date" class="form-control" placeholder="Pilih tanggal" autocomplete="off" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="end-date">Tanggal Keluar:</label>
+                    <input type="text" id="end-date" name="end-date" class="form-control" placeholder="Pilih tanggal" autocomplete="off" required>
+                </div>
+            
+                <div id="date-info">
+                    <!-- Info tanggal akan ditampilkan di sini -->
+                </div>
+            
+                <button type="submit" id="submitButton" class="btn btn-primary">Lanjutkan ke Pembayaran</button>
+            </form>
+        </section>
+        <!-- Tanggal section end -->
+        
+        <!-- Masukkan semua script Anda di sini -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        
+        <script>
+            $(document).ready(function () {
+                $('#start-date, #end-date').datepicker({
+                    format: 'yyyy-mm-dd',
+                    todayHighlight: true,
+                    autoclose: true,
+                    startDate: new Date()
+                });
+        
+                $('#start-date, #end-date').on('changeDate', function (e) {
+                    const startDate = $('#start-date').val();
+                    const endDate = $('#end-date').val();
+                    const dateInfo = `Tanggal Awal: ${startDate}<br>Tanggal Akhir: ${endDate}`;
+                    $('#date-info').html(dateInfo);
+                });
+            });
+        
+            function validateForm() {
+                var startDate = document.getElementById('start-date').value;
+                var endDate = document.getElementById('end-date').value;
+        
+                if (!startDate || !endDate) {
+                    alert('Mohon isi kedua tanggal terlebih dahulu.');
+                    return false; // Mencegah pengiriman formulir
+                }
+                return true; // Kirim formulir jika semua syarat terpenuhi
+            }
+        </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
