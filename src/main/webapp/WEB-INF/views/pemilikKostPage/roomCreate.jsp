@@ -67,7 +67,7 @@
                 </span>
                 <h2>Saran: Tulis lengkap seluruh fasilitas yang tersedia</h2>
                 <div class="form mb-3 my-1">
-                    <textarea class="form-control mb-3 mx-1" style="height: 400px; width: 700px; margin-left: 300px;" id="address" name="address" required></textarea><br>
+                    <textarea class="form-control mb-3 mx-1" style="height: 400px; width: 700px; margin-left: 300px;" id="description" name="description" required></textarea><br>
                 </div><br>
 
                 <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px; background-color: #00BBB4;">Lanjutkan</button>
