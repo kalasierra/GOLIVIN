@@ -106,6 +106,7 @@
                         <div class="d-flex flex-column">
                             <p class="m-0">Tanggal Masuk</p>
                             <p class="m-0">Tanggal Keluar</p>
+                            <p class="m-0">Harga</p>
                             <p class="m-0">Payment Status</p>
                         </div>
                     </div>

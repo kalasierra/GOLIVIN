@@ -69,6 +69,9 @@
                         <button class="my-3">
                             <b>${room.room_id}</b>
                         </button>
+                        <button class="my-3">
+                            <b>Hapus Kamar</b>
+                        </button>
                         <div class="d-flex flex-column">
                             <p class="m-0">${room.description}</p>
                             <p>${room.price} / bulan</p>
