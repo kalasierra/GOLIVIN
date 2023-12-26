@@ -57,6 +57,9 @@
                     <!-- <span class="search-icon material-symbols-outlined">search</span> -->
                     <input class="search-input" type="search" placeholder="Search User">
                     <button type="submit" class="search-button">Go</button>
+                    <button type="button" class="save-changes-button" onclick="saveChanges()" style="background-color: #00BBB4; color: #ffffff; font-family: 'Poppins', sans-serif; border-radius: 10px; border-color: #00BBB4;">
+                        Save Changes
+                    </button>
                 </div>
             </form>
         </div>
@@ -97,6 +100,11 @@
         </table>
     </section>
     <!-- section approval pembayaran end -->
-
+    <script>
+        function saveChanges() {
+            var form = document.getElementById('approvalForm');
+            form.submit();
+        }
+    </script>
 </body>
 </html>
