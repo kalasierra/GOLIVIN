@@ -41,9 +41,10 @@
                         <img src="./aset/ikonuser.png" alt="Icon User" style="width: 30px;"/>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Edit Profil</a></li>
-                        <li><a class="dropdown-item" href="#">Riwayat Booking</a></li>
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutGolivin">Logout</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="#">Edit Profil</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="#">Riwayat Booking</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="#" data-bs-toggle="modal" data-bs-target="#logoutGolivin">Logout</a></li>
+
                     </ul>
                 </li>
                 
