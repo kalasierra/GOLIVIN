@@ -44,7 +44,7 @@ public class LandingPage {
             model.addAttribute("kosts", kosts);
             return "landingPage/indexPemilikKost";
         }
-        else if (user instanceof Admin)         {return "landingPage/index";}
+        else if (user instanceof Admin)         {return "redirect:/dashboard";}
         else                                    {return "test";}
     }
 }

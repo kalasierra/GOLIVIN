@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.Group11.TugasBesar.annotations.CheckLoggedIn;
 import com.Group11.TugasBesar.annotations.CheckPemilikKost;
 import com.Group11.TugasBesar.models.Kost;
 import com.Group11.TugasBesar.models.PemilikKost;
