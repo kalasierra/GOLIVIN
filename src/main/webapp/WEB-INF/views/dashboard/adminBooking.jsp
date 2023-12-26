@@ -68,87 +68,31 @@
                     <th scope="col">Nama Pencari</th>
                     <th scope="col">Email</th>
                     <th scope="col">Nama Kost</th>
-                    <th scope="col">Lama Sewa (bulan)</th>
+                    <th scope="col">Tanggal masuk</th>
+                    <th scope="col">Tanggal keluar</th>
                     <th scope="col">Total Pembayaran</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Budi</td>
-                    <td>budi01@gmail.com</td>
-                    <td>Sazira</td>
-                    <td>12</td>
-                    <td>Rp12.000.000,00</td>
-                    <td>
-                        <select class="custom-select">
-                            <option value="" disabled selected>Pilih</option>
-                            <option value="disetujui">Disetujui</option>
-                            <option value="ditolak">Ditolak</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Tutik</td>
-                    <td>tutik02@gmail.com</td>
-                    <td>Pondok Adawiyah</td>
-                    <td>24</td>
-                    <td>Rp16.000.000,00</td>
-                    <td>
-                        <select class="custom-select">
-                            <option value="" disabled selected>Pilih</option>
-                            <option value="disetujui">Disetujui</option>
-                            <option value="ditolak">Ditolak</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Supra</td>
-                    <td>supra03@gmail.com</td>
-                    <td>Qorina</td>
-                    <td>6</td>
-                    <td>Rp10.000.000,0</td>
-                    <td>
-                        <select class="custom-select">
-                            <option value="" disabled selected>Pilih</option>
-                            <option value="disetujui">Disetujui</option>
-                            <option value="ditolak">Ditolak</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Jono</td>
-                    <td>jono04@gmail.com</td>
-                    <td>Tirta Asri</td>
-                    <td>12</td>
-                    <td>Rp11.000.000,00</td>
-                    <td>
-                        <select class="custom-select">
-                            <option value="" disabled selected>Pilih</option>
-                            <option value="disetujui">Disetujui</option>
-                            <option value="ditolak">Ditolak</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Putri</td>
-                    <td>putri05@gmail.com</td>
-                    <td>Putri Jaya</td>
-                    <td>24</td>
-                    <td>Rp14.000.000,00</td>
-                    <td>
-                        <select class="custom-select">
-                            <option value="" disabled selected>Pilih</option>
-                            <option value="disetujui">Disetujui</option>
-                            <option value="ditolak">Ditolak</option>
-                        </select>
-                    </td>
-                </tr>
+                <c:forEach var="booking" items="${bookings}">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>${booking.pencariKost.user.username}</td>
+                        <td>${booking.pencariKost.user.email}</td>
+                        <td>${booking.room.kost.name}</td>
+                        <td>${booking.entryDate.date} ${booking.entryDate.month + 1} ${booking.entryDate.year + 1900}</td>
+                        <td>${booking.exitDate.date} ${booking.exitDate.month + 1} ${booking.exitDate.year + 1900}</td>
+                        <td>NULL</td>
+                        <td>
+                            <select class="custom-select">
+                                <option value="unpaid"   <c:if test="${booking.paymentStatus eq 'unpaid'}"   >disabled selected</c:if> >Unpaid</option>
+                                <option value="paid"     <c:if test="${booking.paymentStatus eq 'paid'}"     >disabled selected</c:if> >Paid</option>
+                                <option value="confirmed"<c:if test="${booking.paymentStatus eq 'confirmed'}">disabled selected</c:if> >Confirmed</option>
+                            </select>
+                        </td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </section>
