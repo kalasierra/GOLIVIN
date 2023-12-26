@@ -102,9 +102,9 @@
 }
 
 ul {
-    list-style-type: circle; /* Menggunakan bullet berbentuk lingkaran */
-    color: rgb(0, 0, 0); /* warna teks */
-    font-size: 20px; /* ukuran teks */
+    list-style-type: circle; 
+    color: rgb(0, 0, 0); 
+    font-size: 20px; 
     font-family: Poppins;
     text-align: justify;
     margin-left: 30px;
@@ -118,4 +118,59 @@ ul {
 
 .modal-title h5 {
     font-family: 'Poppins', sans-serif;
+}
+
+.modal-success {
+    text-align: center;
+}
+
+.modal-success .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.modal-success .modal-dialog .modal-content {
+    border-radius: 10px;
+}
+
+.modal-success .modal-dialog .modal-content .modal-header, .modal-body, .modal-footer {
+    padding: 20px;
+}
+
+.modal-success .modal-dialog .modal-content .modal-header .modal-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.modal-success .modal-dialog .modal-content .modal-footer .btn-secondary {
+    background-color: #00BBB4;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border-color: #00BBB4;
+    transition: background-color 0.3s ease;
+}
+
+.modal-success .modal-dialog .modal-content .modal-footer .btn-secondary:hover {
+    background-color: #007c75;
+}
+
+.row .btn-success {
+    background-color: #00BBB4;
+    border-color: #00BBB4;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.row .btn-success:hover {
+    background-color: #007c75; 
 }
