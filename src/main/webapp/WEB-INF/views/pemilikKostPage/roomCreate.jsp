@@ -70,7 +70,7 @@
                     <textarea class="form-control mb-3 mx-1" style="height: 400px; width: 700px; margin-left: 300px;" id="description" name="description" required></textarea><br>
                 </div><br>
 
-                <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px; background-color: #00BBB4;">Lanjutkan</button>
+                <button type="submit" class="btn btn-link no-border" style="margin-left: 1300px; background-color: #00BBB4; color: black; text-decoration: none;">Lanjutkan</button>
             </div>
         </form>
     <!-- form room section end -->

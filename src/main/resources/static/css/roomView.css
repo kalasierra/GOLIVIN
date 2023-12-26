@@ -47,8 +47,8 @@ body {
 }
 
 .addkos button{
-    width: 350px;
-    height: 400px;
+    width: 400px;
+    height: 615px;
     flex-shrink: 0;
     border-radius: 13px;
     background: #FFF;

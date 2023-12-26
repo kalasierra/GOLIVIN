@@ -64,9 +64,9 @@
                     </button>                    
                 </div>
                 <c:forEach var="kost" items="${kosts}">
-                    <div class="col-4 desc_kost my-3">
+                    <div class="col-4 desc_kost my-3"style="border: 2px solid #ccc; padding: 45px; border-radius: 20px;">
                         <img src="/aset/kost1.jpg" alt="">
-                        <p>Kost ID: ${kost.kost_id}</p>
+                        <p style="margin-top: 15px;">Kost ID: ${kost.kost_id}</p>
                         <form method="get" action="/edit/kost/${kost.kost_id}/room">
                             <button type="submit" class="my-3">
                                 <b>${kost.name}</b>

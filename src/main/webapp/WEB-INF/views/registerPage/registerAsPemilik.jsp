@@ -67,7 +67,7 @@
 
         <div class="row">
             <div class="col-6">
-                <form method="post" action="/register/pencari" contentType="application/json">
+                <form method="post" action="/register/pencari" onsubmit="return validateRegistrationForm();">
                     <div class="regist" style="margin-top: 100px;">
                     <div class="mb-3 my-4">
                         <label for="username" class="form-label" style="font-size: 20px;">Username</label>
@@ -95,6 +95,23 @@
             <div class="registpage col-6" style="margin-top: 50px;">
                 <img src="/aset/regist.png" alt="">
             </div>
+
+            <script>
+                function validateRegistrationForm() {
+                    var username = document.getElementById('username').value;
+                    var phoneNumber = document.getElementById('phoneNumber').value;
+                    var email = document.getElementById('email').value;
+                    var password = document.getElementById('password').value;
+            
+                    if (!username || !phoneNumber || !email || !password) {
+                        alert('Mohon isi semua data sebelum mendaftar!');
+                        return false; // Mencegah pengiriman formulir
+                    }
+                    return true; // Lanjutkan pengiriman formulir jika semua data sudah diisi
+                }
+            </script>
+            
+            
         </div>
     </section>
     <!-- regist section end -->

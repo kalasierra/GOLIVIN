@@ -61,7 +61,7 @@
         </div>
 
         <div class="row">
-            <form method="post" action="/login">
+            <form method="post" action="/login" onsubmit="return validateLoginForm();">
                 <div class="login1" style="margin-top: 50px;">
                 <div class="mb-3 my-4">
                     <label for="email" class="form-label" style="font-size: 20px;">Email</label>
@@ -124,6 +124,21 @@
     </div>
     <!-- Modal Section end -->
     
+
+    <script>
+        function validateLoginForm() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+    
+            if (!email || !password) {
+                alert('Mohon isi kedua kolom dengan informasi login Anda.');
+                return false; // Mencegah pengiriman formulir
+            }
+            return true; // Lanjutkan pengiriman formulir jika kedua kolom sudah diisi
+        }
+    </script>
+    
+
     
     <script>
         function registerAsPencari() {

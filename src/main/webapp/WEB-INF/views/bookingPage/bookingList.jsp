@@ -90,16 +90,16 @@
         <div class="text" style="font-size: 30px; margin-left: 280px;">
             <h1>Riwayat Transaksi</h1>
         </div>
-        <div class="container my-5">
+        <div class="container my-5" >
             <!-- <div class="row border border-danger"></div> -->
             <div class="row">
                 <c:forEach var="booking" items="${bookings}">
-                    <div class="col-4 desc_kost my-3">
+                    <div class="col-4 desc_kost my-3" style="border: 2px solid #ccc; padding: 45px; border-radius: 20px;">
                         <img src="/aset/kost1.jpg" alt="">
-                        <p>Room ID: ${booking.booking_id}</p>
+                        <p style="margin-top: 15px;">Room ID: ${booking.booking_id}</p>
                         <form method="get" action="/booking/${booking.booking_id}/date">
                             <button type="submit" class="my-3">
-                                <b>${booking.room.kost.name}</b>
+                                <b style="margin-top: 5px;">${booking.room.kost.name}</b>
                             </button>
                         </form>
                         

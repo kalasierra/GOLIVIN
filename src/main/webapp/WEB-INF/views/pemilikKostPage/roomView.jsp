@@ -47,7 +47,7 @@
                     </button>
                 </div>
                 <c:forEach var="room" items="${rooms}">
-                    <div class="col-4 desc_kost my-3">
+                    <div class="col-4 desc_kost my-3" style="border: 2px solid #ccc; padding: 33px; border-radius: 20px;">
                         <img src="/aset/kost1.jpg" alt="">
                         <button class="my-3">
                             <b>${room.room_id}</b>
