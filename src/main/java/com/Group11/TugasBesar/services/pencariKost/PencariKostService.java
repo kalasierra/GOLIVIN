@@ -7,7 +7,7 @@ public interface PencariKostService {
 
 	Response addPencariKost(UserRequest request);
 
-	Response getPencariKost();
+	Response getPencariKosts();
 
 	// Response getPencariKostByName(String name);
 }

@@ -65,48 +65,22 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nama Pencari</th>
+                    <th scope="col">Username</th>
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
                     <th scope="col">No HP</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Budi</td>
-                    <td>budi01@gmail.com</td>
-                    <td>budi01</td>
-                    <td>081241352913</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Tutik</td>
-                    <td>tutik02@gmail.com</td>
-                    <td>tutik02</td>
-                    <td>081241352913</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Supra</td>
-                    <td>supra03@gmail.com</td>
-                    <td>supra03</td>
-                    <td>081241352913</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Jono</td>
-                    <td>jono04@gmail.com</td>
-                    <td>jon04</td>
-                    <td>081241352913</td>                    
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Putri</td>
-                    <td>putri05@gmail.com</td>
-                    <td>putri05</td>
-                    <td>081241352913</td>
-                </tr>
+                <c:forEach var="pencariKost" items="${pencariKosts}">
+                    <tr>
+                        <th scope="row">${pencariKost.pencariKost_id}</th>
+                        <td>${pencariKost.user.username}</td>
+                        <td>${pencariKost.user.email}</td>
+                        <td>${pencariKost.user.password}</td>
+                        <td>${pencariKost.user.phoneNumber}</td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </section>

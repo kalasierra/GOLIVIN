@@ -52,6 +52,9 @@ public class PencariKostServiceImpl implements PencariKostService{
 			user.setPencariKost(pencariKost);
 			user = userRepository.save(user);
 
+			pencariKost.setUser(user);
+			pencariKostRepository.save(pencariKost);
+
 			Response response = new Response();
 			response.setStatus(HttpStatus.CREATED.value());
 			response.setMessage("User created successfully!");
@@ -68,7 +71,7 @@ public class PencariKostServiceImpl implements PencariKostService{
 	}
 
 	@Override
-  	public Response getPencariKost() {
+  	public Response getPencariKosts() {
 		List<PencariKost> pencariKosts = pencariKostRepository.findAll();
 
 		Response response = new Response();

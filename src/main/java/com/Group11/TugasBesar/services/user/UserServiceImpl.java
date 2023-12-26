@@ -2,6 +2,7 @@ package com.Group11.TugasBesar.services.user;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -72,8 +73,7 @@ public class UserServiceImpl implements UserService {
 		user = userRepository.save(user);
 
 		// int temp = user.getId();
-		// String retrievedUserId = Integer.toString(temp);
-		// Optional<User> retrievedUser = userRepository.findById(retrievedUserId);
+		// Optional<User> retrievedUser = userRepository.findById(temp);
 		// User editUser = retrievedUser.get();
 		// editUser.setUsername("SudahDiUpdateTerimakasih");
 		// userRepository.save(editUser);
@@ -167,6 +167,42 @@ public class UserServiceImpl implements UserService {
 		response.setStatus(HttpStatus.FOUND.value());
 		response.setMessage("User was found!");
 		response.setData(user);
+		return response;
+	}
+
+	@Override
+	public Response getUserByPencariKost(PencariKost pencariKost) {
+
+		List<PencariKost> pencariKosts = userRepository.findByPencariKost(pencariKost);
+
+		Response response = new Response();
+		response.setStatus(HttpStatus.FOUND.value());
+		response.setMessage("User created successfully!");
+		response.setData(pencariKosts);
+		return response;
+	}
+
+	@Override
+	public Response getUserByPemilikKost(PemilikKost pemilikKost) {
+		
+		List<PemilikKost> pemilikKosts = userRepository.findByPemilikKost(pemilikKost);
+
+		Response response = new Response();
+		response.setStatus(HttpStatus.FOUND.value());
+		response.setMessage("User created successfully!");
+		response.setData(pemilikKosts);
+		return response;
+	}
+
+	@Override
+	public Response getUserByAdmin(Admin admin) {
+		
+		List<Admin> admins = userRepository.findByAdmin(admin);
+
+		Response response = new Response();
+		response.setStatus(HttpStatus.FOUND.value());
+		response.setMessage("User created successfully!");
+		response.setData(admins);
 		return response;
 	}
 
