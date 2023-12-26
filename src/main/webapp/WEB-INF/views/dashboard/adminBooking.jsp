@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>approval kost</title>
-    <link rel="stylesheet" href="/css/approvalkost.css"/>
+    <link rel="stylesheet" href="/css/approvalpembayaran.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,25 +19,25 @@
             </div>
             <ul class="nav">
                 <li>
-                    <a href="/approvalkost.jsp" style="color: black; text-decoration: none;">
+                    <a href="${pageContext.request.contextPath}/dashboard/kost" style="color: black; text-decoration: none;">
                         <img src="/aset/pemilik.png" alt="approvalkos" style="vertical-align: middle; margin-right: 10px;">
-                        <span>Pemilik Kost</span>
+                        <span>Kost</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/approvalpembayaran.jsp" style="color: black; text-decoration: none; margin-left: 7px;">
+                    <a href="${pageContext.request.contextPath}/dashboard/booking" style="color: black; text-decoration: none; margin-left: 7px;">
                         <img src="/aset/pembayaran.png" alt="payment" style="vertical-align: middle; margin-right: 14px;">
-                        <span>Pembayaran</span>
+                        <span>Booking</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/adminpencarikos.jsp" style="color: black; text-decoration: none;">
+                    <a href="${pageContext.request.contextPath}/dashboard/pencariKost" style="color: black; text-decoration: none;">
                         <img src="/aset/pencari.png" alt="pencarikos" style="vertical-align: middle; margin-right: 14px;">
                         <span>Pencari Kost</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/logoutadmin.html" style="color: black; text-decoration: none;">
+                    <a href="${pageContext.request.contextPath}/logout" style="color: black; text-decoration: none;">
                         <img src="/aset/out.png" alt="pencarikos" style="vertical-align: middle; margin-right: 24px;">
                         <span>Logout</span>
                     </a>
@@ -46,16 +46,16 @@
     </section>
     <!-- section navbar end -->
 
-    <!-- section approval pemilik kost start -->
+    <!-- section approval pembayaran start -->
     <section>
         <div class="container my-3"> 
             <div class="text" style="font-size: 20px; margin-left: 280px;">
-                <h1>Daftar Kost</h1>
+                <h1>Daftar Pembayaran</h1>
             </div>
             <form>
                 <div class="search">
                     <!-- <span class="search-icon material-symbols-outlined">search</span> -->
-                    <input class="search-input" type="search" placeholder="Search Kost">
+                    <input class="search-input" type="search" placeholder="Search User">
                     <button type="submit" class="search-button">Go</button>
                 </div>
             </form>
@@ -65,20 +65,22 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col">Nama Pencari</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Nama Kost</th>
-                    <th scope="col">Pemilik</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">No HP</th>
+                    <th scope="col">Lama Sewa (bulan)</th>
+                    <th scope="col">Total Pembayaran</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Sazira</td>
                     <td>Budi</td>
-                    <td>Putri</td>
-                    <td>081241352913</td>
+                    <td>budi01@gmail.com</td>
+                    <td>Sazira</td>
+                    <td>12</td>
+                    <td>Rp12.000.000,00</td>
                     <td>
                         <select class="custom-select">
                             <option value="" disabled selected>Pilih</option>
@@ -89,10 +91,11 @@
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                    <td>Pondok Adawiyah</td>
                     <td>Tutik</td>
-                    <td>Putri</td>
-                    <td>081241352913</td>
+                    <td>tutik02@gmail.com</td>
+                    <td>Pondok Adawiyah</td>
+                    <td>24</td>
+                    <td>Rp16.000.000,00</td>
                     <td>
                         <select class="custom-select">
                             <option value="" disabled selected>Pilih</option>
@@ -103,10 +106,11 @@
                 </tr>
                 <tr>
                     <th scope="row">3</th>
-                    <td>Qorina</td>
                     <td>Supra</td>
-                    <td>Campur</td>
-                    <td>081241352913</td>
+                    <td>supra03@gmail.com</td>
+                    <td>Qorina</td>
+                    <td>6</td>
+                    <td>Rp10.000.000,0</td>
                     <td>
                         <select class="custom-select">
                             <option value="" disabled selected>Pilih</option>
@@ -117,10 +121,11 @@
                 </tr>
                 <tr>
                     <th scope="row">4</th>
-                    <td>Tirta Asri</td>
                     <td>Jono</td>
-                    <td>Putra</td>
-                    <td>081241352913</td>
+                    <td>jono04@gmail.com</td>
+                    <td>Tirta Asri</td>
+                    <td>12</td>
+                    <td>Rp11.000.000,00</td>
                     <td>
                         <select class="custom-select">
                             <option value="" disabled selected>Pilih</option>
@@ -131,10 +136,11 @@
                 </tr>
                 <tr>
                     <th scope="row">5</th>
+                    <td>Putri</td>
+                    <td>putri05@gmail.com</td>
                     <td>Putri Jaya</td>
-                    <td>Putri</td>
-                    <td>Putri</td>
-                    <td>081241352913</td>
+                    <td>24</td>
+                    <td>Rp14.000.000,00</td>
                     <td>
                         <select class="custom-select">
                             <option value="" disabled selected>Pilih</option>
@@ -146,6 +152,7 @@
             </tbody>
         </table>
     </section>
+    <!-- section approval pembayaran end -->
 
 </body>
 </html>

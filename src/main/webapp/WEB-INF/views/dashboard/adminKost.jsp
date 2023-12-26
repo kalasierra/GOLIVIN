@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>approval kost</title>
-    <link rel="stylesheet" href="/css/approvalpembayaran.css"/>
+    <link rel="stylesheet" href="/css/approvalkost.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -46,16 +46,16 @@
     </section>
     <!-- section navbar end -->
 
-    <!-- section pencari kost start -->
+    <!-- section approval pemilik kost start -->
     <section>
         <div class="container my-3"> 
             <div class="text" style="font-size: 20px; margin-left: 280px;">
-                <h1>Daftar User</h1>
+                <h1>Daftar Kost</h1>
             </div>
             <form>
                 <div class="search">
                     <!-- <span class="search-icon material-symbols-outlined">search</span> -->
-                    <input class="search-input" type="search" placeholder="Search User">
+                    <input class="search-input" type="search" placeholder="Search Kost">
                     <button type="submit" class="search-button">Go</button>
                 </div>
             </form>
@@ -65,26 +65,34 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Password</th>
+                    <th scope="col">Nama Kost</th>
+                    <th scope="col">Pemilik</th>
+                    <th scope="col">Putra</th>
+                    <th scope="col">Putri</th>
                     <th scope="col">No HP</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="pencariKost" items="${pencariKosts}">
+                <c:forEach var="kost" items="${kosts}">
                     <tr>
-                        <th scope="row">${pencariKost.pencariKost_id}</th>
-                        <td>${pencariKost.user.username}</td>
-                        <td>${pencariKost.user.email}</td>
-                        <td>${pencariKost.user.password}</td>
-                        <td>${pencariKost.user.phoneNumber}</td>
+                        <th scope="row">${kost.kost_id}</th>
+                        <td>${kost.name}</td>
+                        <td>${kost.pemilikKost.user.username}</td>
+                        <td>${kost.allowedMale}</td>
+                        <td>${kost.allowedFemale}</td>
+                        <td>${kost.pemilikKost.user.phoneNumber}</td>
+                        <td>
+                            <select class="custom-select">
+                                <option value="" disabled selected>Pilih</option>
+                                <option value="disetujui">Disetujui</option>
+                                <option value="ditolak">Ditolak</option>
+                            </select>
+                        </td>
                     </tr>
                 </c:forEach>
-            </tbody>
         </table>
     </section>
-    <!-- section pencari kost end -->
-    
+
 </body>
 </html>

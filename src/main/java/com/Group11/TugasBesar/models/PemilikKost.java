@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class PemilikKost {
@@ -16,6 +17,9 @@ public class PemilikKost {
     @GeneratedValue
     @Column(name = "pemilikKost_id")
     private int PemilikKost_id;
+
+    @OneToOne(mappedBy = "pemilikKost")
+    private User user;
 
     @OneToMany(mappedBy = "pemilikKost")
     private List<Kost> kosts = new ArrayList<>();
@@ -36,6 +40,14 @@ public class PemilikKost {
 
     public void setKosts(List<Kost> kosts) {
         this.kosts = kosts;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     
