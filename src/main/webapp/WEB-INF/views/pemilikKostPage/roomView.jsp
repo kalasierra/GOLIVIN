@@ -6,44 +6,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>homepage</title>
+    <title>room view</title>
     <link rel="stylesheet" href="/css/roomView.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-    <!-- navbar section start -->
-    <section class="header">
-        <div class="container-fluid cont_nav" style="height: 84px;">
-            <ul class="nav nav-pills justify-content-end content_nav">
-                <li class="logo my-3">
-                    <img src="/aset/logo.png" alt="">
-                </li>
-                <li class="nav-item my-3">
-                    <a class="nav-link" href="./dashboardpemilik.html">Home</a>
-                </li>
-                <li class="nav-item my-3">
-                    <a class="nav-link" href="./chatpemilik.html">Chat</a>
-                </li>
-                <li class="nav-item my-3">
-                    <a href="notifikasipemilik.html" style="color: black; text-decoration: none;">
-                        <img src="/aset/notification.png" alt="notif" style="margin-top: 9px; margin-right: 15px;">
-                    </a>
-                </li>
-                <li class="nav-item my-3">
-                    <a href="akunpemilik.html" style="color: black; text-decoration: none;">
-                        <img src="/aset/ikonuser.png" alt="notif" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
-                    </a>
-                </li>
-                <li class="nav-item my-3">
-                    <a href="/logout" style="color: black; text-decoration: none;">
-                        <img src="/aset/logout.png" alt="userpemilik" style=" margin-top: 5px; width: 33px; margin-right: 10px;">
-                    </a>
-                </li>
+    <!-- sidebar section start -->
+    <section>
+        <div class="sidebar">
+            <div class="image">
+                <img src="/aset/Logo copy.png" alt="">
+            </div>
+            <ul class="nav">
+                <span style="font-weight: bold;">
+                    Data Kamar
+                </span><br><br>
+            </ul>
         </div>
     </section>
-    <!-- navbar section end -->
+    <!-- sidebar section end -->
 
     <!-- kos section start -->
     <section class="list_kost">
@@ -70,7 +53,7 @@
                             <b>${room.room_id}</b>
                         </button>
                         <button class="my-3">
-                            <b>Hapus Kamar</b>
+                            <b>Edit Kamar</b>
                         </button>
                         <div class="d-flex flex-column">
                             <p class="m-0">${room.description}</p>

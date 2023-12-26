@@ -72,8 +72,12 @@
                                 <b>${kost.name}</b>
                             </button>
                         </form>
-                        
-                        <div class="d-flex flex-column">
+                        <button class="buttonedit">
+                            <a href="room/create" style="color: black; text-decoration: none;">
+                                <b>Edit Kost</b>
+                            </a>
+                        </button>
+                        <div class="d-flex flex-column" style="margin-top: 10px;">
                             <p class="m-0">Khusus Putra? ${kost.allowedMale}</p>
                             <p class="m-0">Khusus Putri? ${kost.allowedFemale}</p>
                             <p class="m-0">${kost.address}</p>
