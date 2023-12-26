@@ -17,7 +17,7 @@
         <div class="container-fluid cont_nav" style="height: 84px;">
             <ul class="nav nav-pills justify-content-end content_nav">
                 <li class="logo my-3">
-                    <img src="../src/main/resources/static/aset/logo.png" alt="">
+                    <img src="/aset/logo.png" alt="">
                 </li>
                 <li class="nav-item dropdown my-3">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
@@ -32,7 +32,7 @@
                 </li>
                 <li class="nav-item dropdown2 my-3">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                        <img src="../src/main/resources/static/aset/ikonuser.png" alt="Icon User" style="width: 30px;"/>
+                        <img src="/aset/ikonuser.png" alt="Icon User" style="width: 30px;"/>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Edit Profil</a></li>
@@ -75,10 +75,10 @@
             
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <img src="../src/main/resources/static/aset/kost2.png" alt="Slide 1">
+                                                <img src="/aset/kost2.png" alt="Slide 1">
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="../src/main/resources/static/aset/kost3.png" alt="Slide 2">
+                                                <img src="/aset/kost3.png" alt="Slide 2">
                                             </div>
                                         </div>
             

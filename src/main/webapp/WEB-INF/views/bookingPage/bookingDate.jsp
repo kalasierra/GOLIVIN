@@ -21,7 +21,7 @@
         <div class="container-fluid cont_nav" style="height: 84px;">
             <ul class="nav nav-pills justify-content-end content_nav">
                 <li class="logo my-3">
-                    <img src="../src/main/resources/static/aset/logo.png" alt="">
+                    <img src="/aset/logo.png" alt="">
                 </li>
                 <li class="nav-item dropdown my-3">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
@@ -38,7 +38,7 @@
                 <li class="nav-item dropdown2 my-3">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                         aria-expanded="false">
-                        <img src="../src/main/resources/static/aset/ikonuser.png" alt="Icon User"
+                        <img src="/aset/ikonuser.png" alt="Icon User"
                             style="width: 30px;" />
                     </a>
                     <ul class="dropdown-menu">
@@ -55,23 +55,37 @@
     <!-- Tanggal section start -->
     <section class="booking-section">
         <h2>Pilih Rentang Tanggal Sewa</h2>
-        <form id="booking-form" action = "${pageContext.request.contextPath}/booking/${booking_id}/payment" method="GET">
+        <form id="booking-form" action="${pageContext.request.contextPath}/booking/${booking_id}/payment" method="GET" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="start-date">Tanggal Masuk:</label>
-                <input type="text" id="start-date" name="start-date" class="form-control" placeholder="Pilih tanggal" autocomplete="off">
+                <input type="text" id="start-date" name="start-date" class="form-control" placeholder="Pilih tanggal" autocomplete="off" required>
             </div>
-
+        
             <div class="form-group">
                 <label for="end-date">Tanggal Keluar:</label>
-                <input type="text" id="end-date" name="end-date" class="form-control" placeholder="Pilih tanggal" autocomplete="off">
+                <input type="text" id="end-date" name="end-date" class="form-control" placeholder="Pilih tanggal" autocomplete="off" required>
             </div>
-
+        
             <div id="date-info">
                 <!-- Info tanggal akan ditampilkan di sini -->
             </div>
-
-            <button type="submit" class="btn btn-primary">Lanjutkan ke Pembayaran</button>
+        
+            <button type="submit" id="submitButton" class="btn btn-primary">Lanjutkan ke Pembayaran</button>
         </form>
+        
+        <script>
+            function validateForm() {
+                var startDate = document.getElementById('start-date').value;
+                var endDate = document.getElementById('end-date').value;
+        
+                if (!startDate || !endDate) {
+                    alert('Mohon isi kedua tanggal terlebih dahulu.');
+                    return false; // Mencegah pengiriman formulir
+                }
+                return true; // Kirim formulir jika semua syarat terpenuhi
+            }
+        </script>
+        
     </section>
     <!-- Tanggal section end -->
 
