@@ -18,41 +18,34 @@
     <!-- navbar section start -->
     <section class="header">
         <div class="container-fluid cont_nav" style="height: 84px;">
-            <div class="row">
-                <div class="col-4 my-2">
-                        <img src="./aset/logo.png" alt="">
-                </div>
-                <div class="col-4">
-                    <p>&nbsp;</p>
-                </div>
-                <div class="col-4">
-                    <ul class="nav nav-pills justify-content-end content_nav">
-                        <li class="nav-item dropdown my-3">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./listputra.html">Putra</a></li>
-                            <li><a class="dropdown-item" href="#">Putri</a></li>
-                            <li><a class="dropdown-item" href="#">Campur</a></li>
-                        </ul>
-                        </li>
-                        <li class="nav-item my-3">
-                            <a class="nav-link" href="#">Chat</a>
-                        </li>
-                        <li class="nav-item my-3">
-                            <button onclick="window.location.href='${pageContext.request.contextPath}/login'" class="btn btn-primary">
-                                Masuk
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="nav nav-pills justify-content-end content_nav">
+                <li class="logo my-3">
+                    <img src="./aset/logo.png" alt="">
+                </li>
+                <li class="nav-item dropdown my-3">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./listPutra.jsp">Putra</a></li>
+                    <li><a class="dropdown-item" href="./listPutri.jsp">Putri</a></li>
+                    <li><a class="dropdown-item" href="./listCampur.jsp">Campur</a></li>
+                </ul>
+                </li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" href="#">Chat</a>
+                </li>
+                <li class="nav-item my-3">
+                    <button onclick="window.location.href='${pageContext.request.contextPath}/login'" class="btn btn-primary">
+                        Masuk
+                    </button>
+                </li>
+            </ul>
         </div>
     </section>
     <!-- navbar section end -->
 
     <!-- login section start -->
     <section class="content">
-        <div class="container-fluid ActivityPage ">
+        <div class="container-fluid ActivityPage" style="margin-top: 50px;">
             <div class="row justify-content-center align-item-center ">
                 <div class=" col-5">
                     <h1 class="my-2"><b>Masuk ke golivin</b></h1>
@@ -60,7 +53,7 @@
                 <div class="col-5">
                     <div id="hasAcc" class="col-10 form-text">
                         <h2>
-                            <b><a href="${pageContext.request.contextPath}/homepage2" class="btn btn-link no-border">Home</a></b>
+                            <b><a href="${pageContext.request.contextPath}/homepage2" class="btn btn-link no-border" style="font-size: 20px;">Home</a></b>
                         </h2>
                     </div>
                 </div>            
@@ -69,24 +62,24 @@
 
         <div class="row">
             <form method="post" action="/login">
-                <div class="login1">
+                <div class="login1" style="margin-top: 50px;">
                 <div class="mb-3 my-4">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="email" class="form-label" style="font-size: 20px;">Email</label>
                     <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Kata Sandi</label>
+                    <label for="password" class="form-label" style="font-size: 20px;">Kata Sandi</label>
                     <input type="password" class="form-control" id="password" name ="password" placeholder="Minimal 8 karakter">
                 </div>
-                <div id="hasAcc" class="form-text">
+                <div id="hasAcc" class="form-text" style="font-size: 20px;">
                     Belum punya akun golivin? 
                     <!-- Trigger Modal -->
                     <a  href="#" data-bs-toggle="modal" data-bs-target="#loginGolivin">Daftar Sekarang</a> 
                 </div>                
                 <div>
-                    <a1 href="${pageContext.request.contextPath}/lupakatasandi" class="link-offset-1"><u>Lupa Kata Sandi</u></a1>
+                    <a1 href="${pageContext.request.contextPath}/lupakatasandi" class="link-offset-1" style="font-size: 20px;"><u>Lupa Kata Sandi</u></a1>
                 </div>
-                    <button type="submit" class="btn btn-primary my-3">
+                    <button type="submit" class="btn btn-primary my-3" style="font-size: 20px;">
                         Masuk
                     </button>
                 </div>
@@ -94,7 +87,7 @@
         </div>
     </section>
     <!-- login section end -->
-
+    
     <!-- Modal Section start -->
     <div class="modal login" id="loginGolivin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -130,10 +123,21 @@
         </div>
     </div>
     <!-- Modal Section end -->
+    
+    
+    <script>
+        function registerAsPencari() {
+            window.location.href = '${pageContext.request.contextPath}/register/pencari';
+        }
+    
+        function registerAsPemilik() {
+            window.location.href = '${pageContext.request.contextPath}/register/pemilik';
+        }
+    </script>
 
     <!-- footer section start -->
     <section>
-        <div class="container-fluid footer_cont">
+        <div class="container-fluid footer_cont" style="margin-top: 200px;">
             <div class="row">
                 <div class="col-4 description p-5">
                     <img class="mx-2" src="./aset/logobawah.png" alt="">
@@ -167,17 +171,8 @@
             </div>
         </div>
     </section>
-    <!-- footer section end -->    
-    
+    <!-- footer section end --> 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
-        function registerAsPencari() {
-            window.location.href = '${pageContext.request.contextPath}/register/pencari';
-        }
-    
-        function registerAsPemilik() {
-            window.location.href = '${pageContext.request.contextPath}/register/pemilik';
-        }
-    </script>
 </body>
 </html>

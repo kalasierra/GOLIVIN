@@ -22,10 +22,10 @@
                 </li>
                 <li class="nav-item dropdown my-3">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./listPutra.jsp">Putra</a></li>
-                    <li><a class="dropdown-item" href="./listPutri.jsp">Putri</a></li>
-                    <li><a class="dropdown-item" href="./listCampur.jsp">Campur</a></li>
+                <ul class="dropdown-menu" >
+                    <li><a class="dropdown-item" style="text-align: left;" href="./listPutra.jsp">Putra</a></li>
+                    <li><a class="dropdown-item" style="text-align: left;" href="./listPutri.jsp">Putri</a></li>
+                    <li><a class="dropdown-item" style="text-align: left;" href="./listCampur.jsp">Campur</a></li>
                 </ul>
                 </li>
                 <li class="nav-item my-3">
@@ -41,9 +41,9 @@
                         <img src="./aset/ikonuser.png" alt="Icon User" style="width: 30px;"/>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Edit Profil</a></li>
-                        <li><a class="dropdown-item" href="#">Riwayat Booking</a></li>
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutGolivin">Logout</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="#">Edit Profil</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="#">Riwayat Booking</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="#" data-bs-toggle="modal" data-bs-target="#logoutGolivin">Logout</a></li>
                     </ul>
                 </li>
                 
