@@ -21,22 +21,28 @@
                 </li>
                 <li class="nav-item dropdown my-3">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./listPutra.jsp">Putra</a></li>
-                    <li><a class="dropdown-item" href="./listPutri.jsp">Putri</a></li>
-                    <li><a class="dropdown-item" href="./listCampur.jsp">Campur</a></li>
+                <ul class="dropdown-menu" >
+                    <li><a class="dropdown-item" style="text-align: left;" href="./listPutra.jsp">Putra</a></li>
+                    <li><a class="dropdown-item" style="text-align: left;" href="./listPutri.jsp">Putri</a></li>
+                    <li><a class="dropdown-item" style="text-align: left;" href="./listCampur.jsp">Campur</a></li>
                 </ul>
                 </li>
                 <li class="nav-item my-3">
                     <a class="nav-link" href="#">Chat</a>
+                </li>
+                <li class="nav-item my-3">
+                    <a class="nav-link" href="">
+                        <img src="/aset/notification.png" alt="Icon Notif" style="width: 30px;"/>
+                    </a>
                 </li>
                 <li class="nav-item dropdown2 my-3">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                         <img src="/aset/ikonuser.png" alt="Icon User" style="width: 30px;"/>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Edit Profil</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="#">Edit Profil</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="/booking/list">Riwayat Booking</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="#" data-bs-toggle="modal" data-bs-target="#logoutGolivin">Logout</a></li>
                     </ul>
                 </li>
                 
@@ -105,8 +111,8 @@
                                                     <li>${room.description}</li>
                                                 </ul>
                                             </div>
-                                            <a href="${pageContext.request.contextPath}/chat" class="btn btn-primary">Chat</a>
-                                            <a href="${pageContext.request.contextPath}/room/${room.room_id}/book" class="btn btn-primary">Ajukan sewa</a>
+                                            <a href="${pageContext.request.contextPath}/chat" class="btn btn-primary" style="background-color: #00BBB4; border: none;">Chat</a>
+                                            <a href="${pageContext.request.contextPath}/room/${room.room_id}/book" class="btn btn-primary"style="background-color: #00BBB4; border: none;">Ajukan sewa</a>
                                         </div>
                                     </div>
                                 </div>
@@ -118,12 +124,43 @@
         </c:when>
         <c:otherwise>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12" style="margin-left: 430px; font-size: 25px; font-weight: bold; color: red; margin-top: 30px;">
                     <p>Maafkan kami, kost ini belum memiliki ruangan yang tersedia.</p>
                 </div>
             </div>
         </c:otherwise>
     </c:choose>
+
+    <!-- Modal Logout Start -->
+    <section>
+        <div class="modal logout" id="logoutGolivin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content shadow-lg">
+                    <div class="modal-header bg-gray-200">
+                        <h5 class="modal-title text-xm font-weight-bold text-info text-uppercase" id="logoutModalLabel">Keluar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Anda yakin ingin keluar?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light shadow-lg waves-effect" data-bs-dismiss="modal">
+                            <i class="fas fa-window-close"></i>Batal
+                        </button>
+                        <a type="button" class="btn btn-info shadow-lg waves-effect" onclick="logoutAndRedirect()">
+                            <i class="fas fa-sign-out-alt"></i>Ya, keluar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Modal Logout End -->
+    <script>
+        function logoutAndRedirect() {
+            window.location.href = '${pageContext.request.contextPath}/logout';
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
