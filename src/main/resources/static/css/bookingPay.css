@@ -101,3 +101,7 @@ button:hover {
 .payment-method-option input[type="radio"] {
     margin-right: 10px; /* Mengatur jarak antara radio button dan label */
 }
+
+.modal-title h5 {
+    font-family: 'Poppins', sans-serif;
+}
