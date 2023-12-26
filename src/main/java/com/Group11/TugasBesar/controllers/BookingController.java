@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @SpringBootApplication
 @Controller
 public class BookingController {
-    
+
     @Autowired
     private BookingService bookingService;
 
@@ -45,7 +45,6 @@ public class BookingController {
 
         return "bookingPage/bookingList";
     }
-    
 
     @GetMapping("/booking/{booking_id}")
     public String bookingLanding(@PathVariable("booking_id") int id) {
@@ -64,12 +63,10 @@ public class BookingController {
 
             HttpSession httpSession,
 
-            @RequestParam("start-date")
-            @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+            @RequestParam("start-date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
 
-            @RequestParam("end-date")
-            @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate,
-            
+            @RequestParam("end-date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate,
+
             Model model) {
 
         Response bookingResponse = bookingService.getBookingById(booking_id);
@@ -87,9 +84,10 @@ public class BookingController {
         Room room = booking.getRoom();
         long price = room.getPrice();
 
-        //Calculate the number of days passed 
-        long durationInMilliseconds = endDate.getTime() - startDate.getTime();          // Calculate the number of milliseconds between start date and end date
-        double numberOfDays = TimeUnit.MILLISECONDS.toDays(durationInMilliseconds);     // Convert milliseconds to days
+        // Calculate the number of days passed
+        long durationInMilliseconds = endDate.getTime() - startDate.getTime(); // Calculate the number of milliseconds
+                                                                               // between start date and end date
+        double numberOfDays = TimeUnit.MILLISECONDS.toDays(durationInMilliseconds); // Convert milliseconds to days
         double numberOfMonths = numberOfDays / 30.0;
 
         // Calculate and round the price
@@ -97,15 +95,15 @@ public class BookingController {
         long roundedPrice = Math.round(newPrice / 10.0) * 10;
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        
+
         model.addAttribute("start_date", dateFormat.format(startDate));
         model.addAttribute("end_date", dateFormat.format(endDate));
         model.addAttribute("price", roundedPrice);
         model.addAttribute("booking_id", booking_id);
-        
+
         return "bookingPage/bookingPayment";
     }
-    
+
     @GetMapping("/booking/{booking_id}/confirm")
     public String bookReque(@PathVariable("booking_id") int booking_id) {
 
@@ -119,9 +117,8 @@ public class BookingController {
         bookingRequest.setPencariKost(booking.getPencariKost());
         bookingRequest.setRoom(booking.getRoom());
         bookingResponse = bookingService.updateBookingById(booking_id, bookingRequest);
-        
+
         return "redirect:/booking/list";
     }
-    
-    
+
 }

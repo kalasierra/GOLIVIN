@@ -106,8 +106,7 @@
                         <div class="d-flex flex-column">
                             <p class="m-0">Tanggal Masuk  : ${booking.entryDate.date} ${booking.entryDate.month} ${booking.entryDate.year + 1900}</p>
                             <p class="m-0">Tanggal Keluar : ${booking.exitDate.date} ${booking.exitDate.month} ${booking.exitDate.year + 1900}</p>
-                            <p class="m-0">Harga          : UNAVAIBLE</p>
-                            <p class="m-0">Payment Status : ${booking.paymentStatus}</p>
+                            <p class="m-0">Booking Status : ${booking.paymentStatus}</p>
                         </div>
                     </div>
                 </c:forEach>
