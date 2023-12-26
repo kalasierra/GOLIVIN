@@ -2,7 +2,9 @@ package com.Group11.TugasBesar.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,15 +19,12 @@ import com.Group11.TugasBesar.models.Room;
 import com.Group11.TugasBesar.payloads.requests.BookingRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.booking.BookingService;
-import com.Group11.TugasBesar.services.room.RoomService;
 
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @CheckPencariKost
 @SpringBootApplication
@@ -34,6 +33,20 @@ public class BookingController {
     
     @Autowired
     private BookingService bookingService;
+
+    @GetMapping("/booking/list")
+    public String bookingListPage(HttpSession httpSession) {
+
+        // Take all booking from the logged user
+        PencariKost pencariKost = (PencariKost) httpSession.getAttribute("LOGGED_USER");
+        Response response = bookingService.getBookingByPencariKost(pencariKost);
+        List<Booking> bookings = (List<Booking>) response.getData();
+
+        httpSession.setAttribute("bookings", bookings);
+
+        return "bookingPage/bookingList";
+    }
+    
 
     @GetMapping("/booking/{booking_id}")
     public String bookingLanding(@PathVariable("booking_id") int id) {
@@ -108,7 +121,7 @@ public class BookingController {
         bookingRequest.setRoom(booking.getRoom());
         bookingResponse = bookingService.updateBookingById(booking_id, bookingRequest);
         
-        return "redirect:/";
+        return "redirect:/booking/list";
     }
     
     
