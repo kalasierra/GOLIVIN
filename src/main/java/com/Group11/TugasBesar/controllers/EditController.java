@@ -33,6 +33,18 @@ public class EditController {
 
     @Autowired
     private RoomService roomService;
+
+    @GetMapping("/edit/kost")
+    public String editLandingPage(HttpSession httpSession, Model model) {
+
+        PemilikKost currentPemilikKost = (PemilikKost) httpSession.getAttribute("LOGGED_USER");
+        // List<Kost> kosts = currentPemilikKost.getKosts();
+        Response response = kostService.getKostByPemilikKost(currentPemilikKost);
+        List<Kost> kosts = (List<Kost>) response.getData();
+
+        model.addAttribute("kosts", kosts);
+        return "landingPage/indexPemilikKost";
+    }
     
     @GetMapping("/edit/kost/create")
     public String createKostPage(HttpSession httpSession) {

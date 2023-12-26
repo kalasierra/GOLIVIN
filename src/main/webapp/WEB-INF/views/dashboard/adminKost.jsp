@@ -57,60 +57,61 @@
                     <!-- <span class="search-icon material-symbols-outlined">search</span> -->
                     <input class="search-input" type="search" placeholder="Search Kost">
                     <button type="submit" class="search-button">Go</button>
-                    <button type="button" class="save-changes-button" onclick="saveChanges()" style="background-color: #00BBB4; color: #ffffff; font-family: 'Poppins', sans-serif; border-radius: 10px; border-color: #00BBB4;">
-                        Save Changes
-                    </button>
                 </div>
             </form>
         </div>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nama Kost</th>
-                    <th scope="col">Pemilik</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">No HP</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <form action="/your-submit-action" method="post">
-                    <c:forEach var="kost" items="${kosts}">
-                        <tr>
-                            <th scope="row">${kost.kost_id}</th>
-                            <td>${kost.name}</td>
-                            <td>${kost.pemilikKost.user.username}</td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${kost.allowedMale}">
-                                        <c:choose>
-                                            <c:when test="${kost.allowedFemale}">
-                                                <p>Putra & Putri</p>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <p>Putra</p>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <p>Putri</p>
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                            <td>${kost.pemilikKost.user.phoneNumber}</td>
-                            <td>
-                                <input type="checkbox" name="yourCheckbox" id="yourCheckbox" 
-                                        <c:if test="${kost.approved}">checked</c:if>>
-                                <label for="yourCheckbox">Approved</label>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </form>
-        </table>
-    </section>
 
+        <form action="/your-submit-action" method="post">
+        <button type="button" class="save-changes-button" onclick="saveChanges()" style="background-color: #00BBB4; color: #ffffff; font-family: 'Poppins', sans-serif; border-radius: 10px; border-color: #00BBB4; margin-left: 1750px;">
+            Simpan perubahan
+        </button>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nama Kost</th>
+                        <th scope="col">Pemilik</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">No HP</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="kost" items="${kosts}">
+                    <tr>
+                        <th scope="row">${kost.kost_id}</th>
+                        <td>${kost.name}</td>
+                        <td>${kost.pemilikKost.user.username}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${kost.allowedMale}">
+                                    <c:choose>
+                                        <c:when test="${kost.allowedFemale}">
+                                            <p>Putra & Putri</p>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <p>Putra</p>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:when>
+                                <c:otherwise>
+                                    <p>Putri</p>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>${kost.pemilikKost.user.phoneNumber}</td>
+                        <td>
+                            <input type="checkbox" name="yourCheckbox" id="yourCheckbox" 
+                                    <c:if test="${kost.approved}">checked</c:if>>
+                            <label for="yourCheckbox">Approved</label>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </form>
+    </section>
+            
     <script>
         function saveChanges() {
             var form = document.getElementById('approvalForm');

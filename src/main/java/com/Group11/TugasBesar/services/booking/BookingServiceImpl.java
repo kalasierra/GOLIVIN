@@ -39,9 +39,9 @@ public class BookingServiceImpl implements BookingService{
     }
     
     @Override
-    public Response updateBookingById(int id, BookingRequest bookingRequest) {
+    public Response updateBookingById(int booking_id, BookingRequest bookingRequest) {
         
-        Booking booking = bookingRepository.findById(id).orElseThrow(() -> {
+        Booking booking = bookingRepository.findById(booking_id).orElseThrow(() -> {
             throw new NoSuchElementException("Booking is not found!");
         });
 
@@ -62,6 +62,42 @@ public class BookingServiceImpl implements BookingService{
     }
 
     @Override
+    public Response setBookingPaymentStatus(int booking_id, String paymentStatus) {
+
+        Booking booking = bookingRepository.findById(booking_id).orElseThrow(() -> {
+            throw new NoSuchElementException("Booking is not found!");
+        });
+
+        booking.setPaymentStatus(paymentStatus);
+        booking = bookingRepository.save(booking);
+
+        Response response = new Response();
+        response.setStatus(HttpStatus.CREATED.value());
+        response.setMessage("Booking successfully " + paymentStatus + "!");
+        response.setData(booking);
+        
+        return response;
+    }
+    
+    @Override
+    public Response setBookingPencariKost(int booking_id, PencariKost pencariKost) {
+
+        Booking booking = bookingRepository.findById(booking_id).orElseThrow(() -> {
+            throw new NoSuchElementException("Booking is not found!");
+        });
+
+        booking.setPencariKost(pencariKost);
+        booking = bookingRepository.save(booking);
+
+        Response response = new Response();
+        response.setStatus(HttpStatus.CREATED.value());
+        response.setMessage("Successfully changed booking's PemilikKost");
+        response.setData(booking);
+        
+        return response;
+    }
+
+    @Override
     public Response getBookings() {
         
         List<Booking> bookings = bookingRepository.findAll();
@@ -75,8 +111,8 @@ public class BookingServiceImpl implements BookingService{
     }
 
     @Override
-    public Response getBookingById(int id) {
-        Booking booking = bookingRepository.findById(id).orElseThrow(() -> {
+    public Response getBookingById(int booking_id) {
+        Booking booking = bookingRepository.findById(booking_id).orElseThrow(() -> {
             throw new NoSuchElementException("Booking is not found!");
         });
 

@@ -18,6 +18,7 @@ import com.Group11.TugasBesar.models.Room;
 import com.Group11.TugasBesar.payloads.requests.BookingRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.booking.BookingService;
+import com.Group11.TugasBesar.services.room.RoomService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -32,6 +33,9 @@ public class BookingController {
 
     @Autowired
     private BookingService bookingService;
+
+    @Autowired
+    private RoomService roomService;
 
     @GetMapping("/booking/list")
     public String bookingListPage(HttpSession httpSession) {
@@ -71,6 +75,8 @@ public class BookingController {
 
         Response bookingResponse = bookingService.getBookingById(booking_id);
         Booking booking = (Booking) bookingResponse.getData();
+
+        roomService.setRoomBooking(booking.getRoom().getRoom_id(), true);
 
         BookingRequest bookingRequest = new BookingRequest();
         bookingRequest.setEntryDate(startDate);

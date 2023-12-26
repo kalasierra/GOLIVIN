@@ -9,11 +9,15 @@ public interface BookingService {
 
     Response addBooking(BookingRequest bookingRequest);
 
-    Response updateBookingById(int id, BookingRequest bookingRequest);
+    Response updateBookingById(int booking_id, BookingRequest bookingRequest);
+
+    Response setBookingPaymentStatus(int booking_id, String paymentStatus);
+
+    Response setBookingPencariKost(int booking_id, PencariKost pencariKost);
 
     Response getBookings();
 
-    Response getBookingById(int id);
+    Response getBookingById(int booking_id);
 
     Response getBookingByRoom(Room room);
 

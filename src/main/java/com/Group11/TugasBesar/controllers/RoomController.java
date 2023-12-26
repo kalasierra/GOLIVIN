@@ -1,12 +1,13 @@
 package com.Group11.TugasBesar.controllers;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Group11.TugasBesar.annotations.CheckPencariKost;
 import com.Group11.TugasBesar.models.Booking;
@@ -38,20 +39,34 @@ public class RoomController {
         Response roomResponse = roomService.getRoomById(room_id);
         Room room = (Room) roomResponse.getData();
 
+        // If room is not booked yet
         if (room.isBooked() == false) {
-            roomService.setRoomBooking(room_id, true);
 
-            BookingRequest bookingRequest = new BookingRequest();
-            bookingRequest.setEntryDate(null);
-            bookingRequest.setExitDate(null);
-            bookingRequest.setPaymentStatus("unpaid");
-            bookingRequest.setPencariKost(pencariKost);
-            bookingRequest.setRoom(room);
-    
-            Response bookingResponse = bookingService.addBooking(bookingRequest);
-            Booking booking = (Booking) bookingResponse.getData();
-    
-            return "redirect:/booking/" + booking.getBooking_id();
+            try { // If the booking object were already exist
+                
+                Response response = bookingService.getBookingByRoom(room);
+                Booking booking = (Booking) response.getData();
+
+                bookingService.setBookingPencariKost(booking.getBooking_id(), pencariKost);
+
+                return "redirect:/booking/" + booking.getBooking_id();
+            }
+            catch (NoSuchElementException e) { // If there were no booking object exist
+
+                BookingRequest bookingRequest = new BookingRequest();
+                bookingRequest.setEntryDate(null);
+                bookingRequest.setExitDate(null);
+                bookingRequest.setPaymentStatus("unpaid");
+                bookingRequest.setPencariKost(pencariKost);
+                bookingRequest.setRoom(room);
+        
+                Response bookingResponse = bookingService.addBooking(bookingRequest);
+                Booking booking = (Booking) bookingResponse.getData();
+        
+                return "redirect:/booking/" + booking.getBooking_id();
+            }
+
+            
         }
         else {
             model.addAttribute("message", "room already booked");

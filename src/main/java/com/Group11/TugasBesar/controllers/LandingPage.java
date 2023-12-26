@@ -9,10 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.Group11.TugasBesar.models.Admin;
-import com.Group11.TugasBesar.models.Kost;
 import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.models.PencariKost;
-import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.kost.KostService;
 
 import jakarta.servlet.http.HttpSession;
@@ -34,16 +32,7 @@ public class LandingPage {
 
         if      (user == null)                  {return "landingPage/index";}
         else if (user instanceof PencariKost)   {return "landingPage/indexPencariKost";}
-        else if (user instanceof PemilikKost)   {
-            
-            PemilikKost currentPemilikKost = (PemilikKost) httpSession.getAttribute("LOGGED_USER");
-            // List<Kost> kosts = currentPemilikKost.getKosts();
-            Response response = kostService.getKostByPemilikKost(currentPemilikKost);
-            List<Kost> kosts = (List<Kost>) response.getData();
-
-            model.addAttribute("kosts", kosts);
-            return "landingPage/indexPemilikKost";
-        }
+        else if (user instanceof PemilikKost)   {return "redirect:/edit/kost";}
         else if (user instanceof Admin)         {return "redirect:/dashboard";}
         else                                    {return "test";}
     }
