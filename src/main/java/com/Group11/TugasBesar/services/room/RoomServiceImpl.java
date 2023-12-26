@@ -39,6 +39,45 @@ public class RoomServiceImpl implements RoomService{
     }
 
     @Override
+    public Response editRoomById(int room_id, RoomRequest roomRequest) {
+
+        Room room = roomRepository.findById(room_id).orElseThrow(() -> {
+            throw new NoSuchElementException("Room is not found");
+        });
+
+        room.setBooked(roomRequest.isBooked());
+        room.setDescription(roomRequest.getDescription());
+        room.setKost(roomRequest.getKost());
+        room.setPrice(roomRequest.getPrice());
+        room = roomRepository.save(room);
+
+        Response response = new Response();
+        response.setStatus(HttpStatus.OK.value());
+        response.setMessage("Room successfully edited");
+        response.setData(room);
+
+        return response;
+    }
+
+    @Override
+    public Response setRoomBooking(int room_id, boolean booked) {
+
+        Room room = roomRepository.findById(room_id).orElseThrow(() -> {
+            throw new NoSuchElementException("Room is not found");
+        });
+
+        room.setBooked(booked);
+        room = roomRepository.save(room);
+
+        Response response = new Response();
+        response.setStatus(HttpStatus.OK.value());
+        response.setMessage(booked ? "Room successfully booked" : "Room successfully un-booked");
+        response.setData(room);
+
+        return response;
+    }
+
+    @Override
     public Response getRoomById(int id) {
 
         Room room = roomRepository.findById(id).orElseThrow(() -> {
@@ -74,7 +113,19 @@ public class RoomServiceImpl implements RoomService{
 
         Response response = new Response();
 		response.setStatus(HttpStatus.CREATED.value());
-		response.setMessage("Success!");
+		response.setMessage("Room was found!");
+		response.setData(rooms);
+
+        return response;
+    }
+
+    @Override
+    public Response getRoomByBooked(boolean booked) {
+        List<Room> rooms = roomRepository.findByBooked(booked);
+
+        Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("Room was found!");
 		response.setData(rooms);
 
         return response;

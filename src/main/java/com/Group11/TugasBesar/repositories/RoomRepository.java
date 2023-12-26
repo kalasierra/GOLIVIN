@@ -12,4 +12,6 @@ import com.Group11.TugasBesar.models.Room;
 public interface RoomRepository extends JpaRepository<Room, Integer>{
     
     List<Room> findByKost(Kost kost);
+
+    List<Room> findByBooked(boolean booked);
 }

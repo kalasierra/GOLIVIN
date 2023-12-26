@@ -1,6 +1,7 @@
 package com.Group11.TugasBesar.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -57,6 +58,8 @@ public class KostController {
 
         response = roomService.getRoomByKost(kost);
         List<Room> rooms = (List<Room>) response.getData();
+
+        rooms.removeIf(room -> room.isBooked());
 
         model.addAttribute("rooms", rooms);
         model.addAttribute("address", kost.getAddress());

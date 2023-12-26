@@ -8,11 +8,15 @@ public interface RoomService {
 
     Response addRoom(RoomRequest request);
 
+    Response editRoomById(int room_id, RoomRequest roomRequest);
+
+    Response setRoomBooking(int room_id, boolean booked);
+
     Response getRoomById(int id);
 
     Response getRooms();
 
     Response getRoomByKost(Kost kost);
 
-    
+    Response getRoomByBooked(boolean booked);
 }
