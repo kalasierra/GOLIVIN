@@ -11,5 +11,4 @@ public class GoLivinApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GoLivinApplication.class, args);
 	}
-
 }

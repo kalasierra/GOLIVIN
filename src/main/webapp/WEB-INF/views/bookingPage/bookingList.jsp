@@ -93,21 +93,21 @@
         <div class="container my-5">
             <!-- <div class="row border border-danger"></div> -->
             <div class="row">
-                <c:forEach var="kost" items="${kosts}">
+                <c:forEach var="booking" items="${bookings}">
                     <div class="col-4 desc_kost my-3">
                         <img src="/aset/kost1.jpg" alt="">
-                        <p>Room ID: ${room.room_id}</p>
-                        <form method="get" action="/edit/kost/${kost.kost_id}/room">
+                        <p>Room ID: ${booking.booking_id}</p>
+                        <form method="get" action="/booking/${booking.booking_id}/date">
                             <button type="submit" class="my-3">
-                                <b>${kost.name}</b>
+                                <b>${booking.room.kost.name}</b>
                             </button>
                         </form>
                         
                         <div class="d-flex flex-column">
-                            <p class="m-0">Tanggal Masuk</p>
-                            <p class="m-0">Tanggal Keluar</p>
-                            <p class="m-0">Harga</p>
-                            <p class="m-0">Payment Status</p>
+                            <p class="m-0">Tanggal Masuk  : ${booking.entryDate.date} ${booking.entryDate.month} ${booking.entryDate.year + 1900}</p>
+                            <p class="m-0">Tanggal Keluar : ${booking.exitDate.date} ${booking.exitDate.month} ${booking.exitDate.year + 1900}</p>
+                            <p class="m-0">Harga          : UNAVAIBLE</p>
+                            <p class="m-0">Payment Status : ${booking.paymentStatus}</p>
                         </div>
                     </div>
                 </c:forEach>
