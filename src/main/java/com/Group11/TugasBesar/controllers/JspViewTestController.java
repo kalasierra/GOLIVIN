@@ -13,6 +13,6 @@ public class JspViewTestController {
 
     @RequestMapping(value = "view", method = RequestMethod.GET)
     public String registerPage(HttpSession session) {
-        return "bookingPage/bookingPayment";
+        return "searchPage/roomView";
     }
 }
