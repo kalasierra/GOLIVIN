@@ -42,7 +42,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" style="text-align: left;" href="#">Edit Profil</a></li>
-                        <li><a class="dropdown-item" style="text-align: left;" href="#">Riwayat Booking</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="/booking/list">Riwayat Booking</a></li>
                         <li><a class="dropdown-item" style="text-align: left;" href="#" data-bs-toggle="modal" data-bs-target="#logoutGolivin">Logout</a></li>
 
                     </ul>
