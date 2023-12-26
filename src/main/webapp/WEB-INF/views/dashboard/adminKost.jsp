@@ -67,8 +67,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Nama Kost</th>
                     <th scope="col">Pemilik</th>
-                    <th scope="col">Putra</th>
-                    <th scope="col">Putri</th>
+                    <th scope="col">Kategori</th>
                     <th scope="col">No HP</th>
                     <th scope="col">Status</th>
                 </tr>
@@ -79,15 +78,30 @@
                         <th scope="row">${kost.kost_id}</th>
                         <td>${kost.name}</td>
                         <td>${kost.pemilikKost.user.username}</td>
-                        <td>${kost.allowedMale}</td>
-                        <td>${kost.allowedFemale}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${kost.allowedMale}">
+                                    <c:choose>
+                                        <c:when test="${kost.allowedFemale}">
+                                            <p>Putra & Putri</p>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <p>Putra</p>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:when>
+                                <c:otherwise>
+                                    <p>Putri</p>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
                         <td>${kost.pemilikKost.user.phoneNumber}</td>
                         <td>
-                            <select class="custom-select">
-                                <option value="" disabled selected>Pilih</option>
-                                <option value="disetujui">Disetujui</option>
-                                <option value="ditolak">Ditolak</option>
-                            </select>
+                            <form action="/your-submit-action" method="post">
+                                <input type="checkbox" name="yourCheckbox" id="yourCheckbox" 
+                                       <c:if test="${kost.approved}">checked</c:if>>
+                                <label for="yourCheckbox">Approved</label>
+                            </form>
                         </td>
                     </tr>
                 </c:forEach>
