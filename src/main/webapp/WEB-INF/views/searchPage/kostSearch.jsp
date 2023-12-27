@@ -21,7 +21,9 @@
         <div class="container-fluid cont_nav" style="height: 84px;">
             <ul class="nav nav-pills justify-content-end content_nav">
                 <li class="logo my-3">
-                    <img src="/aset/logo.png" alt="">
+                    <a href="/">
+                        <img src="/aset/logo.png" alt="">
+                    </a>
                 </li>
                 <li class="nav-item dropdown my-3">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
