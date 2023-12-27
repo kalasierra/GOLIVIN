@@ -57,15 +57,26 @@
     
     <!-- searchbar section start -->
     <section>
-        <div class="search-bar">
-            <div class="search-input-container">
-                <input type="text" class="search-input" placeholder="Cari kost impian Anda di sini!" name="query">
-                <button type="submit" class="search-button">
-                    <img src="/aset/search1.png" alt="Search Icon">
-                </button>
+        <div class="search-container">
+            <div class="search-bar">
+                <div class="search-input-container">
+                    <input type="text" class="search-input" placeholder="Cari kost impian Anda di sini!" name="query">
+                    <button type="submit" class="search-button">
+                        <img src="/aset/search1.png" alt="Search Icon">
+                    </button>
+                </div>
+            </div> 
+            <div class="filter-options">
+                <label class="filter-label">
+                    <input type="checkbox" name="allowedMale"> Male
+                </label>
+                <label class="filter-label">
+                    <input type="checkbox" name="allowedFemale"> Female
+                </label>
             </div>
-        </div> 
+        </div>
     </section>
+    
     <!-- searchbar section end -->
 
     

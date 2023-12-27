@@ -92,3 +92,19 @@
     font-weight: bold;
     color: #333;
 }
+
+
+.filter-options {
+    margin-left: 700px; /* adjust as needed */
+}
+
+.filter-label {
+    margin-right: 10px; /* space between checkboxes and labels */
+    font-size: 16px; /* adjust font size as needed */
+}
+
+/* Styling checkboxes */
+input[type="checkbox"] {
+    margin-right: 5px; /* space between checkboxes */
+    vertical-align: middle; /* align checkboxes vertically with text */
+}
