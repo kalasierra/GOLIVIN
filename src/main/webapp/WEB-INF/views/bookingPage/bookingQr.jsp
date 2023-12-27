@@ -169,7 +169,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <img src="/src/main/resources/static/aset/Success.png" alt="Success Image" style="width: 100px; height: 100px;">
+                    <img src="/aset/Success.png" alt="Success Image" style="width: 100px; height: 100px;">
                     <p class="mt-3">Terima kasih! Pembayaran Anda telah berhasil.</p>
                 </div>
                 <div class="modal-footer justify-content-center">
