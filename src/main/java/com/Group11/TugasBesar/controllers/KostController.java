@@ -35,7 +35,7 @@ public class KostController {
     @GetMapping(value = "/kost/search")
     public String searchKostPage(HttpSession httpSession, Model model) {
         try {
-            Response response = kostService.getKosts();
+            Response response = kostService.getKostByApproved(true);
 
             List<Kost> kosts = (List<Kost>) response.getData();
 
