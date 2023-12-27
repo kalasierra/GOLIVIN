@@ -63,14 +63,10 @@ public class DashboardController {
         // System.out.println(approved);
 
         if (approved.equals("true")) {
-            Response response = kostService.setKostApproved(kost_id, true);
-            Kost kost = (Kost) response.getData();
-            System.out.println(kost.isApproved());
+            kostService.setKostApproved(kost_id, true);
         }
         else if (approved.equals("false")) {
-            Response response= kostService.setKostApproved(kost_id, false);
-            Kost kost = (Kost) response.getData();
-            System.out.println(kost.isApproved());
+            kostService.setKostApproved(kost_id, false);
         }
         else {
             model.addAttribute("message", "Unexpected error. Check om DashboardController");
@@ -92,10 +88,23 @@ public class DashboardController {
     }
 
     @PostMapping("/dashboard/booking/{booking_id}")
-    public String postMethodName(@RequestBody String entity) {
-        //TODO: process POST request
+    public String postMethodName(@RequestParam(value = "paymentStatus") String paymentStatus, @PathVariable(value="booking_id") int booking_id, Model model) {
         
-        return entity;
+        if (paymentStatus.equals("unpaid")) {
+            bookingService.setBookingPaymentStatus(booking_id, paymentStatus);
+        }
+        else if (paymentStatus.equals("paid")) {
+            bookingService.setBookingPaymentStatus(booking_id, paymentStatus);
+        }
+        else if (paymentStatus.equals("confirmed")) {
+            bookingService.setBookingPaymentStatus(booking_id, paymentStatus);
+        }
+        else {
+            model.addAttribute("message", "Unexpected error. Check om DashboardController");
+            return "unexpectedError";
+        }
+        
+        return "redirect:/dashboard/booking";
     }
     
 

@@ -13,5 +13,7 @@ public interface KostRepository extends JpaRepository<Kost, Integer>{
     
     Optional<Kost> findByName(String name);
 
+    List<Kost> findByApproved(boolean approved);
+
     List<Kost> findByPemilikKost(PemilikKost pemilikKost);
 }

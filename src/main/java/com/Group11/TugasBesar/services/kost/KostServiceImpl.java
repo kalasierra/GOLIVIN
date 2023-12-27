@@ -80,6 +80,18 @@ public class KostServiceImpl implements KostService{
         
         return response;
     }
+
+    @Override
+    public Response getKostByApproved(boolean approved) {
+        List<Kost> kosts = kostRepository.findByApproved(approved);
+
+        Response response = new Response();
+        response.setStatus(HttpStatus.FOUND.value());
+        response.setMessage("Kost was found");
+        response.setData(kosts);
+        
+        return response;
+    }
     
     @Override
     public Response getKostByPemilikKost(PemilikKost pemilikKost) {

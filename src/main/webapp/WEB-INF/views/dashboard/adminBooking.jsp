@@ -57,9 +57,6 @@
                     <!-- <span class="search-icon material-symbols-outlined">search</span> -->
                     <input class="search-input" type="search" placeholder="Search User">
                     <button type="submit" class="search-button">Go</button>
-                    <button type="button" class="save-changes-button" onclick="saveChanges()" style="background-color: #00BBB4; color: #ffffff; font-family: 'Poppins', sans-serif; border-radius: 10px; border-color: #00BBB4;">
-                        Save Changes
-                    </button>
                 </div>
             </form>
         </div>
@@ -88,11 +85,18 @@
                         <td>${booking.exitDate.date} ${booking.exitDate.month + 1} ${booking.exitDate.year + 1900}</td>
                         <td>NULL</td>
                         <td>
-                            <select class="custom-select">
-                                <option value="unpaid"   <c:if test="${booking.paymentStatus eq 'unpaid'}"   >selected</c:if> >Unpaid</option>
-                                <option value="paid"     <c:if test="${booking.paymentStatus eq 'paid'}"     >selected</c:if> >Paid</option>
-                                <option value="confirmed"<c:if test="${booking.paymentStatus eq 'confirmed'}">selected</c:if> >Confirmed</option>
-                            </select>
+                            <form action="/dashboard/booking/${booking.booking_id}" method="post">
+
+                                <select class="custom-select" name="paymentStatus">
+                                    <option value="unpaid"   <c:if test="${booking.paymentStatus eq 'unpaid'}"   >selected</c:if> >Unpaid</option>
+                                    <option value="paid"     <c:if test="${booking.paymentStatus eq 'paid'}"     >selected</c:if> >Paid</option>
+                                    <option value="confirmed"<c:if test="${booking.paymentStatus eq 'confirmed'}">selected</c:if> >Confirmed</option>
+                                </select>
+
+                                <button type="submit" class="save-changes-button" onclick="saveChanges()" style="background-color: #00BBB4; color: #ffffff; font-family: 'Poppins', sans-serif; border-radius: 10px; border-color: #00BBB4;">
+                                    Simpan perubahan
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 </c:forEach>
