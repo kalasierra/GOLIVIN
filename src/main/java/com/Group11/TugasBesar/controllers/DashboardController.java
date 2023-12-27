@@ -18,7 +18,11 @@ import com.Group11.TugasBesar.services.pencariKost.PencariKostService;
 import com.Group11.TugasBesar.services.user.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -51,6 +55,31 @@ public class DashboardController {
 
         return "dashboard/adminKost";
     }
+
+    @PostMapping("/dashboard/kost/{kost_id}")
+    public String kostApprove(@RequestParam(value = "approved") String approved, @PathVariable(value="kost_id") int kost_id, Model model) {
+        
+        // System.out.println(kost_id);
+        // System.out.println(approved);
+
+        if (approved.equals("true")) {
+            Response response = kostService.setKostApproved(kost_id, true);
+            Kost kost = (Kost) response.getData();
+            System.out.println(kost.isApproved());
+        }
+        else if (approved.equals("false")) {
+            Response response= kostService.setKostApproved(kost_id, false);
+            Kost kost = (Kost) response.getData();
+            System.out.println(kost.isApproved());
+        }
+        else {
+            model.addAttribute("message", "Unexpected error. Check om DashboardController");
+            return "unexpectedError";
+        }
+        
+        return "redirect:/dashboard/kost";
+    }
+    
     
     @GetMapping("/dashboard/booking")
     public String viewPayments(Model model) {
@@ -61,6 +90,14 @@ public class DashboardController {
         model.addAttribute("bookings", bookings);
         return "dashboard/adminBooking";
     }
+
+    @PostMapping("/dashboard/booking/{booking_id}")
+    public String postMethodName(@RequestBody String entity) {
+        //TODO: process POST request
+        
+        return entity;
+    }
+    
 
     @GetMapping("/dashboard/pencariKost")
     public String viewPencariKosts(Model model) {

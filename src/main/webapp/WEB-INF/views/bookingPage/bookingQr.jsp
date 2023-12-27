@@ -173,7 +173,9 @@
                     <p class="mt-3">Terima kasih! Pembayaran Anda telah berhasil.</p>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Okay</button>
+                    <form action="/booking/123/confirm" method="post">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Okay</button>
+                    </form>
                 </div>
             </div>
         </div>

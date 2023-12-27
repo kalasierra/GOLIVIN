@@ -8,6 +8,8 @@ public interface KostService {
 
     Response addKost(KostRequest request);
 
+    Response setKostApproved(int kost_id, boolean approved);
+
     Response getKosts();
 
     Response getKostById(int id);

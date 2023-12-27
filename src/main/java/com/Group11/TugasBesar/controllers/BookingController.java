@@ -111,20 +111,22 @@ public class BookingController {
     }
 
     @GetMapping("/booking/{booking_id}/confirm")
-    public String bookReque(@PathVariable("booking_id") int booking_id) {
+    public String bookConfirm(@PathVariable("booking_id") int booking_id) {
 
-        Response bookingResponse = bookingService.getBookingById(booking_id);
-        Booking booking = (Booking) bookingResponse.getData();
+        
 
-        BookingRequest bookingRequest = new BookingRequest();
-        bookingRequest.setEntryDate(booking.getEntryDate());
-        bookingRequest.setExitDate(booking.getExitDate());
-        bookingRequest.setPaymentStatus("paid");
-        bookingRequest.setPencariKost(booking.getPencariKost());
-        bookingRequest.setRoom(booking.getRoom());
-        bookingResponse = bookingService.updateBookingById(booking_id, bookingRequest);
+        return "redirect:/booking/" + booking_id + "/QR";
+    }
 
-        return "redirect:/booking/list";
+    @GetMapping("/booking/{booking_id}/QR")
+    public String bookQr(@PathVariable("booking_id") int booking_id, Model model) {
+
+        bookingService.setBookingPaymentStatus(booking_id, "paid");
+
+        Response response = bookingService.getBookingById(booking_id);
+        Booking booking = (Booking) response.getData();
+        model.addAttribute("booking", booking);
+        return "bookingPage/bookingQr";
     }
 
 }

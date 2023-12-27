@@ -135,7 +135,7 @@
     
                 <button class="cancel-button">Batalkan Pesanan</button>
 
-                <form id="booking-form" action = "${pageContext.request.contextPath}/booking/${booking_id}/confirm" method="GET">
+                <form id="booking-form" action = "${pageContext.request.contextPath}/booking/${booking_id}/QR" method="GET">
                     <button class="continue-button">Lanjutkan</button>
                 </form>
             </div>

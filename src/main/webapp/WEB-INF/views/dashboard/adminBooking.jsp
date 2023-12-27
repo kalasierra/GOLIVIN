@@ -89,9 +89,9 @@
                         <td>NULL</td>
                         <td>
                             <select class="custom-select">
-                                <option value="unpaid"   <c:if test="${booking.paymentStatus eq 'unpaid'}"   >disabled selected</c:if> >Unpaid</option>
-                                <option value="paid"     <c:if test="${booking.paymentStatus eq 'paid'}"     >disabled selected</c:if> >Paid</option>
-                                <option value="confirmed"<c:if test="${booking.paymentStatus eq 'confirmed'}">disabled selected</c:if> >Confirmed</option>
+                                <option value="unpaid"   <c:if test="${booking.paymentStatus eq 'unpaid'}"   >selected</c:if> >Unpaid</option>
+                                <option value="paid"     <c:if test="${booking.paymentStatus eq 'paid'}"     >selected</c:if> >Paid</option>
+                                <option value="confirmed"<c:if test="${booking.paymentStatus eq 'confirmed'}">selected</c:if> >Confirmed</option>
                             </select>
                         </td>
                     </tr>

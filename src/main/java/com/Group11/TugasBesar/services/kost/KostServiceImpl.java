@@ -39,6 +39,23 @@ public class KostServiceImpl implements KostService{
     }
 
     @Override
+    public Response setKostApproved(int kost_id, boolean approved) {
+        Kost kost = kostRepository.findById(kost_id).orElseThrow(() -> {
+            throw new NoSuchElementException("Kost is not found!");
+        });
+
+        kost.setApproved(approved);
+        kost = kostRepository.save(kost);
+
+        Response response = new Response();
+		response.setStatus(HttpStatus.CREATED.value());
+		response.setMessage("Kost approved successfully changed!");
+		response.setData(kost);
+
+        return response;
+    }
+
+    @Override
     public Response getKosts() {
         List<Kost> kosts = kostRepository.findAll();
 

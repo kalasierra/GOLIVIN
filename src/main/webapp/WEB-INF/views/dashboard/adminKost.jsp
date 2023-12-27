@@ -62,10 +62,6 @@
         </div>
 
 
-        <form action="/your-submit-action" method="post">
-        <button type="button" class="save-changes-button" onclick="saveChanges()" style="background-color: #00BBB4; color: #ffffff; font-family: 'Poppins', sans-serif; border-radius: 10px; border-color: #00BBB4; margin-left: 1750px;">
-            Simpan perubahan
-        </button>
             <table class="table">
                 <thead>
                     <tr>
@@ -74,7 +70,7 @@
                         <th scope="col">Pemilik</th>
                         <th scope="col">Kategori</th>
                         <th scope="col">No HP</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Approved</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,14 +98,21 @@
                         </td>
                         <td>${kost.pemilikKost.user.phoneNumber}</td>
                         <td>
-                            <input type="checkbox" name="yourCheckbox" id="yourCheckbox" 
-                                    <c:if test="${kost.approved}">checked</c:if>>
-                            <label for="yourCheckbox">Approved</label>
+                            <form action="/dashboard/kost/${kost.kost_id}" method="post">
+
+                                <select class="custom-select" name="approved">
+                                    <option value="true"  <c:if test="${kost.approved}">selected</c:if> >Yes</option>
+                                    <option value="false" <c:if test="${!kost.approved}">selected</c:if> >No</option>
+                                </select>
+
+                                <button type="submit" class="save-changes-button" onclick="saveChanges()" style="background-color: #00BBB4; color: #ffffff; font-family: 'Poppins', sans-serif; border-radius: 10px; border-color: #00BBB4;">
+                                    Simpan perubahan
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
-        </form>
     </section>
             
     <script>
