@@ -113,15 +113,13 @@ public class BookingController {
     @GetMapping("/booking/{booking_id}/confirm")
     public String bookConfirm(@PathVariable("booking_id") int booking_id) {
 
-        
+        bookingService.setBookingPaymentStatus(booking_id, "paid");
 
-        return "redirect:/booking/" + booking_id + "/QR";
+        return "redirect:/booking/list";
     }
 
     @GetMapping("/booking/{booking_id}/QR")
     public String bookQr(@PathVariable("booking_id") int booking_id, Model model) {
-
-        bookingService.setBookingPaymentStatus(booking_id, "paid");
 
         Response response = bookingService.getBookingById(booking_id);
         Booking booking = (Booking) response.getData();
