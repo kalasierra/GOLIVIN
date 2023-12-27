@@ -92,3 +92,7 @@ body {
     border-radius: 5px;
     padding: 8px;
 }
+
+a:visited, a:active, a:focus {
+    font-weight: bold;
+}

@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.Group11.TugasBesar.models.Kost;
-import com.Group11.TugasBesar.models.PemilikKost;
 import com.Group11.TugasBesar.models.Room;
 import com.Group11.TugasBesar.payloads.requests.RoomRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;

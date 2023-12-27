@@ -1,6 +1,7 @@
 package com.Group11.TugasBesar.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Group11.TugasBesar.models.Kost;
 import com.Group11.TugasBesar.models.Room;
@@ -33,14 +35,35 @@ public class KostController {
     }
 
     @GetMapping(value = "/kost/search")
-    public String searchKostPage(HttpSession httpSession, Model model) {
+    public String searchKostPage(
+        @RequestParam(name = "q", required = false) String query,
+        @RequestParam(name = "allowedMale", required = false) boolean male,
+        @RequestParam(name = "allowedFemale", required = false) boolean female,
+        HttpSession httpSession, Model model) {
+
         try {
             Response response = kostService.getKostByApproved(true);
-
             List<Kost> kosts = (List<Kost>) response.getData();
+
+            if (male) {
+                if (female) {
+                } else {
+                    kosts = kosts.stream()
+                        .filter(Kost::isAllowedMale)
+                        .collect(Collectors.toList());
+                }
+            } else if (female) {
+                kosts = kosts.stream()
+                    .filter(Kost::isAllowedFemale)
+                    .collect(Collectors.toList());
+            } else {
+                kosts.clear();
+            }
 
             // Passing all the kost to the JSP
             model.addAttribute("kosts", kosts);
+            model.addAttribute("allowedMale", male);
+            model.addAttribute("allowedFemale", female);
 
             return "searchPage/kostSearch";
         } catch (Exception e) {

@@ -60,20 +60,28 @@
         <div class="search-container">
             <div class="search-bar">
                 <div class="search-input-container">
-                    <input type="text" class="search-input" placeholder="Cari kost impian Anda di sini!" name="query">
-                    <button type="submit" class="search-button">
-                        <img src="/aset/search1.png" alt="Search Icon">
-                    </button>
+                    <form action="/kost/search" method="get">
+                        <input type="text" class="search-input" placeholder="Cari kost impian Anda di sini!" name="query">
+                        <label class="filter-label">
+                            <input type="checkbox" name="allowedMale" <c:if test="${allowedMale}">checked</c:if>> Male
+                        </label>
+                        <label class="filter-label">
+                            <input type="checkbox" name="allowedFemale" <c:if test="${allowedFemale}">checked</c:if>> Female
+                        </label>
+                        <button type="submit" class="search-button">
+                            <img src="/aset/search1.png" alt="Search Icon">
+                        </button>
+                    </form>
                 </div>
             </div> 
-            <div class="filter-options">
+            <!-- <div class="filter-options">
                 <label class="filter-label">
-                    <input type="checkbox" name="allowedMale"> Male
+                    <input type="checkbox" name="allowedMale" checked> Male
                 </label>
                 <label class="filter-label">
-                    <input type="checkbox" name="allowedFemale"> Female
+                    <input type="checkbox" name="allowedFemale" checked> Female
                 </label>
-            </div>
+            </div> -->
         </div>
     </section>
     
