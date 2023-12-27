@@ -3,7 +3,6 @@ package com.Group11.TugasBesar.models;
 import java.util.List;
 import java.util.ArrayList;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
