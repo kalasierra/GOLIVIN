@@ -1,5 +1,7 @@
 package com.Group11.TugasBesar.controllers;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
@@ -34,10 +36,10 @@ public class LoginController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String loginRequest(LoginRequest loginRequest, HttpSession httpSession, Model model) {
-
-        Response response = userService.login(loginRequest);
-
+        
+        Response response;
         try {
+            response = userService.login(loginRequest);
             User user = (User) response.getData();
 
             // If the user with the same username and password was found
@@ -73,17 +75,21 @@ public class LoginController {
                 }
                 else {
                     response.setMessage("User is not PencariKost, PemilikKost, or Admin");
-                    System.out.println("Something is wrong");
+                    model.addAttribute("message", response.getMessage());
                     return "unexpectedError";
                 }
             }
+            else if (response.getStatus() == HttpStatus.UNAUTHORIZED.value()) {
+                    model.addAttribute("isPasswordIncorrect", true);
+                    return "loginPage/login";
+                }
             else {
-                model.addAttribute("message", response.getMessage());
+                model.addAttribute("message", "Error over LoginController");
                 return "unexpectedError";
             }
-        } catch (Exception e) {
-            model.addAttribute("message", response.getMessage());
-            return "unexpectedError";
+        } catch (NoSuchElementException e) {
+            model.addAttribute("isUserNonexistent", true);
+            return "loginPage/login";
         }
     }
 

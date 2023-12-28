@@ -2,8 +2,10 @@ package com.Group11.TugasBesar.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,13 +41,17 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/register/pencari", method = RequestMethod.POST)
-    public ResponseEntity<?> registerAsPencari(UserRequest userRequest) {
-        try {
-            Response response = pencariKostService.addPencariKost(userRequest);
-            return ResponseEntity.status(response.getStatus()).body(response);
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError().body(e.getMessage());
+    public String registerAsPencari(UserRequest userRequest, Model model) {
+        
+        Response response = pencariKostService.addPencariKost(userRequest);
+
+        if (response.getStatus() == HttpStatus.CONFLICT.value()) {
+            model.addAttribute("isAccountAlreadyExist", true);
+            return "registerPage/registerAsPencari";
+        } else {
+            return "redirect:/login";
         }
+        
     }
 
 
@@ -55,12 +61,15 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/register/pemilik", method = RequestMethod.POST)
-    public ResponseEntity<?> registerAsPemilik(UserRequest userRequest) {
-        try {
-            Response response = pemilikKostService.addPemilikKost(userRequest);
-            return ResponseEntity.status(response.getStatus()).body(response);
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError().body(e.getMessage());
+    public String registerAsPemilik(UserRequest userRequest, Model model) {
+
+        Response response = pemilikKostService.addPemilikKost(userRequest);
+
+        if (response.getStatus() == HttpStatus.CONFLICT.value()) {
+            model.addAttribute("isAccountAlreadyExist", true);
+            return "registerPage/registerAsPemilik";
+        } else {
+            return "redirect:/login";
         }
     }
 

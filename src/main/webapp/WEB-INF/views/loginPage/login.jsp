@@ -83,12 +83,16 @@
                         Masuk
                     </button>
                     <div class="error-container">
-                        <div id="wrongPasswordBox" class="error-box hidden">
-                            <span class="error-message">Password salah.</span>
-                        </div>
-                        <div id="noAccountBox" class="error-box hidden">
-                            <span class="error-message">Tidak ada akun dengan email ini.</span>
-                        </div>
+                        <c:if test="${isPasswordIncorrect}">
+                            <div id="wrongPasswordBox" class="error-box hidden">
+                                <span class="error-message">Password salah.</span>
+                            </div>
+                        </c:if>
+                        <c:if test="${isUserNonexistent}">
+                            <div id="noAccountBox" class="error-box hidden">
+                                <span class="error-message">Tidak ada akun dengan email ini.</span>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </form>
