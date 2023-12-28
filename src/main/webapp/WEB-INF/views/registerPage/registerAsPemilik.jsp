@@ -67,7 +67,7 @@
 
         <div class="row">
             <div class="col-6">
-                <form method="post" action="/register/pencari" onsubmit="return validateRegistrationForm();">
+                <form method="post" action="/register/pemilik" onsubmit="return validateRegistrationForm();">
                     <div class="regist" style="margin-top: 100px;">
                         <div class="mb-3 my-4">
                             <label for="username" class="form-label" style="font-size: 20px;">Username</label>
