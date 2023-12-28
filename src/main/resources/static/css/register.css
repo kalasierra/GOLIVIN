@@ -115,16 +115,31 @@
 
 
 .container {
-    display: flex;           /* Menggunakan flexbox untuk tata letak */
-    align-items: center;     /* Pusatkan vertikal */
+    display: flex;         /* Menggunakan flexbox untuk tata letak */
+    align-items: center;   /* Pusatkan item secara vertikal */
 }
 
-.hiddenBox {
-    display: none;           /* Sembunyikan kotak */
-    border: 2px solid red;   /* Border warna merah */
-    background-color: #FF4D4D; /* Background merah cerah */
-    color: white;            /* Warna teks putih */
-    padding: 10px;
-    margin-left: 10px;       /* Jarak antara kotak dan tombol Daftar */
+.error-container {
+    display: flex;         /* Menggunakan flexbox untuk tata letak */
+    align-items: center;   /* Pusatkan item secara vertikal */
+   /* Jarak dari tombol "Daftar" */
 }
+
+.error-box {
+    border-radius: 10px;
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    width: fit-content;    /* agar kotak menyesuaikan dengan konten di dalamnya */
+     /* Jarak antar kotak pesan kesalahan */
+}
+
+.error-message {
+    display: inline;       /* agar pesan kesalahan muncul dalam baris yang sama */
+    color: white;          /* Warna teks putih */
+    font-weight: bold;     /* Teks menjadi tebal (bold) */
+}
+
+
 

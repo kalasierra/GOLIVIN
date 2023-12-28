@@ -82,11 +82,13 @@
                     <button type="submit" class="btn btn-primary my-3" style="font-size: 20px;">
                         Masuk
                     </button>
-                    <div class="hiddenBox" id="wrongPasswordBox">
-                        Password salah.
-                    </div>
-                    <div class="hiddenBox" id="noAccountBox">
-                        Tidak ada akun dengan email ini.
+                    <div class="error-container">
+                        <div id="wrongPasswordBox" class="error-box hidden">
+                            <span class="error-message">Password salah.</span>
+                        </div>
+                        <div id="noAccountBox" class="error-box hidden">
+                            <span class="error-message">Tidak ada akun dengan email ini.</span>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -158,7 +160,7 @@
 
     <!-- footer section start -->
     <section>
-        <div class="container-fluid footer_cont" style="margin-top: 200px;">
+        <div class="container-fluid footer_cont" style="margin-top: 95px;">
             <div class="row">
                 <div class="col-4 description p-5">
                     <img class="mx-2" src="./aset/logobawah.png" alt="">

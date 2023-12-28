@@ -205,16 +205,29 @@
     object-fit: cover;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-}
-
-.hiddenBox {
-    display: none;
+.error-box {
+    border-radius: 10px;
     border: 2px solid red;
-    background-color: #FF4D4D;
+    background-color: red;
     color: white;
     padding: 10px;
-    margin-left: 10px;
+    margin-top: 10px;
+    width: fit-content; /* agar kotak menyesuaikan dengan konten di dalamnya */
 }
+
+.error-message {
+    display: inline;     /* agar pesan kesalahan muncul dalam baris yang sama */
+    color: white;        /* Warna teks putih */
+    font-weight: bold;   /* Teks menjadi tebal (bold) */
+}
+
+.error-container {
+    display: flex;         /* Menggunakan flexbox untuk tata letak */
+    align-items: flex-start; /* Mengatur item agar berjejer di atas (vertikal) */
+    flex-direction: column; /* Mengatur arah konten menjadi vertikal */
+
+}
+
+
+
+

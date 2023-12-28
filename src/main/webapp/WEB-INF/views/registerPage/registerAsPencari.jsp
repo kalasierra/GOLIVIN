@@ -91,8 +91,10 @@
                         </div>                    
                         <div class="notifbox">
                             <button href="${pageContext.request.contextPath}/login" type="submit" class="btn btn-primary my-2">Daftar</button>
-                            <div class="hiddenBox" id="warningBox">
-                                Akun Sudah Terdaftar
+                            <div class="error-container">
+                                <div id="emailExistsBox" class="error-box hidden">
+                                    <span class="error-message">Email sudah terdaftar.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
