@@ -79,7 +79,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label" style="font-size: 20px;">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email" oninput="resetEmailStyles()">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label" style="font-size: 20px;">Password</label>
@@ -109,6 +109,41 @@
                     }
                     return true; // Lanjutkan pengiriman formulir jika semua data sudah diisi
                 }
+
+
+                function checkEmailAvailability(email) {
+                    // Anda harus mengganti URL dan metode sesuai dengan backend Anda
+                    fetch('/check-email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email: email })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.exists) {
+                            alert('Email sudah terdaftar. Silakan gunakan email lain.');
+                            document.getElementById('email').style.backgroundColor = 'red'; // Mengubah warna latar belakang input
+                            document.getElementById('email').style.borderColor = 'red'; // Mengubah warna border input
+                            return false; // Mencegah pengiriman formulir
+                        } else {
+                            // Jika email belum terdaftar, reset tampilan input
+                            document.getElementById('email').style.backgroundColor = ''; 
+                            document.getElementById('email').style.borderColor = '';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+
+
+                function resetEmailStyles() {
+                    document.getElementById('email').style.backgroundColor = ''; 
+                    document.getElementById('email').style.borderColor = '';
+                }
+
             </script>
             
             
