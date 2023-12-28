@@ -82,6 +82,12 @@
                     <button type="submit" class="btn btn-primary my-3" style="font-size: 20px;">
                         Masuk
                     </button>
+                    <div class="hiddenBox" id="wrongPasswordBox">
+                        Password salah.
+                    </div>
+                    <div class="hiddenBox" id="noAccountBox">
+                        Tidak ada akun dengan email ini.
+                    </div>
                 </div>
             </form>
         </div>

@@ -112,3 +112,19 @@
     object-fit: cover;
     width: 700px;
 }
+
+
+.container {
+    display: flex;           /* Menggunakan flexbox untuk tata letak */
+    align-items: center;     /* Pusatkan vertikal */
+}
+
+.hiddenBox {
+    display: none;           /* Sembunyikan kotak */
+    border: 2px solid red;   /* Border warna merah */
+    background-color: #FF4D4D; /* Background merah cerah */
+    color: white;            /* Warna teks putih */
+    padding: 10px;
+    margin-left: 10px;       /* Jarak antara kotak dan tombol Daftar */
+}
+

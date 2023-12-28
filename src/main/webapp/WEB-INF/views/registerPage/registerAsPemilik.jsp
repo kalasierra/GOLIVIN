@@ -69,27 +69,32 @@
             <div class="col-6">
                 <form method="post" action="/register/pencari" onsubmit="return validateRegistrationForm();">
                     <div class="regist" style="margin-top: 100px;">
-                    <div class="mb-3 my-4">
-                        <label for="username" class="form-label" style="font-size: 20px;">Username</label>
-                        <input type="name" class="form-control" id="username" name="username">
-                    </div>
-                    <div class="mb-3">
-                        <label for="phoneNumber" class="form-label" style="font-size: 20px;">Phone number</label>
-                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label" style="font-size: 20px;">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" oninput="resetEmailStyles()">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label" style="font-size: 20px;">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                    </div>
-                    <div id="hasAcc" class="form-text" style="font-size: 20px;">
-                        Sudah punya akun golivin? <a href="${pageContext.request.contextPath}/login" class="link-offset-1"><u>Masuk Disini</u></a>
-                    </div>                    
-                        <button href="${pageContext.request.contextPath}/login" type="submit" class="btn btn-primary my-2">Daftar</button>
-                    </div>
+                        <div class="mb-3 my-4">
+                            <label for="username" class="form-label" style="font-size: 20px;">Username</label>
+                            <input type="name" class="form-control" id="username" name="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label" style="font-size: 20px;">Phone number</label>
+                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label" style="font-size: 20px;">Email</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label" style="font-size: 20px;">Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div id="hasAcc" class="form-text" style="font-size: 20px;">
+                            Sudah punya akun golivin? <a href="${pageContext.request.contextPath}/login" class="link-offset-1"><u>Masuk Disini</u></a>
+                        </div>
+                        <div class="notifbox">
+                            <button href="${pageContext.request.contextPath}/login" type="submit" class="btn btn-primary my-2">Daftar</button>
+                            <div class="hiddenBox" id="warningBox">
+                                Akun Sudah Terdaftar
+                            </div>
+                        </div>                    
+                    </div>    
                 </form>
             </div>
             <div class="registpage col-6" style="margin-top: 50px;">
@@ -108,40 +113,6 @@
                         return false; // Mencegah pengiriman formulir
                     }
                     return true; // Lanjutkan pengiriman formulir jika semua data sudah diisi
-                }
-
-
-                function checkEmailAvailability(email) {
-                    // Anda harus mengganti URL dan metode sesuai dengan backend Anda
-                    fetch('/check-email', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ email: email })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.exists) {
-                            alert('Email sudah terdaftar. Silakan gunakan email lain.');
-                            document.getElementById('email').style.backgroundColor = 'red'; // Mengubah warna latar belakang input
-                            document.getElementById('email').style.borderColor = 'red'; // Mengubah warna border input
-                            return false; // Mencegah pengiriman formulir
-                        } else {
-                            // Jika email belum terdaftar, reset tampilan input
-                            document.getElementById('email').style.backgroundColor = ''; 
-                            document.getElementById('email').style.borderColor = '';
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-                }
-
-
-                function resetEmailStyles() {
-                    document.getElementById('email').style.backgroundColor = ''; 
-                    document.getElementById('email').style.borderColor = '';
                 }
 
             </script>

@@ -68,34 +68,55 @@
 
         <div class="row">
             <div class="col-6">
-                <form method="post" action="/register/pencari" contentType="application/json">
+                <form method="post" action="/register/pencari" contentType="application/json" onsubmit="return validateRegistrationForm();">
                     <div class="regist" style="margin-top: 100px;">
-                    <div class="mb-3 my-4">
-                        <label for="username" class="form-label" style="font-size: 20px;">Username</label>
-                        <input type="name" class="form-control" id="username" name="username">
-                    </div>
-                    <div class="mb-3">
-                        <label for="phoneNumber" class="form-label" style="font-size: 20px;">Phone number</label>
-                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label" style="font-size: 20px;">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label" style="font-size: 20px;">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                    </div>
-                    <div id="hasAcc" class="form-text" style="font-size: 20px;">
-                        Sudah punya akun golivin? <a href="${pageContext.request.contextPath}/login" class="link-offset-1"><u>Masuk Disini</u></a>
-                    </div>                    
-                        <button href="${pageContext.request.contextPath}/login" type="submit" class="btn btn-primary my-2">Daftar</button>
+                        <div class="mb-3 my-4">
+                            <label for="username" class="form-label" style="font-size: 20px;">Username</label>
+                            <input type="name" class="form-control" id="username" name="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label" style="font-size: 20px;">Phone number</label>
+                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label" style="font-size: 20px;">Email</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label" style="font-size: 20px;">Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div id="hasAcc" class="form-text" style="font-size: 20px;">
+                            Sudah punya akun golivin? <a href="${pageContext.request.contextPath}/login" class="link-offset-1"><u>Masuk Disini</u></a>
+                        </div>                    
+                        <div class="notifbox">
+                            <button href="${pageContext.request.contextPath}/login" type="submit" class="btn btn-primary my-2">Daftar</button>
+                            <div class="hiddenBox" id="warningBox">
+                                Akun Sudah Terdaftar
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="registpage col-6" style="margin-top: 50px;">
                 <img src="/aset/regist.png" alt="">
             </div>
+
+            <script>
+                function validateRegistrationForm() {
+                    var username = document.getElementById('username').value;
+                    var phoneNumber = document.getElementById('phoneNumber').value;
+                    var email = document.getElementById('email').value;
+                    var password = document.getElementById('password').value;
+            
+                    if (!username || !phoneNumber || !email || !password) {
+                        alert('Mohon isi semua data sebelum mendaftar!');
+                        return false; // Mencegah pengiriman formulir
+                    }
+                    return true; // Lanjutkan pengiriman formulir jika semua data sudah diisi
+                }
+
+            </script>
         </div>
     </section>
     <!-- regist section end -->

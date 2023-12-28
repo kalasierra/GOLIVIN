@@ -204,3 +204,17 @@
     height: 50px;
     object-fit: cover;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.hiddenBox {
+    display: none;
+    border: 2px solid red;
+    background-color: #FF4D4D;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+}
