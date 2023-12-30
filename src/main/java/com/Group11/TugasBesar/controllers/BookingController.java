@@ -86,10 +86,9 @@ public class BookingController {
         long price = room.getPrice();
 
         // Calculate the number of days passed
-        long durationInMilliseconds = exitDate.getTime() - entryDate.getTime(); // Calculate the number of milliseconds
-                                                                               // between start date and end date
-        double numberOfDays = TimeUnit.MILLISECONDS.toDays(durationInMilliseconds); // Convert milliseconds to days
-        double numberOfMonths = numberOfDays / 30.0;
+        long durationInMilliseconds = exitDate.getTime() - entryDate.getTime();     // Calculate the number of milliseconds                           
+        double numberOfDays = TimeUnit.MILLISECONDS.toDays(durationInMilliseconds); // between start date and end date
+        double numberOfMonths = numberOfDays / 30.0;                                // Convert milliseconds to days
 
         // Calculate and round the price
         double newPrice = price * numberOfMonths;
@@ -97,8 +96,8 @@ public class BookingController {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-        model.addAttribute("start_date", dateFormat.format(entryDate));
-        model.addAttribute("end_date", dateFormat.format(exitDate));
+        model.addAttribute("entryDate", dateFormat.format(entryDate));
+        model.addAttribute("exitDate", dateFormat.format(exitDate));
         model.addAttribute("price", roundedPrice);
         model.addAttribute("booking_id", booking_id);
 
