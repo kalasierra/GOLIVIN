@@ -2,6 +2,7 @@ package com.Group11.TugasBesar.models;
 
 import java.util.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,13 +19,13 @@ public class Booking {
     private int booking_id;
 
     @Column
-    private String paymentStatus;
-
-    @Column
     private Date entryDate;
 
     @Column
     private Date exitDate;
+
+    @Column
+    private Date expireTime;
 
     @ManyToOne
     @JoinColumn(name = "pencariKost_id")
@@ -34,21 +35,21 @@ public class Booking {
     @JoinColumn(name = "room_id")
     private Room room;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "payment_id")
+    private Payment payment;
+
     public Booking() {}
 
-    public Booking(String paymentStatus, Date entryDate, Date exitDate) {
-        this.paymentStatus = paymentStatus;
+    public Booking(String paymentStatus, Date entryDate, Date exitDate, Date timeExpire) {
         this.entryDate = entryDate;
         this.exitDate = exitDate;
+        this.expireTime = expireTime;
     }
 
     public int getBooking_id() {return booking_id;}
 
     public void setBooking_id(int booking_id) {this.booking_id = booking_id;}
-
-    public String getPaymentStatus() {return paymentStatus;}
-
-    public void setPaymentStatus(String paymentStatus) {this.paymentStatus = paymentStatus;}
 
     public Date getEntryDate() {return entryDate;}
 
@@ -65,6 +66,14 @@ public class Booking {
     public Room getRoom() {return room;}
 
     public void setRoom(Room room) {this.room = room;}
+
+    public Payment getPayment() {return payment;}
+
+    public void setPayment(Payment payment) {this.payment = payment;}
+
+    public Date getTimeExpire() {return expireTime;}
+
+    public void setTimeExpire(Date timeExpire) {this.expireTime = timeExpire;}
 
     
 }

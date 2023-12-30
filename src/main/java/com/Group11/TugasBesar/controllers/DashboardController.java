@@ -90,7 +90,7 @@ public class DashboardController {
     @PostMapping("/dashboard/booking/{booking_id}")
     public String postMethodName(@RequestParam(value = "paymentStatus") String paymentStatus, @PathVariable(value="booking_id") int booking_id, Model model) {
         
-        if (paymentStatus.equals("unpaid")) {
+        if (paymentStatus.equals("awaiting payment")) {
             bookingService.setBookingPaymentStatus(booking_id, paymentStatus);
         }
         else if (paymentStatus.equals("paid")) {

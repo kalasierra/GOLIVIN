@@ -4,6 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import java.util.Date;
@@ -13,99 +15,67 @@ import java.util.Date;
 public class Payment {
 
     @Id
+    @Column
     @GeneratedValue
-    @Column(name = "payment_id")
-    private int paymentId;
+    private int payment_id;
 
-    @Column(name = "payment_date")
-    private Date paymentDate;
+    @Column
+    private Date dateIssued;
 
-    @Column(name = "payment_method", length = 45)
-    private String paymentMethod;
+    @Column
+    private String method;
 
-    @Column(name = "payment_amount")
-    private int paymentAmount;
+    @Column
+    private long amount;
 
-    @Column(name = "booking_id")
-    private int bookingId;
+    @Column
+    private String status;
 
-    @Column(name = "pencari_kost_id")
-    private int pencariKost;
+    @ManyToOne
+    @JoinColumn(name = "pencariKost_id")
+    private PencariKost pencariKost;
 
-    @Column(name = "admin_id")
-    private int adminId;
+    @ManyToOne
+    @JoinColumn(name = "pemilikKost_id")
+    private PemilikKost pemilikKost;
 
-    // Constructors, getters, and setters
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
 
-    // Default constructor
-    public Payment() {
-    }
+    public Payment() {}
 
-    public Payment(int paymentId, Date paymentDate, String paymentMethod, int paymentAmount, int bookingId, int pencariKost, int adminId) {
-        this.paymentId = paymentId;
-        this.paymentDate = paymentDate;
-        this.paymentMethod = paymentMethod;
-        this.paymentAmount = paymentAmount;
-        this.bookingId = bookingId;
-        this.pencariKost = pencariKost;
-        this.adminId = adminId;
-    }
+    public int getPayment_id() {return payment_id;}
 
-    public int getPaymentId() {
-        return this.paymentId;
-    }
+    public void setPayment_id(int payment_id) {this.payment_id = payment_id;}
 
-    public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
-    }
+    public Date getDateIssued() {return dateIssued;}
 
-    public Date getPaymentDate() {
-        return this.paymentDate;
-    }
+    public void setDateIssued(Date dateIssued) {this.dateIssued = dateIssued;}
 
-    public void setPaymentDate(Date paymentDate) {
-        this.paymentDate = paymentDate;
-    }
+    public String getMethod() {return method;}
 
-    public String getPaymentMethod() {
-        return this.paymentMethod;
-    }
+    public void setMethod(String method) {this.method = method;}
 
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
+    public long getAmount() {return amount;}
 
-    public int getPaymentAmount() {
-        return this.paymentAmount;
-    }
+    public void setAmount(long amount) {this.amount = amount;}
 
-    public void setPaymentAmount(int paymentAmount) {
-        this.paymentAmount = paymentAmount;
-    }
+    public String getStatus() {return status;}
 
-    public int getBookingId() {
-        return this.bookingId;
-    }
+    public void setStatus(String status) {this.status = status;}
 
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
-    }
+    public PencariKost getPencariKost() {return pencariKost;}
 
-    public int getPencariKost() {
-        return this.pencariKost;
-    }
+    public void setPencariKost(PencariKost pencariKost) {this.pencariKost = pencariKost;}
 
-    public void setPencariKost(int pencariKost) {
-        this.pencariKost = pencariKost;
-    }
+    public PemilikKost getPemilikKost() {return pemilikKost;}
 
-    public int getAdminId() {
-        return this.adminId;
-    }
+    public void setPemilikKost(PemilikKost pemilikKost) {this.pemilikKost = pemilikKost;}
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
-    }
+    public Admin getAdmin() {return admin;}
 
- 
+    public void setAdmin(Admin admin) {this.admin = admin;}
+    
+    
 }

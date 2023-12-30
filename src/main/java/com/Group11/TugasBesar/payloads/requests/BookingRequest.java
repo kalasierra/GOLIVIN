@@ -6,25 +6,19 @@ import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.models.Room;
 
 public class BookingRequest {
-    private String paymentStatus;
     private Date entryDate;
     private Date exitDate;
-    private PencariKost pencariKost;
     private Room room;
+    private PencariKost pencariKost;
 
     public BookingRequest() {}
 
     public BookingRequest(String paymentStatus, Date entryDate, Date exitDate, PencariKost pencariKost, Room room) {
-        this.paymentStatus = paymentStatus;
         this.entryDate = entryDate;
         this.exitDate = exitDate;
         this.pencariKost = pencariKost;
         this.room = room;
     }
-
-    public String getPaymentStatus() {return paymentStatus;}
-
-    public void setPaymentStatus(String paymentStatus) {this.paymentStatus = paymentStatus;}
 
     public Date getEntryDate() {return entryDate;}
 

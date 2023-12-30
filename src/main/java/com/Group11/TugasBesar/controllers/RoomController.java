@@ -56,10 +56,9 @@ public class RoomController {
                 BookingRequest bookingRequest = new BookingRequest();
                 bookingRequest.setEntryDate(null);
                 bookingRequest.setExitDate(null);
-                bookingRequest.setPaymentStatus("unpaid");
                 bookingRequest.setPencariKost(pencariKost);
                 bookingRequest.setRoom(room);
-        
+
                 Response bookingResponse = bookingService.addBooking(bookingRequest);
                 Booking booking = (Booking) bookingResponse.getData();
         

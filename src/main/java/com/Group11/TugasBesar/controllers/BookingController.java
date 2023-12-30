@@ -64,13 +64,9 @@ public class BookingController {
     @GetMapping("/booking/{booking_id}/payment")
     public String bookingPayment(
             @PathVariable("booking_id") int booking_id,
-
             HttpSession httpSession,
-
-            @RequestParam("start-date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
-
-            @RequestParam("end-date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate,
-
+            @RequestParam("entryDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date entryDate,
+            @RequestParam("end-date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date exitDate,
             Model model) {
 
         Response bookingResponse = bookingService.getBookingById(booking_id);
@@ -79,9 +75,8 @@ public class BookingController {
         roomService.setRoomBooking(booking.getRoom().getRoom_id(), true);
 
         BookingRequest bookingRequest = new BookingRequest();
-        bookingRequest.setEntryDate(startDate);
-        bookingRequest.setExitDate(endDate);
-        bookingRequest.setPaymentStatus(booking.getPaymentStatus());
+        bookingRequest.setEntryDate(entryDate);
+        bookingRequest.setExitDate(exitDate);
         bookingRequest.setPencariKost(booking.getPencariKost());
         bookingRequest.setRoom(booking.getRoom());
         bookingResponse = bookingService.updateBookingById(booking_id, bookingRequest);
@@ -91,7 +86,7 @@ public class BookingController {
         long price = room.getPrice();
 
         // Calculate the number of days passed
-        long durationInMilliseconds = endDate.getTime() - startDate.getTime(); // Calculate the number of milliseconds
+        long durationInMilliseconds = exitDate.getTime() - entryDate.getTime(); // Calculate the number of milliseconds
                                                                                // between start date and end date
         double numberOfDays = TimeUnit.MILLISECONDS.toDays(durationInMilliseconds); // Convert milliseconds to days
         double numberOfMonths = numberOfDays / 30.0;
@@ -102,8 +97,8 @@ public class BookingController {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-        model.addAttribute("start_date", dateFormat.format(startDate));
-        model.addAttribute("end_date", dateFormat.format(endDate));
+        model.addAttribute("start_date", dateFormat.format(entryDate));
+        model.addAttribute("end_date", dateFormat.format(exitDate));
         model.addAttribute("price", roundedPrice);
         model.addAttribute("booking_id", booking_id);
 
