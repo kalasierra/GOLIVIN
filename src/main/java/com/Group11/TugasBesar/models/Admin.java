@@ -12,13 +12,23 @@ public class Admin {
     @Column(name = "admin_id")
     private int Admin_id;
 
+    @Column
+    private String role;
+
     public Admin() {}
 
-    public Admin(int Admin_id) {
+    public Admin(int Admin_id, String role) {
         this.Admin_id = Admin_id;
+        this.role = role;
     }
 
     public void setAdmin_id(int Admin_id) {this.Admin_id = Admin_id;}
 
     public int getAdmin_id() {return this.Admin_id;}
+
+    public String getRole() {return role;}
+
+    public void setRole(String role) {this.role = role;}
+
+    
 }

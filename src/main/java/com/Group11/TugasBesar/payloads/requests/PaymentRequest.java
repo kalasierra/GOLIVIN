@@ -1,58 +1,26 @@
-package com.Group11.TugasBesar.models;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+package com.Group11.TugasBesar.payloads.requests;
 
 import java.util.Date;
 
-@Entity
-@Table(name = "Payment")
-public class Payment {
+import com.Group11.TugasBesar.models.Admin;
+import com.Group11.TugasBesar.models.PemilikKost;
+import com.Group11.TugasBesar.models.PencariKost;
 
-    @Id
-    @Column
-    @GeneratedValue
-    private int payment_id;
+public class PaymentRequest {
 
-    @Column
     private Date dateIssued;
-
-    @Column
     private String method;
-
-    @Column
     private long amount;
-
-    @Column
     private String status;
-
-    @ManyToOne
-    @JoinColumn(name = "pencariKost_id")
     private PencariKost pencariKost;
-
-    @ManyToOne
-    @JoinColumn(name = "pemilikKost_id")
     private PemilikKost pemilikKost;
-
-    @ManyToOne
-    @JoinColumn(name = "admin_id")
     private Admin admin;
+    
+    public PaymentRequest() {
+    }
 
-    @OneToOne(mappedBy = "payment", cascade = CascadeType.ALL)
-    private Booking booking;
-
-    public Payment() {}
-
-    public Payment(int payment_id, Date dateIssued, String method, long amount, String status, PencariKost pencariKost,
-            PemilikKost pemilikKost, Admin admin, Booking booking) {
-        this.payment_id = payment_id;
+    public PaymentRequest(Date dateIssued, String method, long amount, String status, PencariKost pencariKost,
+            PemilikKost pemilikKost, Admin admin) {
         this.dateIssued = dateIssued;
         this.method = method;
         this.amount = amount;
@@ -60,12 +28,7 @@ public class Payment {
         this.pencariKost = pencariKost;
         this.pemilikKost = pemilikKost;
         this.admin = admin;
-        this.booking = booking;
     }
-
-    public int getPayment_id() {return payment_id;}
-
-    public void setPayment_id(int payment_id) {this.payment_id = payment_id;}
 
     public Date getDateIssued() {return dateIssued;}
 
@@ -95,9 +58,6 @@ public class Payment {
 
     public void setAdmin(Admin admin) {this.admin = admin;}
 
-    public Booking getBooking() {return booking;}
-
-    public void setBooking(Booking booking) {this.booking = booking;}
     
     
 }

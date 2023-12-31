@@ -2,22 +2,28 @@ package com.Group11.TugasBesar.payloads.requests;
 
 import java.util.Date;
 
+import com.Group11.TugasBesar.models.Payment;
 import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.models.Room;
 
 public class BookingRequest {
+
     private Date entryDate;
     private Date exitDate;
-    private Room room;
+    private Date expireTime;
     private PencariKost pencariKost;
+    private Room room;
+    private Payment payment;
 
     public BookingRequest() {}
 
-    public BookingRequest(String paymentStatus, Date entryDate, Date exitDate, PencariKost pencariKost, Room room) {
+    public BookingRequest(Date entryDate, Date exitDate, Date expireTime, Room room, PencariKost pencariKost, Payment payment) {
         this.entryDate = entryDate;
         this.exitDate = exitDate;
-        this.pencariKost = pencariKost;
+        this.expireTime = expireTime;
         this.room = room;
+        this.pencariKost = pencariKost;
+        this.payment = payment;
     }
 
     public Date getEntryDate() {return entryDate;}
@@ -36,4 +42,11 @@ public class BookingRequest {
 
     public void setRoom(Room room) {this.room = room;}
 
+    public Date getExpireTime() {return expireTime;}
+
+    public void setExpireTime(Date expireTime) { this.expireTime = expireTime;}
+
+    public Payment getPayment() {return payment;}
+
+    public void setPayment(Payment payment) {this.payment = payment;}
 }

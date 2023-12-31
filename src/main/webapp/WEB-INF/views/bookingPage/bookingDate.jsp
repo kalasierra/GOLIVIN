@@ -62,8 +62,8 @@
                 </div>
             
                 <div class="form-group">
-                    <label for="end-date">Tanggal Keluar:</label>
-                    <input type="text" id="end-date" name="end-date" class="form-control" placeholder="Pilih tanggal" autocomplete="off" required>
+                    <label for="exitDate">Tanggal Keluar:</label>
+                    <input type="text" id="exitDate" name="exitDate" class="form-control" placeholder="Pilih tanggal" autocomplete="off" required>
                 </div>
             
                 <div id="date-info">
@@ -83,7 +83,7 @@
         
         <script>
             $(document).ready(function () {
-                $('#entryDate, #end-date').datepicker({
+                $('#entryDate, #exitDate').datepicker({
                     format: 'yyyy-mm-dd',
                     todayHighlight: true,
                     autoclose: true,
@@ -94,7 +94,7 @@
         
             function validateForm() {
                 var entryDate = document.getElementById('entryDate').value;
-                var exitDate = document.getElementById('end-date').value;
+                var exitDate = document.getElementById('exitDate').value;
         
                 if (!entryDate || !exitDate) {
                     alert('Mohon isi kedua tanggal terlebih dahulu.');

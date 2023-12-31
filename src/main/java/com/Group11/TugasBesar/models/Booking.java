@@ -41,7 +41,7 @@ public class Booking {
 
     public Booking() {}
 
-    public Booking(String paymentStatus, Date entryDate, Date exitDate, Date timeExpire) {
+    public Booking(String paymentStatus, Date entryDate, Date exitDate, Date expireTime) {
         this.entryDate = entryDate;
         this.exitDate = exitDate;
         this.expireTime = expireTime;
@@ -71,9 +71,9 @@ public class Booking {
 
     public void setPayment(Payment payment) {this.payment = payment;}
 
-    public Date getTimeExpire() {return expireTime;}
+    public Date getexpireTime() {return expireTime;}
 
-    public void setTimeExpire(Date timeExpire) {this.expireTime = timeExpire;}
+    public void setexpireTime(Date expireTime) {this.expireTime = expireTime;}
 
     
 }

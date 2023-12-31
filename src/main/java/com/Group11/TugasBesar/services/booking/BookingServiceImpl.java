@@ -30,8 +30,10 @@ public class BookingServiceImpl implements BookingService{
         Booking booking = new Booking();
         booking.setEntryDate(bookingRequest.getEntryDate());
         booking.setExitDate(bookingRequest.getExitDate());
+        booking.setexpireTime(bookingRequest.getExpireTime());
         booking.setRoom(bookingRequest.getRoom());
         booking.setPencariKost(bookingRequest.getPencariKost());
+        booking.setPayment(bookingRequest.getPayment());
         booking = bookingRepository.save(booking);
 
         Response response = new Response();
@@ -51,14 +53,17 @@ public class BookingServiceImpl implements BookingService{
 
         booking.setEntryDate(bookingRequest.getEntryDate());
         booking.setExitDate(bookingRequest.getExitDate());
+        booking.setexpireTime(bookingRequest.getExpireTime());
+        booking.setRoom(bookingRequest.getRoom());
         booking.setPencariKost(bookingRequest.getPencariKost());
+        booking.setPayment(bookingRequest.getPayment());
         booking.setRoom(bookingRequest.getRoom());
 
         booking = bookingRepository.save(booking);
 
         Response response = new Response();
         response.setStatus(HttpStatus.CREATED.value());
-        response.setMessage("Booking created successfully!");
+        response.setMessage("Booking successfully updated!");
         response.setData(booking);
         
         return response;
