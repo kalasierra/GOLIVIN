@@ -20,7 +20,7 @@ public class User {
     private String username;
 
     @Column(name = "phoneNumber")
-    private String phoneNumber;
+    private Long phoneNumber;
 
     @Column(name = "email")
     private String email;
@@ -37,12 +37,12 @@ public class User {
     private PencariKost pencariKost;
 
     @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "pemilik_id", referencedColumnName = "pemilikKost_id")
+    @JoinColumn(name = "pemilikKost_id", referencedColumnName = "pemilikKost_id")
     private PemilikKost pemilikKost;
     
     public User() {}
 
-    public User(String username, String phoneNumber, String email, String password) {
+    public User(String username, Long phoneNumber, String email, String password) {
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -53,7 +53,7 @@ public class User {
 
     public String getUsername() {return this.username;}
     
-    public String getPhoneNumber() {return this.phoneNumber;}
+    public Long getPhoneNumber() {return this.phoneNumber;}
 
     public String getEmail() {return this.email;}
 
@@ -69,7 +69,7 @@ public class User {
 
     public void setUsername(String username) {this.username = username;}
 
-    public void setPhoneNumber(String phoneNumber) {this.phoneNumber = phoneNumber;}
+    public void setPhoneNumber(Long phoneNumber) {this.phoneNumber = phoneNumber;}
 
     public void setEmail(String email) {this.email = email;}
     

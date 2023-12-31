@@ -2,13 +2,13 @@ package com.Group11.TugasBesar.payloads.requests;
 
 public class UserRequest {
     private String username;
-    private String phoneNumber;
+    private Long phoneNumber;
     private String email;
     private String password;
     
     public UserRequest() {}
 
-    public UserRequest(String username, String phoneNumber, String email, String password) {
+    public UserRequest(String username, Long phoneNumber, String email, String password) {
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -17,7 +17,7 @@ public class UserRequest {
 
     public String getUsername() {return this.username;}
 
-    public String getPhoneNumber() {return this.phoneNumber;}
+    public Long getPhoneNumber() {return this.phoneNumber;}
 
     public String getEmail() {return this.email;}
     
@@ -25,7 +25,7 @@ public class UserRequest {
 
     public void setUsername(String username) {this.username = username;}
 
-    public void setPhoneNumber(String phoneNumber) {this.phoneNumber = phoneNumber;}
+    public void setPhoneNumber(Long phoneNumber) {this.phoneNumber = phoneNumber;}
 
     public void setEmail(String email) {this.email = email;}
     

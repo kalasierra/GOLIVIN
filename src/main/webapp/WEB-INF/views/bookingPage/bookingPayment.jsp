@@ -84,28 +84,29 @@
 
     <!-- Booking Pay start -->
     <section>
-        <div class="payment-container">
-            <div class="left-section">
-                <h1>Pembayaran</h1>
-                <div class="durasi" style="font-size: 20px;">
-                    <label for="paymentMethod">Durasi sewa kost:</label>
-                </div>
-                <c:out value="${start_date}"/> → <c:out value="${end_date}"/>
+        <form id="booking-form" action = "${pageContext.request.contextPath}/booking/${booking_id}/confirm" method="GET">
+            <div class="payment-container">
+                <div class="left-section">
+                    <h1>Pembayaran</h1>
+                    <div class="durasi" style="font-size: 20px;">
+                        <label for="paymentMethod">Durasi sewa kost:</label>
+                    </div>
+                    <c:out value="${entryDate}"/> → <c:out value="${exitDate}"/>
+                    
+                    <div class="payment" style="font-size: 20px;">
+                        <label for="paymentMethod">Pilih metode pembayaran:</label>
+                    </div>
+                    
+                    <div class="payment-method-option">
+                        <input type="radio" id="virtualAccount" name="method" value="Virtual Account">
+                        <label for="virtualAccount">Virtual Account</label>
+                    </div>
                 
-                <div class="payment" style="font-size: 20px;">
-                    <label for="paymentMethod">Pilih metode pembayaran:</label>
+                    <div class="payment-method-option">
+                        <input type="radio" id="QRIS" name="method" value="QRIS">
+                        <label for="QRIS">QRIS</label>
+                    </div>
                 </div>
-                
-                <div class="payment-method-option">
-                    <input type="radio" id="virtualAccount" name="paymentMethod" value="virtualAccount">
-                    <label for="virtualAccount">Virtual Account</label>
-                </div>
-            
-                <div class="payment-method-option">
-                    <input type="radio" id="qris" name="paymentMethod" value="qris">
-                    <label for="qris">QRIS</label>
-                </div>
-            </div>
             
     
             <div class="right-section">
@@ -113,33 +114,33 @@
                 <!-- Elemen untuk menampilkan metode pembayaran yang dipilih -->
                 <p id="selectedPaymentMethod">Metode Pembayaran:</p>
 
-            <script>
-                // Dapatkan semua elemen radio button dengan name="paymentMethod"
-                var radios = document.querySelectorAll('input[name="paymentMethod"]');
+                <script>
+                    // Dapatkan semua elemen radio button dengan name="paymentMethod"
+                    var radios = document.querySelectorAll('input[name="paymentMethod"]');
 
-                // Tambahkan event listener untuk setiap radio button
-                radios.forEach(function(radio) {
-                    radio.addEventListener('change', function() {
-                        if (this.checked) {
-                            // Perbarui elemen dengan ID 'selectedPaymentMethod' dengan teks "Metode Pembayaran: " diikuti dengan teks dari radio button yang dipilih
-                            document.getElementById('selectedPaymentMethod').innerText = "Metode Pembayaran: " + this.nextElementSibling.innerText;
-                        }
+                    // Tambahkan event listener untuk setiap radio button
+                    radios.forEach(function(radio) {
+                        radio.addEventListener('change', function() {
+                            if (this.checked) {
+                                // Perbarui elemen dengan ID 'selectedPaymentMethod' dengan teks "Metode Pembayaran: " diikuti dengan teks dari radio button yang dipilih
+                                document.getElementById('selectedPaymentMethod').innerText = "Metode Pembayaran: " + this.nextElementSibling.innerText;
+                            }
+                        });
                     });
-                });
-            </script>
+                </script>
 
     
-                <p>Subtotal: <span id="subtotal">Rp <c:out value="${price}" /></span></p>
-                <p>Biaya Administrasi: Rp 2500</p>
-                <p>Total: <span id="total"> ${price + 2500} </span></p>
-    
-                <button class="cancel-button">Batalkan Pesanan</button>
+                    <p>Subtotal: <span id="subtotal">Rp <c:out value="${price}" /></span></p>
+                    <p>Biaya Administrasi: Rp 2500</p>
+                    <p>Total: <span id="total"> ${price + 2500} </span></p>
+        
+                    <button class="cancel-button">Batalkan Pesanan</button>
 
-                <form id="booking-form" action = "${pageContext.request.contextPath}/booking/${booking_id}/QR" method="GET">
+                    
                     <button class="continue-button">Lanjutkan</button>
-                </form>
+                </div>
             </div>
-        </div>
+        </form>
     </section>
     <!-- Booking Pay end -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

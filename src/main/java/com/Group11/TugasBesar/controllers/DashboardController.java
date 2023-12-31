@@ -15,16 +15,11 @@ import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.booking.BookingService;
 import com.Group11.TugasBesar.services.kost.KostService;
 import com.Group11.TugasBesar.services.pencariKost.PencariKostService;
-import com.Group11.TugasBesar.services.user.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-
-
 
 @CheckAdmin
 @SpringBootApplication
@@ -90,7 +85,7 @@ public class DashboardController {
     @PostMapping("/dashboard/booking/{booking_id}")
     public String postMethodName(@RequestParam(value = "paymentStatus") String paymentStatus, @PathVariable(value="booking_id") int booking_id, Model model) {
         
-        if (paymentStatus.equals("unpaid")) {
+        if (paymentStatus.equals("awaiting payment")) {
             bookingService.setBookingPaymentStatus(booking_id, paymentStatus);
         }
         else if (paymentStatus.equals("paid")) {

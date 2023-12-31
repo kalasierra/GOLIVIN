@@ -88,7 +88,7 @@
                             <form action="/dashboard/booking/${booking.booking_id}" method="post">
 
                                 <select class="custom-select" name="paymentStatus">
-                                    <option value="unpaid"   <c:if test="${booking.paymentStatus eq 'unpaid'}"   >selected</c:if> >Unpaid</option>
+                                    <option value="awaiting payment"   <c:if test="${booking.paymentStatus eq 'awaiting payment'}"   >selected</c:if> >awaiting payment</option>
                                     <option value="paid"     <c:if test="${booking.paymentStatus eq 'paid'}"     >selected</c:if> >Paid</option>
                                     <option value="confirmed"<c:if test="${booking.paymentStatus eq 'confirmed'}">selected</c:if> >Confirmed</option>
                                 </select>

@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
 import com.Group11.TugasBesar.models.Booking;
+import com.Group11.TugasBesar.models.Payment;
 import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.models.Room;
 import com.Group11.TugasBesar.payloads.requests.BookingRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.repositories.BookingRepository;
+import com.Group11.TugasBesar.repositories.PaymentRepository;
 
 @Service
 public class BookingServiceImpl implements BookingService{
@@ -19,15 +21,19 @@ public class BookingServiceImpl implements BookingService{
     @Autowired
     private BookingRepository bookingRepository;
 
+    @Autowired
+    private PaymentRepository paymentRepository;
+
     @Override
     public Response addBooking(BookingRequest bookingRequest) {
         
         Booking booking = new Booking();
         booking.setEntryDate(bookingRequest.getEntryDate());
         booking.setExitDate(bookingRequest.getExitDate());
-        booking.setPaymentStatus(bookingRequest.getPaymentStatus());
+        booking.setexpireTime(bookingRequest.getExpireTime());
         booking.setRoom(bookingRequest.getRoom());
         booking.setPencariKost(bookingRequest.getPencariKost());
+        booking.setPayment(bookingRequest.getPayment());
         booking = bookingRepository.save(booking);
 
         Response response = new Response();
@@ -47,15 +53,17 @@ public class BookingServiceImpl implements BookingService{
 
         booking.setEntryDate(bookingRequest.getEntryDate());
         booking.setExitDate(bookingRequest.getExitDate());
-        booking.setPaymentStatus(bookingRequest.getPaymentStatus());
+        booking.setexpireTime(bookingRequest.getExpireTime());
+        booking.setRoom(bookingRequest.getRoom());
         booking.setPencariKost(bookingRequest.getPencariKost());
+        booking.setPayment(bookingRequest.getPayment());
         booking.setRoom(bookingRequest.getRoom());
 
         booking = bookingRepository.save(booking);
 
         Response response = new Response();
         response.setStatus(HttpStatus.CREATED.value());
-        response.setMessage("Booking created successfully!");
+        response.setMessage("Booking successfully updated!");
         response.setData(booking);
         
         return response;
@@ -68,8 +76,9 @@ public class BookingServiceImpl implements BookingService{
             throw new NoSuchElementException("Booking is not found!");
         });
 
-        booking.setPaymentStatus(paymentStatus);
-        booking = bookingRepository.save(booking);
+        Payment payment = booking.getPayment();
+        payment.setStatus(paymentStatus);
+        paymentRepository.save(payment);
 
         Response response = new Response();
         response.setStatus(HttpStatus.CREATED.value());

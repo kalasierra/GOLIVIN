@@ -37,10 +37,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Response addUser(UserRequest request) {
 
-		// System.out.println(request.getUsername());     // Debugging perposes
-		// System.out.println(request.getEmail());        // Debugging perposes
-		// System.out.println(request.getPassword());     // Debugging perposes
-		// System.out.println(request.getPhoneNumber());  // Debugging perposes
+		// System.out.println(request.getUsername());     // Debugging purposes
+		// System.out.println(request.getEmail());        // Debugging purposes
+		// System.out.println(request.getPassword());     // Debugging purposes
+		// System.out.println(request.getPhoneNumber());  // Debugging purposes
 		
 		User user = new User();
 		user.setUsername(request.getUsername());
