@@ -13,9 +13,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/main/resources/static/css/registrasi.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+    <style>
+        #notifDiv {
+            /* ... gaya-gaya lain ... */
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .notif-item img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .notif-item h2 {
+            font-size: 1.2em;
+            margin-top: 0;
+        }
+
+        .notif-item p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+    </style>
 
     <!-- navbar section start -->
     <section class="header">
@@ -25,32 +51,32 @@
                     <img src="./aset/logo.png" alt="">
                 </li>
                 <li class="nav-item dropdown my-3">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
-                <ul class="dropdown-menu" >
-                    <li><a class="dropdown-item" style="text-align: left;" href="./listPutra.jsp">Putra</a></li>
-                    <li><a class="dropdown-item" style="text-align: left;" href="./listPutri.jsp">Putri</a></li>
-                    <li><a class="dropdown-item" style="text-align: left;" href="./listCampur.jsp">Campur</a></li>
-                </ul>
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipe Kost</a>
+                    <ul class="dropdown-menu" >
+                        <li><a class="dropdown-item" style="text-align: left;" href="./listPutra.jsp">Putra</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="./listPutri.jsp">Putri</a></li>
+                        <li><a class="dropdown-item" style="text-align: left;" href="./listCampur.jsp">Campur</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item my-3" onclick="toggleNotif()">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="#">
                         <img src="./aset/notification.png" alt="Icon Notif" style="width: 30px;"/>
                     </a>
-                    <div class="notif-box" id="box">
-                        <h1><b>Notification</b></h1>
-                            <div class="notif-item">
-                                <img src="./aset/notif1.png" alt="">
-                                <h2>Booked kost berhasil!</h2>
-                                <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2023 dan check out 5 Januari 2024</p>
-                            </div>
-                            <div class="notif-item">
-                                <img src="./aset/notif1.png" alt="">
-                                <h2>Booked kost berhasil!</h2>
-                                <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2022 dan check out 5 Januari 2023</p>
-                            </div>
-                        </div>
-                    </div>
                 </li>
+                <!-- Struktur notifikasi yang akan ditampilkan saat di-klik -->
+                <div id="notifDiv" style="display: none; position: absolute; right: 10px; top: 50px; width: 300px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; z-index: 100;">
+                    <!-- Isi notifikasi Anda di sini -->
+                    <div class="notif-item">
+                        <img src="./aset/notif1.png" alt="">
+                        <h2>Booked kost berhasil!</h2>
+                        <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2023 dan check out 5 Januari 2024</p>
+                    </div>
+                    <div class="notif-item">
+                        <img src="./aset/notif1.png" alt="">
+                        <h2>Booked kost berhasil!</h2>
+                        <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2022 dan check out 5 Januari 2023</p>
+                    </div>
+                </div>
                 <li class="nav-item dropdown2 my-3">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                         <img src="./aset/ikonuser.png" alt="Icon User" style="width: 30px;"/>
@@ -279,7 +305,22 @@
             window.location.href = '${pageContext.request.contextPath}/logout';
         }
     </script>
-    <script src="../src/main/webapp/WEB-INF/views/notif.js"></script>
+    <!-- <script src="../src/main/webapp/WEB-INF/views/notif.js"></script> -->
+    <script>
+        function toggleNotif() {
+            // Ambil elemen notifikasi
+            var notifDiv = document.getElementById("notifDiv");
+    
+            // Toggle tampilan notifikasi
+            if (notifDiv.style.display === "none" || notifDiv.style.display === "") {
+                notifDiv.style.display = "block";
+            } else {
+                notifDiv.style.display = "none";
+            }
+        }
+    </script>
+    
+    
 </body>
 </html>
 
