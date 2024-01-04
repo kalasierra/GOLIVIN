@@ -39,12 +39,12 @@
                     <div class="notif-box" id="box">
                         <h1><b>Notification</b></h1>
                             <div class="notif-item">
-                                <img src="../src/main/resources/static/aset/notif1.png" alt="">
+                                <img src="./aset/notif1.png" alt="">
                                 <h2>Booked kost berhasil!</h2>
                                 <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2023 dan check out 5 Januari 2024</p>
                             </div>
                             <div class="notif-item">
-                                <img src="../src/main/resources/static/aset/notif1.png" alt="">
+                                <img src="./aset/notif1.png" alt="">
                                 <h2>Booked kost berhasil!</h2>
                                 <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2022 dan check out 5 Januari 2023</p>
                             </div>
