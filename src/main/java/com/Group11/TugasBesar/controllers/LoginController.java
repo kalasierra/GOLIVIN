@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import com.Group11.TugasBesar.services.user.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @SpringBootApplication
@@ -34,9 +36,12 @@ public class LoginController {
         return "loginPage/login";
     }
 
+
+    // @RequestMapping(value = "login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    // public String loginRequest(@RequestBody LoginRequest loginRequest, HttpSession httpSession, Model model) {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String loginRequest(LoginRequest loginRequest, HttpSession httpSession, Model model) {
-        
+
         Response response;
         try {
             response = userService.login(loginRequest);

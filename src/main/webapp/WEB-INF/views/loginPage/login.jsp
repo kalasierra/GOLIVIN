@@ -61,7 +61,7 @@
         </div>
 
         <div class="row">
-            <form method="post" action="/login" onsubmit="return validateLoginForm();">
+            <form method="post" action="/login" contentType="application/json" onsubmit="return validateLoginForm();">
                 <div class="login1" style="margin-top: 50px;">
                 <div class="mb-3 my-4">
                     <label for="email" class="form-label" style="font-size: 20px;">Email</label>

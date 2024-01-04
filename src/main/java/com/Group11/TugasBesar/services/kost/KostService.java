@@ -14,6 +14,8 @@ public interface KostService {
 
     Response getKostById(int id);
 
+    Response getKostByName(String name);
+
     Response getKostByApproved(boolean approved);
 
     Response getKostByPemilikKost(PemilikKost pemilikKost);
