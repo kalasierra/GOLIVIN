@@ -160,4 +160,21 @@ public class BookingServiceImpl implements BookingService{
 
         return response;
     }
+
+    @Override
+    public Response deleteBookingById(int booking_id) {
+        
+        Booking booking = bookingRepository.findById(booking_id).orElseThrow(() -> {
+            throw new NoSuchElementException("Booking is not found!");
+        });
+
+        bookingRepository.delete(booking);
+
+        Response response = new Response();
+        response.setStatus(HttpStatus.CREATED.value());
+        response.setMessage("Booking successfully deleted");
+        response.setData(null);
+
+        return response;
+    }
 }

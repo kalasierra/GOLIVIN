@@ -22,5 +22,7 @@ public interface BookingService {
     Response getBookingByRoom(Room room);
 
     Response getBookingByPencariKost(PencariKost pencariKost);
+
+    Response deleteBookingById(int booking_id);
     
 }
