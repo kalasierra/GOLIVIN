@@ -19,8 +19,8 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class LandingPage {
     
-    @RequestMapping({"/", "/home"})
-    public String home(HttpSession httpSession, Model model) {
+    @RequestMapping({"/"})
+    public String landingPage(HttpSession httpSession, Model model) {
         System.out.println("In LandingPage.jsp");
         System.out.println("USER_TYPE           : " + httpSession.getAttribute("USER_TYPE"));
         System.out.println("LOGGED_USER is null?: " + (httpSession.getAttribute("LOGGED_USER") == null));
@@ -28,7 +28,7 @@ public class LandingPage {
         Object user = httpSession.getAttribute("LOGGED_USER");
 
         if      (user == null)                  {return "landingPage/index";}
-        else if (user instanceof PencariKost)   {return "landingPage/indexPencariKost";}
+        else if (user instanceof PencariKost)   {return "redirect:/home";}
         else if (user instanceof PemilikKost)   {return "redirect:/edit/kost";}
         else if (user instanceof Admin)         {return "redirect:/dashboard";}
         else                                    {return "test";}

@@ -1,9 +1,12 @@
 package com.Group11.TugasBesar.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -15,6 +18,9 @@ public class PencariKost {
 
     @OneToOne(mappedBy = "pencariKost")
     private User user;
+
+    @OneToMany(mappedBy = "pencariKost")
+    private List<Notification> notification;
 
     public PencariKost() {}
 

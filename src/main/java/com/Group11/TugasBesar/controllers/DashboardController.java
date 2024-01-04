@@ -1,5 +1,6 @@
 package com.Group11.TugasBesar.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,11 @@ import com.Group11.TugasBesar.annotations.CheckAdmin;
 import com.Group11.TugasBesar.models.Booking;
 import com.Group11.TugasBesar.models.Kost;
 import com.Group11.TugasBesar.models.PencariKost;
+import com.Group11.TugasBesar.payloads.requests.NotificationRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.booking.BookingService;
 import com.Group11.TugasBesar.services.kost.KostService;
+import com.Group11.TugasBesar.services.notification.NotificationService;
 import com.Group11.TugasBesar.services.pencariKost.PencariKostService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +37,9 @@ public class DashboardController {
 
     @Autowired
     private BookingService bookingService;
+
+    @Autowired
+    private NotificationService notificationService;
     
     @GetMapping("/dashboard")
     public String dashboardPage() {
@@ -92,7 +98,27 @@ public class DashboardController {
             bookingService.setBookingPaymentStatus(booking_id, paymentStatus);
         }
         else if (paymentStatus.equals("confirmed")) {
-            bookingService.setBookingPaymentStatus(booking_id, paymentStatus);
+            Response response = bookingService.setBookingPaymentStatus(booking_id, paymentStatus);
+            Booking booking = (Booking) response.getData();
+            
+            Date currentDateAndTime = new Date();
+            NotificationRequest notificationRequest = new NotificationRequest();
+
+            notificationRequest.setMessage("An admin has confirmed your booking order!");
+            notificationRequest.setNotifyTime(currentDateAndTime);
+            notificationRequest.setPencariKost(booking.getPencariKost());
+            notificationService.addNotification(notificationRequest);
+
+            notificationRequest.setMessage("You can start GoLivin at room " + booking.getRoom().getRoom_id() + " and kost " + booking.getRoom().getKost().getName() + ". Enjoy your stay!");
+            notificationRequest.setNotifyTime(booking.getEntryDate());
+            notificationRequest.setPencariKost(booking.getPencariKost());
+            notificationService.addNotification(notificationRequest);
+
+            notificationRequest.setMessage("Your booking order at room " + booking.getRoom().getRoom_id() + " and kost " + booking.getRoom().getKost().getName() + " has expired. Thanks for your visit!");
+            notificationRequest.setNotifyTime(booking.getExitDate());
+            notificationRequest.setPencariKost(booking.getPencariKost());
+            notificationService.addNotification(notificationRequest);
+
         }
         else {
             model.addAttribute("message", "Unexpected error. Check om DashboardController");

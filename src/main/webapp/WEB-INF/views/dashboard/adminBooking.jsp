@@ -83,14 +83,14 @@
                         <td>${booking.room.kost.name}</td>
                         <td>${booking.entryDate.date} ${booking.entryDate.month + 1} ${booking.entryDate.year + 1900}</td>
                         <td>${booking.exitDate.date} ${booking.exitDate.month + 1} ${booking.exitDate.year + 1900}</td>
-                        <td>NULL</td>
+                        <td>${booking.payment.amount}</td>
                         <td>
                             <form action="/dashboard/booking/${booking.booking_id}" method="post">
 
                                 <select class="custom-select" name="paymentStatus">
-                                    <option value="awaiting payment"   <c:if test="${booking.paymentStatus eq 'awaiting payment'}"   >selected</c:if> >awaiting payment</option>
-                                    <option value="paid"     <c:if test="${booking.paymentStatus eq 'paid'}"     >selected</c:if> >Paid</option>
-                                    <option value="confirmed"<c:if test="${booking.paymentStatus eq 'confirmed'}">selected</c:if> >Confirmed</option>
+                                    <option value="awaiting payment"   <c:if test="${booking.payment.status eq 'awaiting payment'}"   >selected</c:if> >awaiting payment</option>
+                                    <option value="paid"     <c:if test="${booking.payment.status eq 'paid'}"     >selected</c:if> >Paid</option>
+                                    <option value="confirmed"<c:if test="${booking.payment.status eq 'confirmed'}">selected</c:if> >Confirmed</option>
                                 </select>
 
                                 <button type="submit" class="save-changes-button" onclick="saveChanges()" style="background-color: #00BBB4; color: #ffffff; font-family: 'Poppins', sans-serif; border-radius: 10px; border-color: #00BBB4;">
