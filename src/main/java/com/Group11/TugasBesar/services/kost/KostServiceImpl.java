@@ -82,6 +82,20 @@ public class KostServiceImpl implements KostService{
     }
 
     @Override
+    public Response getKostByName(String name) {
+        Kost kost = kostRepository.findByName(name).orElseThrow(() -> {
+            throw new NoSuchElementException("Kost is not found!");
+        });
+
+        Response response = new Response();
+        response.setStatus(HttpStatus.FOUND.value());
+        response.setMessage("Kost was found");
+        response.setData(kost);
+        
+        return response;
+    }
+
+    @Override
     public Response getKostByApproved(boolean approved) {
         List<Kost> kosts = kostRepository.findByApproved(approved);
 

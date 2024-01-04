@@ -18,9 +18,6 @@ import jakarta.servlet.http.HttpSession;
 @SpringBootApplication
 @Controller
 public class LandingPage {
-
-    @Autowired
-    private KostService kostService;
     
     @RequestMapping({"/", "/home"})
     public String home(HttpSession httpSession, Model model) {

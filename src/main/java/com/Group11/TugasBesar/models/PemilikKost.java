@@ -1,10 +1,14 @@
 package com.Group11.TugasBesar.models;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -17,9 +21,11 @@ public class PemilikKost {
     @Column(name = "pemilikKost_id")
     private int PemilikKost_id;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "pemilikKost")
     private User user;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "pemilikKost")
     private List<Kost> kosts = new ArrayList<>();
 
