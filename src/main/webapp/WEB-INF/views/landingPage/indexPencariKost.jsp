@@ -66,16 +66,13 @@
                 <!-- Struktur notifikasi yang akan ditampilkan saat di-klik -->
                 <div id="notifDiv" style="display: none; position: absolute; right: 10px; top: 50px; width: 300px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; z-index: 100;">
                     <!-- Isi notifikasi Anda di sini -->
-                    <div class="notif-item">
-                        <img src="./aset/notif1.png" alt="">
-                        <h2>Booked kost berhasil!</h2>
-                        <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2023 dan check out 5 Januari 2024</p>
-                    </div>
-                    <div class="notif-item">
-                        <img src="./aset/notif1.png" alt="">
-                        <h2>Booked kost berhasil!</h2>
-                        <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2022 dan check out 5 Januari 2023</p>
-                    </div>
+                    <c:forEach var="notification" items="${notifications}">
+                        <div class="notif-item">
+                            <img src="./aset/notif1.png" alt="">
+                            <h2>Booked kost berhasil!</h2>
+                            <p>${notification.message}</p>
+                        </div>
+                    </c:forEach>
                 </div>
                 <li class="nav-item dropdown2 my-3">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">

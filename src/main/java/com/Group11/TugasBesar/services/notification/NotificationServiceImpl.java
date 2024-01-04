@@ -11,12 +11,16 @@ import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.payloads.requests.NotificationRequest;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.repositories.NotificationRepository;
+import com.Group11.TugasBesar.repositories.PencariKostRepository;
 
 @Service
 public class NotificationServiceImpl implements NotificationService{
 
     @Autowired
     private NotificationRepository notificationRepository;
+
+    @Autowired
+    private PencariKostRepository pencariKostRepository;
 
     @Override
     public Response addNotification(NotificationRequest notificationRequest) {
@@ -48,9 +52,12 @@ public class NotificationServiceImpl implements NotificationService{
     }
 
     @Override
-    public Response getNotificationsByPencariKost(PencariKost pencariKost) {
+    public Response getNotificationByPencariKost(PencariKost pencariKost) {
         
         List<Notification> notifications = notificationRepository.findByPencariKost(pencariKost);
+
+        pencariKost.setNotifications(notifications);
+        pencariKostRepository.save(pencariKost);
 
         Response response = new Response();
         response.setStatus(HttpStatus.FOUND.value());

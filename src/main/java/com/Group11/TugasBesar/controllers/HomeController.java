@@ -16,6 +16,7 @@ import com.Group11.TugasBesar.models.Notification;
 import com.Group11.TugasBesar.models.PencariKost;
 import com.Group11.TugasBesar.payloads.responses.Response;
 import com.Group11.TugasBesar.services.notification.NotificationService;
+import com.Group11.TugasBesar.services.pencariKost.PencariKostService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -28,11 +29,15 @@ public class HomeController {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private PencariKostService pencariKostService;
+
     @GetMapping("/home")
     public String homeLandingPage(HttpSession httpSession, Model model) {
 
-        PencariKost loggedUser = (PencariKost) model.getAttribute("LOGGED_USER");
-        Response response = notificationService.getNotificationsByPencariKost(loggedUser);
+        PencariKost pencariKost = (PencariKost) httpSession.getAttribute("LOGGED_USER");
+
+        Response response = notificationService.getNotificationByPencariKost(pencariKost);
         List<Notification> notifications = (List<Notification>) response.getData();
 
         Date currentTime = new Date();
@@ -41,7 +46,7 @@ public class HomeController {
             .filter(notification -> notification.getNotifyTime().before(currentTime))
             .collect(Collectors.toList());
 
-        model.addAttribute("notifications", filteredNotifications);
+        model.addAttribute("notifications", notifications);
         return "landingPage/indexPencariKost";
     }
     

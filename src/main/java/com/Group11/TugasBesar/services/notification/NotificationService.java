@@ -10,5 +10,5 @@ public interface NotificationService {
 
     Response getNotifications();
 
-    Response getNotificationsByPencariKost(PencariKost pencariKost);
+    Response getNotificationByPencariKost(PencariKost pencariKost);
 }
