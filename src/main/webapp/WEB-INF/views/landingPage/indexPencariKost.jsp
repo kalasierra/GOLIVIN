@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="./css/Homepage.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/main/resources/static/css/registrasi.css" />
 </head>
 <body>
 
@@ -28,13 +32,24 @@
                     <li><a class="dropdown-item" style="text-align: left;" href="./listCampur.jsp">Campur</a></li>
                 </ul>
                 </li>
-                <li class="nav-item my-3">
-                    <a class="nav-link" href="#">Chat</a>
-                </li>
-                <li class="nav-item my-3">
+                <li class="nav-item my-3" onclick="toggleNotif()">
                     <a class="nav-link" href="">
                         <img src="./aset/notification.png" alt="Icon Notif" style="width: 30px;"/>
                     </a>
+                    <div class="notif-box" id="box">
+                        <h1><b>Notification</b></h1>
+                            <div class="notif-item">
+                                <img src="../src/main/resources/static/aset/notif1.png" alt="">
+                                <h2>Booked kost berhasil!</h2>
+                                <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2023 dan check out 5 Januari 2024</p>
+                            </div>
+                            <div class="notif-item">
+                                <img src="../src/main/resources/static/aset/notif1.png" alt="">
+                                <h2>Booked kost berhasil!</h2>
+                                <p>Kamu berhasil melakukan booking kost Sazira dengan tanggal check in 5 Januari 2022 dan check out 5 Januari 2023</p>
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item dropdown2 my-3">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
@@ -264,6 +279,7 @@
             window.location.href = '${pageContext.request.contextPath}/logout';
         }
     </script>
+    <script src="../src/main/webapp/WEB-INF/views/notif.js"></script>
 </body>
 </html>
 

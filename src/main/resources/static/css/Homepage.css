@@ -199,4 +199,51 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.content_nav notif-icon {
+    cursor: pointer;
+    margin-right: 50px;
+    line-height: 60px;
+}
 
+.content_nav notif-box {
+    width: 500px;
+    height: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.content_nav h1 {
+    font-family: 'Poppins';
+    font-size: 1px;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
+.content_nav notif-item {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 15px 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.content_nav img {
+    display: block;
+    width: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.content_nav h2 {
+    color: black;
+    font-size: 7px;
+    margin-top: 10px;
+}
+
+.content_nav p {
+    color: #000;
+    font-size: 5px;
+}
