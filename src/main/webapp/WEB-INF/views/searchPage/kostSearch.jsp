@@ -34,9 +34,6 @@
                 </ul>
                 </li>
                 <li class="nav-item my-3">
-                    <a class="nav-link" href="#">Chat</a>
-                </li>
-                <li class="nav-item my-3">
                     <a class="nav-link" href="">
                         <img src="/aset/notification.png" alt="Icon Notif" style="width: 30px;"/>
                     </a>

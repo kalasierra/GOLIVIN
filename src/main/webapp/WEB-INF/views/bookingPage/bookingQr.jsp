@@ -29,9 +29,6 @@
                 </ul>
                 </li>
                 <li class="nav-item my-3">
-                    <a class="nav-link" href="#">Chat</a>
-                </li>
-                <li class="nav-item my-3">
                     <a class="nav-link" href="">
                         <img src="/aset/notification.png" alt="Icon Notif" style="width: 30px;"/>
                     </a>
@@ -129,9 +126,9 @@
                 <div class="qrcode">
                     <img src="/aset/qrcode.png" alt="">
                 </div>
-                <div class="text4">
+                <!-- <div class="text4">
                     <h3>Total Pembayaran</h1>
-                </div>
+                </div> -->
                 
             </div>
             <div class="col-6 container" style="width: 700px; height: 650px; margin-right: 295px; margin-top: 50px;">

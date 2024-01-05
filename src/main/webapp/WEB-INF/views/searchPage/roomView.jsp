@@ -28,9 +28,6 @@
                 </ul>
                 </li>
                 <li class="nav-item my-3">
-                    <a class="nav-link" href="#">Chat</a>
-                </li>
-                <li class="nav-item my-3">
                     <a class="nav-link" href="">
                         <img src="/aset/notification.png" alt="Icon Notif" style="width: 30px;"/>
                     </a>
@@ -111,7 +108,6 @@
                                                     <li>${room.description}</li>
                                                 </ul>
                                             </div>
-                                            <a href="${pageContext.request.contextPath}/chat" class="btn btn-primary" style="background-color: #00BBB4; border: none;">Chat</a>
                                             <a href="${pageContext.request.contextPath}/room/${room.room_id}/book" class="btn btn-primary"style="background-color: #00BBB4; border: none;">Ajukan sewa</a>
                                         </div>
                                     </div>

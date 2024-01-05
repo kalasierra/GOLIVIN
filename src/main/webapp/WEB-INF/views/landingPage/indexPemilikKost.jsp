@@ -25,9 +25,6 @@
                     <a class="nav-link" href="./dashboardpemilik.html">Home</a>
                 </li>
                 <li class="nav-item my-3">
-                    <a class="nav-link" href="./chatpemilik.html">Chat</a>
-                </li>
-                <li class="nav-item my-3">
                     <a href="notifikasipemilik.html" style="color: black; text-decoration: none;">
                         <img src="/aset/notification.png" alt="notif" style="margin-top: 9px; margin-right: 15px;">
                     </a>

@@ -28,9 +28,6 @@
                 </ul>
                 </li>
                 <li class="nav-item my-3">
-                    <a class="nav-link" href="#">Chat</a>
-                </li>
-                <li class="nav-item my-3">
                     <a class="nav-link" href="">
                         <img src="/aset/notification.png" alt="Icon Notif" style="width: 30px;"/>
                     </a>
@@ -96,11 +93,6 @@
                     <div class="payment" style="font-size: 20px;">
                         <label for="paymentMethod">Pilih metode pembayaran:</label>
                     </div>
-                    
-                    <div class="payment-method-option">
-                        <input type="radio" id="virtualAccount" name="method" value="Virtual Account">
-                        <label for="virtualAccount">Virtual Account</label>
-                    </div>
                 
                     <div class="payment-method-option">
                         <input type="radio" id="QRIS" name="method" value="QRIS">
@@ -112,7 +104,7 @@
             <div class="right-section">
                 <h2>Detail Pembayaran</h2>
                 <!-- Elemen untuk menampilkan metode pembayaran yang dipilih -->
-                <p id="selectedPaymentMethod">Metode Pembayaran:</p>
+                <!-- <p id="selectedPaymentMethod">Metode Pembayaran:</p> -->
 
                 <script>
                     // Dapatkan semua elemen radio button dengan name="paymentMethod"

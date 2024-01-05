@@ -31,9 +31,6 @@
                 </ul>
                 </li>
                 <li class="nav-item my-3">
-                    <a class="nav-link" href="#">Chat</a>
-                </li>
-                <li class="nav-item my-3">
                     <button onclick="window.location.href='${pageContext.request.contextPath}/login'" class="btn btn-primary">
                         Masuk
                     </button>
