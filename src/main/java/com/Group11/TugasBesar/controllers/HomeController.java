@@ -46,7 +46,7 @@ public class HomeController {
             .filter(notification -> notification.getNotifyTime().before(currentTime))
             .collect(Collectors.toList());
 
-        model.addAttribute("notifications", notifications);
+        model.addAttribute("notifications", filteredNotifications);
         return "landingPage/indexPencariKost";
     }
     
